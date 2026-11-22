@@ -1,0 +1,1645 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>تقرير أخبار الـAI — السبت 21 نوفمبر 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --paper: #f1f3f8;
+  --surface: #ffffff;
+  --ink: #14182a;
+  --muted: #5a6280;
+  --line: #d5dae8;
+  --accent: #2a46d6;
+  --accent-soft: #e8ecff;
+  --rose: #c43c6a;
+  --rose-soft: #fdeef3;
+  --x-ink: #1c1917;
+  --gh: #157a45;
+  --gh-soft: #e8f8ee;
+  --tool: #b45309;
+  --tool-soft: #fff4e6;
+  --official: #0f6b66;
+  --official-soft: #e6f7f5;
+  --news: #6b21a8;
+  --news-soft: #f4e8ff;
+  --shadow: 0 10px 28px rgba(20, 24, 42, 0.07);
+  --radius: 18px;
+  --focus: 0 0 0 2px var(--paper), 0 0 0 4px var(--accent);
+  --font: "IBM Plex Sans Arabic", "Segoe UI", Tahoma, Arial, sans-serif;
+  --shell: 1440px;
+  --pad: 1.15rem;
+  --nav: 16.5rem;
+}
+
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --paper: #0c1020;
+  --surface: #161b2e;
+  --ink: #e8ebf6;
+  --muted: #9aa3bb;
+  --line: #2b3150;
+  --accent: #8aa2ff;
+  --accent-soft: #1c2450;
+  --rose: #f081a3;
+  --rose-soft: #3a1b2a;
+  --x-ink: #e7e5e4;
+  --gh: #6ee7a8;
+  --gh-soft: #123226;
+  --tool: #fdba74;
+  --tool-soft: #3a2710;
+  --official: #5eead4;
+  --official-soft: #133734;
+  --news: #e9d5ff;
+  --news-soft: #2e1a4a;
+  --shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+  --focus: 0 0 0 2px var(--paper), 0 0 0 4px var(--accent);
+}
+
+html[data-theme="light"] { color-scheme: light; }
+
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) {
+    color-scheme: dark;
+    --paper: #0c1020;
+    --surface: #161b2e;
+    --ink: #e8ebf6;
+    --muted: #9aa3bb;
+    --line: #2b3150;
+    --accent: #8aa2ff;
+    --accent-soft: #1c2450;
+    --rose: #f081a3;
+    --rose-soft: #3a1b2a;
+    --x-ink: #e7e5e4;
+    --gh: #6ee7a8;
+    --gh-soft: #123226;
+    --tool: #fdba74;
+    --tool-soft: #3a2710;
+    --official: #5eead4;
+    --official-soft: #133734;
+    --news: #e9d5ff;
+    --news-soft: #2e1a4a;
+    --shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+    --focus: 0 0 0 2px var(--paper), 0 0 0 4px var(--accent);
+  }
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background:
+    radial-gradient(1400px 520px at 100% -12%, rgba(42, 70, 214, 0.10), transparent 58%),
+    radial-gradient(900px 380px at 0% 8%, rgba(196, 60, 106, 0.05), transparent 50%),
+    var(--paper);
+  color: var(--ink);
+  font-family: var(--font);
+  font-size: 17.5px;
+  line-height: 1.85;
+  touch-action: manipulation;
+}
+@media (pointer: fine) {
+  html { overscroll-behavior: none; }
+}
+
+.skip {
+  position: absolute;
+  right: 1rem;
+  top: -3.5rem;
+  background: var(--accent);
+  color: #fff;
+  padding: 0.4rem 0.8rem;
+  border-radius: 8px;
+  z-index: 100;
+}
+.skip:focus { top: 0.6rem; }
+
+.shell {
+  width: 100%;
+  max-width: var(--shell);
+  margin: 0 auto;
+  padding: 1.15rem var(--pad) 4rem;
+  padding-inline: max(var(--pad), env(safe-area-inset-right, 0px), env(safe-area-inset-left, 0px));
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  grid-template-areas:
+    "stamp copy theme"
+    "intro intro intro";
+  gap: 0.85rem 1.1rem;
+  align-items: start;
+  margin-bottom: 1.75rem;
+}
+.hero-copy { grid-area: copy; min-width: 0; }
+.hero-meta { display: contents; }
+.stamp { grid-area: stamp; }
+.icon-btn { grid-area: theme; justify-self: end; }
+.intro { grid-area: intro; }
+
+.stamp {
+  background: var(--ink);
+  color: var(--paper);
+  border-radius: 16px;
+  min-width: 4.7rem;
+  padding: 0.65rem 0.7rem 0.55rem;
+  text-align: center;
+  line-height: 1.15;
+}
+.stamp .day {
+  font-size: 1.9rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  display: block;
+}
+.stamp .mon {
+  font-size: 0.8rem;
+  opacity: 0.86;
+  display: block;
+  margin-top: 0.15rem;
+}
+.hero-copy h1 {
+  margin: 0;
+  font-size: clamp(1.55rem, 3.2vw, 2.15rem);
+  line-height: 1.3;
+  font-weight: 700;
+  text-wrap: balance;
+}
+.hero-copy .date {
+  margin: 0.2rem 0 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+.intro {
+  margin: 0;
+  max-width: 46rem;
+  color: var(--ink);
+}
+
+.icon-btn {
+  appearance: none;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--ink);
+  width: 2.6rem;
+  height: 2.6rem;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+}
+.icon-btn:hover { border-color: var(--accent); }
+.icon-btn:focus-visible,
+.tab:focus-visible,
+.more:focus-visible,
+a:focus-visible {
+  outline: none;
+  box-shadow: var(--focus);
+}
+.icon-btn svg { width: 1.15rem; height: 1.15rem; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+
+.kicker {
+  margin: 0 0 0.85rem;
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.highlights {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.9rem;
+  margin-bottom: 1.8rem;
+  align-items: stretch;
+}
+.hl {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1rem 1.1rem 0.95rem;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+.hl::before {
+  content: "";
+  position: absolute;
+  inset-block: 0;
+  inset-inline-start: 0;
+  width: 5px;
+  background: var(--rose);
+}
+.hl h3 {
+  margin: 0 0 0.45rem;
+  font-size: 1.05rem;
+  line-height: 1.5;
+  font-weight: 700;
+  text-wrap: pretty;
+  hyphens: none;
+}
+.hl h3 bdi, .item-title bdi, .hero-copy h1 bdi { white-space: nowrap; }
+.rank {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.55rem;
+  height: 1.55rem;
+  border-radius: 8px;
+  background: var(--rose-soft);
+  color: var(--rose);
+  font-size: 0.8rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  margin-bottom: 0.55rem;
+}
+.summary { margin: 0; color: var(--ink); }
+.muted { color: var(--muted); }
+
+.detail {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.32s ease;
+}
+.detail > .detail-inner { overflow: hidden; min-height: 0; }
+.is-open > .detail,
+.hl.is-open .detail { grid-template-rows: 1fr; }
+.detail-inner { padding-top: 0; }
+.is-open .detail-inner { padding-top: 0.7rem; }
+.detail-inner p { margin: 0 0 0.7rem; }
+.detail-inner p:last-child { margin-bottom: 0; }
+.detail-inner ul { margin: 0.3rem 0 0.7rem; padding: 0 1.1rem 0 0; }
+.detail-inner li { margin: 0 0 0.45rem; }
+
+.more {
+  appearance: none;
+  margin-top: auto;
+  padding-top: 0.8rem;
+  align-self: start;
+  border: 0;
+  background: transparent;
+  color: var(--accent);
+  font: inherit;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  padding-inline: 0;
+  padding-bottom: 0;
+  text-decoration: underline;
+  text-underline-offset: 0.16em;
+}
+.more::after { content: " ⌄"; }
+.is-open > .more::after,
+.hl.is-open .more::after { content: " ⌃"; }
+
+.badges { display: flex; flex-wrap: wrap; gap: 0.35rem; margin: 0.55rem 0 0; }
+.badge {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.45;
+  padding: 0.12rem 0.55rem;
+  border-radius: 999px;
+  text-decoration: none;
+  color: inherit;
+}
+.badge:hover { filter: brightness(0.96); color: inherit; }
+.badge-official { background: var(--official-soft); color: var(--official); }
+.badge-x { background: #ececec; color: var(--x-ink); }
+html[data-theme="dark"] .badge-x,
+html:not([data-theme="light"]) .badge-x { background: #2a2725; color: var(--x-ink); }
+@media (prefers-color-scheme: light) {
+  html:not([data-theme="dark"]) .badge-x { background: #ececec; color: #1c1917; }
+}
+.badge-news { background: var(--news-soft); color: var(--news); }
+.badge-tool { background: var(--tool-soft); color: var(--tool); }
+.badge-github { background: var(--gh-soft); color: var(--gh); }
+
+.panel, .hl, .item { scroll-margin-top: 4.75rem; }
+
+.board { display: block; }
+.panels { min-width: 0; }
+
+.tabs-wrap {
+  position: sticky;
+  top: env(safe-area-inset-top, 0px);
+  z-index: 20;
+  background: color-mix(in srgb, var(--paper) 86%, transparent);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 0.45rem 0 0.55rem;
+  margin: 0 -0.15rem 1rem;
+  scroll-margin-top: 0.5rem;
+}
+.tabs {
+  display: flex;
+  gap: 0.35rem;
+  overflow-x: auto;
+  padding: 0.15rem;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  scrollbar-width: none;
+}
+.tabs::-webkit-scrollbar { display: none; }
+.tab {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  font: inherit;
+  font-weight: 600;
+  font-size: 0.92rem;
+  padding: 0.45rem 0.75rem;
+  border-radius: 10px;
+  cursor: pointer;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.tab[aria-selected="true"] {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+.count {
+  font-variant-numeric: tabular-nums;
+  font-size: 0.75rem;
+  background: color-mix(in srgb, currentColor 12%, transparent);
+  padding: 0 0.38rem;
+  border-radius: 999px;
+  line-height: 1.5;
+}
+
+.panel[hidden] { display: none; }
+.panel-note { color: var(--muted); margin: 0 0 0.9rem; font-size: 0.98rem; }
+.subhead {
+  margin: 1.35rem 0 0.7rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  padding-inline-start: 0.65rem;
+  border-inline-start: 3px solid var(--accent);
+}
+.subhead:first-child { margin-top: 0.2rem; }
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+  align-items: stretch;
+}
+.item {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 0.95rem 1.05rem;
+  min-width: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.item.kind-x { border-inline-start: 4px solid var(--x-ink); }
+.item.kind-github { border-inline-start: 4px solid var(--gh); }
+.item.kind-tool { border-inline-start: 4px solid var(--tool); }
+.item.kind-official { border-inline-start: 4px solid var(--official); }
+.item-title {
+  margin: 0;
+  font-size: 1.02rem;
+  font-weight: 700;
+  line-height: 1.5;
+  text-wrap: balance;
+}
+.item-title:empty { display: none; }
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.8rem;
+  margin-top: 0.25rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-variant-numeric: tabular-nums;
+}
+.handle { font-weight: 700; unicode-bidi: isolate; direction: ltr; }
+bdi, [dir="ltr"] { unicode-bidi: isolate; }
+a { color: var(--accent); text-decoration: underline; text-underline-offset: 0.16em; }
+a:hover { color: var(--ink); }
+code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.88em;
+  background: var(--accent-soft);
+  border-radius: 6px;
+  padding: 0.05em 0.35em;
+  direction: ltr;
+  unicode-bidi: isolate;
+  white-space: nowrap;
+}
+
+.hl, .item, .intro, .hero-copy { overflow-wrap: break-word; }
+
+@media (hover: hover) and (pointer: fine) {
+  .hl, .item {
+    transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+  }
+  .hl:hover, .item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 16px 34px rgba(20, 24, 42, 0.11);
+    border-color: color-mix(in srgb, var(--accent) 38%, var(--line));
+  }
+}
+
+.panel.is-entering {
+  animation: panel-in 0.34s ease both;
+}
+@keyframes panel-in {
+  from { opacity: 0; transform: translateX(-14px); }
+  to { opacity: 1; transform: none; }
+}
+.hl.is-entering {
+  animation: hl-in 0.45s ease both;
+}
+.hl.is-entering:nth-child(2) { animation-delay: 0.07s; }
+.hl.is-entering:nth-child(3) { animation-delay: 0.14s; }
+@keyframes hl-in {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .hl, .panel, .detail, .item { animation: none !important; transition: none !important; }
+  .hl:hover, .item:hover { transform: none; }
+}
+
+/* Tablet: 768–1023 */
+@media (min-width: 768px) {
+  :root { --pad: 1.6rem; }
+  body { font-size: 17.5px; }
+  .shell { padding-top: 1.5rem; }
+  .stamp { min-width: 5.2rem; padding: 0.7rem 0.75rem 0.6rem; }
+  .stamp .day { font-size: 2.15rem; }
+  .highlights { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .list { grid-template-columns: repeat(auto-fill, minmax(min(100%, 21.25rem), 1fr)); gap: 0.9rem; }
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  .highlights .hl:last-child:nth-child(odd) { grid-column: 1 / -1; }
+}
+
+/* Desktop: 1024+ split hero, 3-col highlights, item card grid */
+@media (min-width: 1024px) {
+  :root { --pad: 2rem; }
+  .shell { padding-top: 2rem; padding-bottom: 4.5rem; }
+  .hero {
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas:
+      "copy meta"
+      "intro meta";
+    column-gap: 2.5rem;
+    row-gap: 0.8rem;
+    align-items: start;
+    margin-bottom: 2.1rem;
+  }
+  .hero-copy { grid-area: copy; }
+  .intro { grid-area: intro; margin: 0; max-width: 46rem; }
+  .hero-meta {
+    display: flex;
+    grid-area: meta;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.85rem;
+    min-width: 7.2rem;
+  }
+  .stamp, .icon-btn { grid-area: auto; justify-self: auto; }
+  .stamp { min-width: 6.4rem; padding: 0.95rem 0.9rem 0.8rem; border-radius: 20px; }
+  .stamp .day { font-size: 2.7rem; }
+  .stamp .mon { font-size: 0.9rem; }
+  .hero-copy h1 {
+    font-size: clamp(2rem, 2.4vw, 2.65rem);
+  }
+  .hero-copy .date { font-size: 1.02rem; }
+  .highlights { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.05rem; }
+  .hl { padding: 1.15rem 1.2rem 1.05rem; }
+  .list { grid-template-columns: repeat(auto-fill, minmax(min(100%, 21.25rem), 1fr)); }
+  .panel, .hl, .item { scroll-margin-top: 5.25rem; }
+}
+
+/* Wide desktop: vertical sticky section nav on the RTL start (right) */
+@media (min-width: 1280px) {
+  .board {
+    display: grid;
+    grid-template-columns: var(--nav) minmax(0, 1fr);
+    gap: 1.6rem 1.75rem;
+    align-items: start;
+  }
+  .tabs-wrap {
+    position: sticky;
+    top: max(1rem, env(safe-area-inset-top, 0px));
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+  .tabs {
+    flex-direction: column;
+    overflow: visible;
+    padding: 0.45rem;
+    gap: 0.28rem;
+    border-radius: 18px;
+  }
+  .tab {
+    width: 100%;
+    justify-content: space-between;
+    white-space: normal;
+    text-align: start;
+    padding: 0.72rem 0.85rem;
+    line-height: 1.45;
+  }
+  .panel, .hl, .item { scroll-margin-top: 1.25rem; }
+}
+
+@media (max-width: 767px) {
+  body { font-size: 16.5px; }
+  .shell { padding-top: 1rem; padding-bottom: 3.4rem; }
+  .hero {
+    grid-template-areas:
+      "stamp copy theme"
+      "date date date"
+      "intro intro intro";
+  }
+  .hero-copy { display: contents; }
+  .hero-copy h1 { grid-area: copy; }
+  .hero-copy .date { grid-area: date; margin: 0; }
+}
+
+@media print {
+  body { background: #fff; }
+  .board { display: block; }
+  .tabs-wrap, .icon-btn, .more, .skip { display: none !important; }
+  .panel[hidden] { display: block !important; }
+  .detail { grid-template-rows: 1fr !important; }
+  .hl, .item { box-shadow: none; break-inside: avoid; transform: none; }
+  .highlights, .list { grid-template-columns: 1fr 1fr; }
+}
+
+.err { padding: 2rem; color: #b91c1c; }
+
+  </style>
+</head>
+<body>
+  <a class="skip" href="#app">تخطي إلى المحتوى</a>
+  <div id="app"></div>
+  <noscript><p class="err">افتح الملف في متصفح فيه JavaScript عشان التبويبات والبطاقات تشتغل.</p></noscript>
+  <!--
+  بيانات التقرير موجودة في عنصر script type=application/json بالمعرّف report-data.
+  الصفحة بترسم الواجهة كلها من الـJSON ده. لتقرير جديد: انسخ template.html واملأ الـJSON فقط.
+
+  المخطط (schema):
+  {
+    title, titleHtml, pageTitle, date, day, monthShort, introHtml, highlightsTitle,
+    highlights: [ Highlight, ... ],
+    tabs: [ Tab, ... ]
+  }
+
+  Highlight: { title او titleHtml, summary, detail, sources: [Source] }
+  Source: { type: official | x | news | tool | github, label, url }
+  Tab: { id, label, kind, noteHtml?, items: [Item], subsections?: [{label, items}] }
+  Item: { title او titleHtml, summary, detail?, sources,
+          handle?, postUrl?, engagement?: {likes, reposts, replies, bookmarks},
+          stars?, starsToday?, repoUrl? }
+
+  قواعد: لا تخترع أخبار أو حسابات أو أرقام. احذف أي تبويب فرعي في X فاضي.
+  المصطلحات الإنجليزية داخل bdi. كل رابط: target=_blank و rel=noopener noreferrer.
+-->
+
+  <script type="application/json" id="report-data">
+{
+  "title": "تقرير أخبار الـAI",
+  "titleHtml": "تقرير أخبار الـ<bdi>AI</bdi>",
+  "pageTitle": "تقرير أخبار الـAI — السبت 21 نوفمبر 2026",
+  "date": "السبت 21 نوفمبر 2026 (توقيت القاهرة)",
+  "day": "21",
+  "monthShort": "نوفمبر",
+  "introHtml": "أول تقرير، وبيغطي تقريباً الفترة من 9 إلى 21 نوفمبر 2026. التركيز على اللي نزل فعلًا من الشركات، وإيه اللي المطورين بيتكلموا عنه بجد على <bdi>X</bdi>، وإيه الريبو هات التريند على <bdi>GitHub</bdi>، وإيه اللي ممكن يفيدك كـ<bdi>software tester</bdi>. كل خبر معاه مصدره.",
+  "highlightsTitle": "لازم تبص عليها",
+  "highlights": [
+    {
+      "titleHtml": "<bdi>GPT-6.2 Astra</bdi> و <bdi>GPT-6.2 Sol</bdi> — نزلوا 17 نوفمبر",
+      "summary": "موديلات <bdi>OpenAI</bdi> للشغل المهني اليومي والمعقد، بتركيز على كفاءة أعلى وتكلفة أقل. موجودين في <bdi>ChatGPT Work</bdi> و<bdi>Codex</bdi> والـ<bdi>API</bdi>.",
+      "detail": "<p><bdi>OpenAI</bdi> نزلت <a href=\"https://openai.com/index/introducing-gpt-6-2-astra-sol/\" target=\"_blank\" rel=\"noopener noreferrer\"><bdi>GPT-6.2 Astra</bdi></a> للشغل المهني المعقد، و<a href=\"https://learn.chatgpt.com/docs/whats-new/gpt-62-astra-sol\" target=\"_blank\" rel=\"noopener noreferrer\"><bdi>GPT-6.2 Sol</bdi></a> للمهام اليومية والـ<bdi>agentic workflows</bdi>. الاتنين موجودين في <bdi>ChatGPT Work</bdi> و<bdi>Codex</bdi> والـ<bdi>API</bdi> لباقات <bdi>Plus</bdi> و<bdi>Pro</bdi> و<bdi>Enterprise</bdi> و<bdi>Edu</bdi>.</p>\n            <p>الرواية الرسمية مش إنهم قلبوا الطاولة على كل الموديلات، قد ما إنها كفاءة أعلى بتكلفة أقل: <bdi>Astra</bdi> أرخص 20% في الـ<bdi>input/output</bdi> عن <bdi>GPT-6 Astra</bdi>، وفي خصم 60% على الـ<bdi>cached input</bdi> (سعر <bdi>Astra</bdi> في الـ<bdi>API</bdi>: 8 دولار لكل مليون <bdi>input token</bdi>، و40 دولار لكل مليون <bdi>output token</bdi>). على <bdi>Agents’ Last Exam</bdi>، <bdi>OpenAI</bdi> بتقول إن <bdi>Astra</bdi> أعلى 5.2 نقطة من <bdi>GPT-6 Astra</bdi> بأقل من ثلث التكلفة.</p>\n            <p>على <bdi>X</bdi>، حساب <a href=\"https://x.com/ArtificialAnlys/status/2122750634210529569\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"handle\">@ArtificialAnlys</span></a> حط <bdi>Astra</bdi> في المركز الثاني على <bdi>Intelligence Index</bdi> وقريب من حدود الـ<bdi>cost-per-task</bdi>. البوست خد 3,304 إعجاب و291 إعادة نشر و161 رد. الاستفادة العملية ليك: <bdi>Sol</bdi> كـ<bdi>daily driver</bdi> رخيص وسريع، و<bdi>Astra</bdi> لما المهمة تبقى تقيلة.</p>",
+      "sources": [
+        {
+          "type": "official",
+          "label": "مدونة OpenAI",
+          "url": "https://openai.com/index/introducing-gpt-6-2-astra-sol/"
+        },
+        {
+          "type": "x",
+          "label": "X — @ArtificialAnlys",
+          "url": "https://x.com/ArtificialAnlys/status/2122750634210529569"
+        }
+      ]
+    },
+    {
+      "titleHtml": "<bdi>Gemini 4 Neon</bdi>، و<bdi>Antigravity</bdi> بقت منصة <bdi>agents</bdi> أوضح",
+      "summary": "موديل وسط بين العمق والسرعة، نزل 18 نوفمبر. الإعلان على <bdi>X</bdi> خد تفاعل كبير، والنقاش بقى عن الشغل جوه <bdi>Antigravity</bdi> مش بس عن الموديل.",
+      "detail": "<p>الأربعاء اللي فات <bdi>Google</bdi> نزلت <a href=\"https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/\" target=\"_blank\" rel=\"noopener noreferrer\"><bdi>Gemini 4 Neon</bdi></a> (18 نوفمبر): موديل وسط بين العمق والسرعة، سعره 3 دولار/مليون <bdi>input</bdi> و15 دولار/مليون <bdi>output</bdi>، و<bdi>context</bdi> 1 مليون <bdi>token</bdi>. <bdi>Google</bdi> بتقول إنه رقم 3 على <bdi>Artificial Analysis Intelligence Index</bdi> (درجة 61 عند <bdi>xhigh</bdi>)، ورقم 1 على <bdi>Coding Agent Index</bdi> (58.6).</p>\n            <p>ده بعد <a href=\"https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-carbon-now-available/\" target=\"_blank\" rel=\"noopener noreferrer\"><bdi>Gemini 4 Carbon</bdi></a> في 10 نوفمبر (وفي <bdi>preview</bdi> لأمر <code dir=\"ltr\">/swarm</code> في <bdi>Google Antigravity</bdi>)، و<a href=\"https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/\" target=\"_blank\" rel=\"noopener noreferrer\"><bdi>Gemini 4 Hydrogen</bdi></a> في 12 نوفمبر. والخميس نزل <a href=\"https://blog.google/innovation-and-ai/technology/developers-tools/gemini-api-tool-retrieval/\" target=\"_blank\" rel=\"noopener noreferrer\"><bdi>Tool Retrieval</bdi> في <bdi>Gemini API</bdi></a>: الـ<bdi>agent</bdi> يحمّل <bdi>schema</bdi> الأداة عند الحاجة بس، ومفيد مع مكتبات أدوات كبيرة أو <bdi>MCP servers</bdi>.</p>\n            <p>إعلان <a href=\"https://x.com/GoogleDeepMind/status/2123167884411077030\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"handle\">@GoogleDeepMind</span></a> على <bdi>X</bdi> وحده خد 10,147 إعجاب و983 إعادة نشر و400 رد. و<a href=\"https://x.com/ArtificialAnlys/status/2123170645777526962\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"handle\">@ArtificialAnlys</span></a> قال إن <bdi>Neon</bdi> عند <bdi>xhigh</bdi> سجّل 61 على <bdi>Intelligence Index</bdi> بتكلفة أقل حوالي 17% من <bdi>Carbon</bdi> (البوست عليه 2,086 إعجاب و171 إعادة نشر). النقاش على <bdi>X</bdi> مش بس عن الموديل، عن طريقة الشغل جوه <bdi>Antigravity</bdi>: <bdi>Neon</bdi> يخطط، و<bdi>Hydrogen</bdi> ينفّذ.</p>",
+      "sources": [
+        {
+          "type": "official",
+          "label": "مدونة Google",
+          "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/"
+        },
+        {
+          "type": "x",
+          "label": "X — @GoogleDeepMind",
+          "url": "https://x.com/GoogleDeepMind/status/2123167884411077030"
+        },
+        {
+          "type": "x",
+          "label": "X — @ArtificialAnlys",
+          "url": "https://x.com/ArtificialAnlys/status/2123170645777526962"
+        }
+      ]
+    },
+    {
+      "titleHtml": "موجة أدوات <bdi>AI</bdi> خاصة بالـ<bdi>QA</bdi> نزلت في أيام قليلة",
+      "summary": "ثلاث أدوات <bdi>testing</bdi> تستاهل تجربة: <bdi>CodeRabbit Verify</bdi>، <bdi>TestSprite 4.0</bdi>، و<bdi>Katalon AI Test Runner</bdi>.",
+      "detail": "<p>الأسبوع ده مش بس موديلات جديدة، في 3 أدوات <bdi>testing</bdi> تستاهل تجربة فعلية. التفاصيل في قسم أدوات الـ<bdi>QA</bdi> تحت، والمختصر:</p>\n            <ul>\n              <li><a href=\"https://www.coderabbit.ai/blog/introducing-coderabbit-verify\" target=\"_blank\" rel=\"noopener noreferrer\"><strong><bdi>CodeRabbit Verify</bdi></strong></a> (18 نوفمبر، <bdi>public beta</bdi> مجاني حاليًا): بيختبر الأبلكيشن وهو شغال على مستوى الـ<bdi>PR</bdi> والـ<bdi>user journeys</bdi>.</li>\n              <li><a href=\"https://www.testsprite.com/blog/introducing-testsprite-4-0\" target=\"_blank\" rel=\"noopener noreferrer\"><strong><bdi>TestSprite 4.0</bdi></strong></a> (20 نوفمبر): <bdi>testing agent</bdi> مستقل، بياخد الـ<bdi>spec</bdi> مش الكود الحالي كمصدر للـ“صح”.</li>\n              <li><a href=\"https://katalon.com/resources-center/blog/katalon-launches-ai-test-runner\" target=\"_blank\" rel=\"noopener noreferrer\"><strong><bdi>Katalon AI Test Runner</bdi></strong></a> (16–19 نوفمبر): بيشغّل <bdi>manual test cases</bdi> المكتوبة بلغة طبيعية على <bdi>web</bdi> و<bdi>mobile</bdi> بالتوازي.</li>\n            </ul>\n            <p>دي أقرب حاجة للأسبوع ده لشغلك مباشرة: <bdi>AI</bdi> بيجري <bdi>tests</bdi> على أبلكيشن شغال، مش بس بيولّد كود اختبار.</p>",
+      "sources": [
+        {
+          "type": "tool",
+          "label": "موقع CodeRabbit",
+          "url": "https://www.coderabbit.ai/blog/introducing-coderabbit-verify"
+        },
+        {
+          "type": "tool",
+          "label": "موقع TestSprite",
+          "url": "https://www.testsprite.com/blog/introducing-testsprite-4-0"
+        },
+        {
+          "type": "tool",
+          "label": "موقع Katalon",
+          "url": "https://katalon.com/resources-center/blog/katalon-launches-ai-test-runner"
+        }
+      ]
+    }
+  ],
+  "tabs": [
+    {
+      "id": "official",
+      "label": "إصدارات رسمية",
+      "kind": "official",
+      "items": [
+        {
+          "sources": [
+            {
+              "type": "official",
+              "url": "https://openai.com/index/introducing-gpt-6-2-astra-sol/",
+              "label": "مدونة OpenAI"
+            }
+          ],
+          "summary": "<a href=\"https://openai.com/index/introducing-gpt-6-2-astra-sol/\" target=\"_blank\" rel=\"noopener noreferrer\"><bdi>GPT-6.2 Astra</bdi> و<bdi>GPT-6.2 Sol</bdi></a> (17 نوفمبر): موديلات <bdi>OpenAI</bdi> للشغل المهني المعقد وللمهام اليومية، في <bdi>ChatGPT Work</bdi> و<bdi>Codex</bdi> والـ<bdi>API</bdi>."
+        },
+        {
+          "sources": [
+            {
+              "type": "official",
+              "url": "https://openai.com/index/combatting-adversarial-distillation",
+              "label": "مدونة OpenAI"
+            }
+          ],
+          "summary": "<a href=\"https://openai.com/index/combatting-adversarial-distillation\" target=\"_blank\" rel=\"noopener noreferrer\">حماية النماذج من <bdi>adversarial distillation</bdi></a> (20 نوفمبر): موضوع أمني عن منع استخراج قدرات النموذج، خصوصًا سلسلة التفكير الداخلية بعد إطلاق <bdi>GPT-6.2</bdi>."
+        },
+        {
+          "sources": [
+            {
+              "type": "official",
+              "url": "https://www.anthropic.com/claude-fable-and-mythos-5-2",
+              "label": "مدونة Anthropic"
+            }
+          ],
+          "summary": "<a href=\"https://www.anthropic.com/claude-fable-and-mythos-5-2\" target=\"_blank\" rel=\"noopener noreferrer\"><bdi>Claude Fable 5.2</bdi> و<bdi>Mythos 5.2</bdi></a> (9 نوفمبر): للأعمال التقنية الأصعب؛ أسرع حتى 30% من 5.1، وسعر <bdi>Fable</bdi> 8/40 دولار لكل مليون <bdi>token</bdi>. <bdi>Anthropic</bdi> رشّحت <bdi>Claude Opus 5.5</bdi> كـ<bdi>daily driver</bdi> لمعظم شغل الـ<bdi>coding</bdi>."
+        },
+        {
+          "sources": [
+            {
+              "type": "official",
+              "url": "https://www.anthropic.com/research/claude-black-hole-physics",
+              "label": "مدونة Anthropic"
+            }
+          ],
+          "summary": "<a href=\"https://www.anthropic.com/research/claude-black-hole-physics\" target=\"_blank\" rel=\"noopener noreferrer\"><bdi>Claude</bdi> حلّ مسألتين مفتوحتين في فيزياء الثقوب السوداء</a> (17 نوفمبر): خبر بحثي قوي، مش أداة شغل يومي."
+        },
+        {
+          "sources": [
+            {
+              "type": "official",
+              "url": "https://claude.com/resources/articles/sheets-whiteboards-data",
+              "label": "مدونة Anthropic"
+            }
+          ],
+          "summary": "<a href=\"https://claude.com/resources/articles/sheets-whiteboards-data\" target=\"_blank\" rel=\"noopener noreferrer\"><bdi>Claude Whiteboards</bdi> و<bdi>Sheets</bdi> و<bdi>Data</bdi></a> (10 نوفمبر): بوادر وأوراق وبيانات جوه <bdi>Claude</bdi> نفسه."
+        },
+        {
+          "sources": [
+            {
+              "type": "official",
+              "url": "https://claude.com/resources/articles/claude-meetings",
+              "label": "مدونة Anthropic"
+            }
+          ],
+          "summary": "<a href=\"https://claude.com/resources/articles/claude-meetings\" target=\"_blank\" rel=\"noopener noreferrer\"><bdi>Claude Meetings</bdi></a> (الـ<bdi>beta</bdi> حوالي 12 نوفمبر): <bdi>Claude</bdi> يدخل <bdi>Google Meet</bdi> كمشترك ظاهر، ياخد <bdi>notes</bdi> ويعمل <bdi>artifacts</bdi>. حاليًا على <bdi>Team</bdi> و<bdi>Enterprise</bdi>."
+        },
+        {
+          "sources": [
+            {
+              "type": "official",
+              "url": "https://claude.com/resources/articles/self-hosted-claude-managed-agents",
+              "label": "مدونة Anthropic"
+            }
+          ],
+          "summary": "<a href=\"https://claude.com/resources/articles/self-hosted-claude-managed-agents\" target=\"_blank\" rel=\"noopener noreferrer\"><bdi>Self-hosted Claude Managed Agents</bdi></a> (12 نوفمبر): تشغّل الـ<bdi>agents</bdi> جوه بيئتك (<bdi>cloud</bdi> أو <bdi>on-prem</bdi>) وتسيطر على الـ<bdi>credentials</bdi> والـ<bdi>session history</bdi>."
+        },
+        {
+          "sources": [
+            {
+              "type": "official",
+              "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-carbon-now-available/",
+              "label": "مدونة Google"
+            }
+          ],
+          "summary": "<a href=\"https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-carbon-now-available/\" target=\"_blank\" rel=\"noopener noreferrer\"><bdi>Gemini 4 Carbon</bdi></a> (10 نوفمبر): للمهام التقيلة طويلة المدى، مع <bdi>preview</bdi> لـ<code dir=\"ltr\">/swarm</code> في <bdi>Google Antigravity</bdi>."
+        },
+        {
+          "sources": [
+            {
+              "type": "official",
+              "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/",
+              "label": "مدونة Google"
+            }
+          ],
+          "summary": "<a href=\"https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/\" target=\"_blank\" rel=\"noopener noreferrer\"><bdi>Gemini 4 Hydrogen</bdi></a> (12 نوفمبر): تنفيذ سريع للـ<bdi>agentic workflows</bdi> اليومية."
+        },
+        {
+          "sources": [
+            {
+              "type": "official",
+              "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/",
+              "label": "مدونة Google"
+            },
+            {
+              "type": "x",
+              "url": "https://x.com/GoogleDeepMind/status/2123167884411077030",
+              "label": "X — @GoogleDeepMind"
+            }
+          ],
+          "summary": "<a href=\"https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/\" target=\"_blank\" rel=\"noopener noreferrer\"><bdi>Gemini 4 Neon</bdi></a> (18 نوفمبر): الموديل الوسط بين العمق والسرعة. الإعلان الرسمي على <bdi>X</bdi> من <a href=\"https://x.com/GoogleDeepMind/status/2123167884411077030\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"handle\">@GoogleDeepMind</span></a>."
+        },
+        {
+          "sources": [
+            {
+              "type": "official",
+              "url": "https://blog.google/innovation-and-ai/technology/developers-tools/gemini-api-tool-retrieval/",
+              "label": "مدونة Google"
+            }
+          ],
+          "summary": "<a href=\"https://blog.google/innovation-and-ai/technology/developers-tools/gemini-api-tool-retrieval/\" target=\"_blank\" rel=\"noopener noreferrer\"><bdi>Tool Retrieval</bdi> في <bdi>Gemini API</bdi></a> (19 نوفمبر): تحميل مخططات الأدوات عند الحاجة بدل إرسال المكتبة كلها في كل <bdi>prompt</bdi>."
+        },
+        {
+          "sources": [
+            {
+              "type": "official",
+              "url": "https://x.ai/news/grok-bot-1-0",
+              "label": "موقع xAI"
+            }
+          ],
+          "summary": "<a href=\"https://x.ai/news/grok-bot-1-0\" target=\"_blank\" rel=\"noopener noreferrer\"><bdi>Grok Bot 1.0</bdi></a> (11 نوفمبر): <bdi>Team Bots</bdi> تتشارك على <bdi>Slack</bdi> و<bdi>Microsoft Teams</bdi> ومكالمات الفيديو، وتقدر تبادر بشغل مع موافقات قبل الخطوات الحساسة."
+        },
+        {
+          "sources": [
+            {
+              "type": "official",
+              "url": "https://code.visualstudio.com/blogs/2026/11/18/copilot-harness",
+              "label": "مدونة VS Code"
+            }
+          ],
+          "summary": "<a href=\"https://code.visualstudio.com/blogs/2026/11/18/copilot-harness\" target=\"_blank\" rel=\"noopener noreferrer\"><bdi>VS Code</bdi> خلّت <bdi>Copilot harness</bdi> هو الـ<bdi>default</bdi></a> (18 نوفمبر). الـ<bdi>Local harness</bdi> اتعلم <bdi>deprecate</bdi> وهيتشال في فبراير 2027. <bdi>Microsoft</bdi> قالت إن الـ<bdi>harness</bdi> الجديد قلّل استهلاك الـ<bdi>tokens</bdi> حوالي 14.2% في مقارنة داخلية على <bdi>Business/Enterprise</bdi>."
+        },
+        {
+          "sources": [
+            {
+              "type": "official",
+              "url": "https://commandline.microsoft.com/microsoft-copilot-sdk-2-0-github/",
+              "label": "مدونة Microsoft"
+            }
+          ],
+          "summary": "<a href=\"https://commandline.microsoft.com/microsoft-copilot-sdk-2-0-github/\" target=\"_blank\" rel=\"noopener noreferrer\"><bdi>Microsoft Copilot SDK 2.0</bdi></a> (17 نوفمبر): وصول برمجي لنفس الـ<bdi>harness</bdi> المشترك، مع <bdi>runtime</bdi> يضيف جلسات معزولة في نفس العملية."
+        },
+        {
+          "sources": [
+            {
+              "type": "x",
+              "url": "https://x.com/github/status/2122756587073028306",
+              "label": "X — @github"
+            }
+          ],
+          "summary": "حساب <a href=\"https://x.com/github/status/2122756587073028306\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"handle\">@github</span></a> (17 نوفمبر): على <bdi>Terminal-Bench 4.1</bdi>، <bdi>Copilot Fusion Max</bdi> حقق 71.2%، أعلى 5.4 نقطة من <bdi>Opus 5.5</bdi> و<bdi>Fable 5.2</bdi>، بتكلفة أقل 88% من <bdi>Fable 5.2</bdi> و57% من <bdi>Opus 5.5</bdi>. البوست عليه 445 إعجاب. وفي بوستين تانيين أعلنوا إتاحة <a href=\"https://x.com/github/status/2122860022895952311\" target=\"_blank\" rel=\"noopener noreferrer\"><bdi>GPT-6.2</bdi> في <bdi>GitHub Copilot</bdi></a> (289 إعجاب) و<a href=\"https://x.com/github/status/2123181574116233646\" target=\"_blank\" rel=\"noopener noreferrer\"><bdi>Gemini 4 Neon</bdi> في <bdi>Copilot</bdi></a> (234 إعجاب)."
+        },
+        {
+          "sources": [
+            {
+              "type": "official",
+              "url": "https://aws.amazon.com/about-aws/whats-new/2026/11/devops-agent-new-chat-capabilities/",
+              "label": "مدونة AWS"
+            }
+          ],
+          "summary": "<a href=\"https://aws.amazon.com/about-aws/whats-new/2026/11/devops-agent-new-chat-capabilities/\" target=\"_blank\" rel=\"noopener noreferrer\"><bdi>AWS DevOps Agent</bdi> بقى يشتغل من <bdi>MCP clients</bdi></a> زي <bdi>Kiro</bdi> و<bdi>Claude Code</bdi>، وكمان <bdi>Slack</bdi> و<bdi>Teams</bdi> (20 نوفمبر)."
+        },
+        {
+          "sources": [
+            {
+              "type": "official",
+              "url": "https://aws.amazon.com/about-aws/whats-new/2026/11/device-farm-test-insights/",
+              "label": "مدونة AWS"
+            }
+          ],
+          "summary": "<a href=\"https://aws.amazon.com/about-aws/whats-new/2026/11/device-farm-test-insights/\" target=\"_blank\" rel=\"noopener noreferrer\"><bdi>AWS Device Farm Test Insights</bdi></a> (20 نوفمبر): تحليل أوضح لفشل اختبارات <bdi>Appium</bdi> و<bdi>Espresso</bdi> و<bdi>XCUITest</bdi>. التفاصيل في قسم الـ<bdi>QA</bdi>."
+        },
+        {
+          "sources": [
+            {
+              "type": "official",
+              "url": "https://ngrok.com/blog/mcp",
+              "label": "مدونة ngrok"
+            }
+          ],
+          "summary": "<a href=\"https://ngrok.com/blog/mcp\" target=\"_blank\" rel=\"noopener noreferrer\"><bdi>ngrok MCP server</bdi></a> (16 نوفمبر): الـ<bdi>coding agent</bdi> يضيف <bdi>connectivity</bdi> ب<bdi>scopes</bdi> موافقة واضحة، من غير <bdi>API key</bdi> مفتوح."
+        }
+      ]
+    },
+    {
+      "id": "x",
+      "label": "من X",
+      "kind": "x",
+      "noteHtml": "القسم ده من بوستات حقيقية على <bdi>X</bdi>، مش من المدونات. أرقام الإعجاب وإعادة النشر من البوست نفسه وقت جمع التقرير.",
+      "subsections": [
+        {
+          "label": "تريند الناس بتتكلم عنه",
+          "items": [
+            {
+              "sources": [
+                {
+                  "type": "x",
+                  "url": "https://x.com/ArtificialAnlys/status/2122750634210529569",
+                  "label": "X — @ArtificialAnlys"
+                }
+              ],
+              "handle": "ArtificialAnlys",
+              "postUrl": "https://x.com/ArtificialAnlys/status/2122750634210529569",
+              "engagement": {
+                "likes": 3304,
+                "reposts": 291,
+                "replies": 161,
+                "bookmarks": 510
+              },
+              "summary": "<a href=\"https://x.com/ArtificialAnlys/status/2122750634210529569\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"handle\">@ArtificialAnlys</span></a> (17 نوفمبر): بعد إطلاق <bdi>GPT-6.2</bdi>، الحساب قال إن <bdi>Astra</bdi> بقى رقم 2 على <bdi>Intelligence Index</bdi> وقريب من حدود الـ<bdi>cost-per-task</bdi>، وسعره 8/40 دولار مع نزول الـ<bdi>cached input</bdi> إلى 0.40 دولار. البوست عليه 3,304 إعجاب و291 إعادة نشر و161 رد و510 حفظ، وده من أعلى نقاشات الأسبوع عن الموديلات الجديدة."
+            },
+            {
+              "sources": [
+                {
+                  "type": "x",
+                  "url": "https://x.com/ArtificialAnlys/status/2123170645777526962",
+                  "label": "X — @ArtificialAnlys"
+                },
+                {
+                  "type": "x",
+                  "url": "https://x.com/JamesMalsawm/status/2123725541861711951",
+                  "label": "X — @JamesMalsawm"
+                }
+              ],
+              "handle": "ArtificialAnlys",
+              "postUrl": "https://x.com/ArtificialAnlys/status/2123170645777526962",
+              "engagement": {
+                "likes": 2086,
+                "reposts": 171,
+                "replies": 97,
+                "bookmarks": 255
+              },
+              "summary": "بعد نزول <bdi>Gemini 4 Neon</bdi>، النقاش اتحول للمقارنة.",
+              "detail": "<a href=\"https://x.com/ArtificialAnlys/status/2123170645777526962\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"handle\">@ArtificialAnlys</span></a> (18 نوفمبر، 2,086 إعجاب و171 إعادة نشر) قال إن <bdi>Neon</bdi> عند <bdi>xhigh</bdi> سجّل 61 على <bdi>Intelligence Index</bdi> بتكلفة أقل حوالي 17% من <bdi>Carbon</bdi>. وفي <a href=\"https://x.com/ArtificialAnlys/status/2123170648772288540\" target=\"_blank\" rel=\"noopener noreferrer\">بوست لاحق</a> (187 إعجاب) قال إن <bdi>Neon</bdi> جوه <bdi>Antigravity CLI</bdi> سجّل 59 على <bdi>Coding Agent Index</bdi>، مقابل 58 لـ<bdi>Fable 5.2</bdi> و<bdi>Opus 5.5</bdi> و55 لـ<bdi>Carbon</bdi> بتكلفة أقل. الناس عبّرت عن المفاجأة في بوست <a href=\"https://x.com/JamesMalsawm/status/2123725541861711951\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"handle\">@JamesMalsawm</span></a> (20 نوفمبر، 317 إعجاب و83 رد) اللي سأل إذا كان <bdi>Neon</bdi> فعلًا فوق <bdi>Fable</bdi> و<bdi>Opus</bdi> و<bdi>Astra</bdi>. الخلاصة من المصادر دي: <bdi>Fable</bdi> لسه قوي على مؤشرات الذكاء الأوسع، و<bdi>Neon</bdi> لافت للناس لأنه أرخص وأقرب في شغل الـ<bdi>coding agents</bdi>، و<bdi>Astra</bdi> بيتناقش أكتر من ناحية التكلفة لكل مهمة."
+            }
+          ]
+        },
+        {
+          "label": "Skills مهمة نزلت",
+          "items": [
+            {
+              "sources": [
+                {
+                  "type": "x",
+                  "url": "https://x.com/6AW0RON0k/status/2123104366932492706",
+                  "label": "X — @6AW0RON0k"
+                }
+              ],
+              "handle": "6AW0RON0k",
+              "postUrl": "https://x.com/6AW0RON0k/status/2123104366932492706",
+              "engagement": {
+                "likes": 253,
+                "reposts": 37,
+                "replies": 26,
+                "bookmarks": 462
+              },
+              "summary": "<a href=\"https://x.com/6AW0RON0k/status/2123104366932492706\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"handle\">@6AW0RON0k</span></a> (18 نوفمبر): جمع 7 ريبو هات مجانية لإعدادات و<bdi>skills</bdi> للـ<bdi>agents</bdi>، منها الريبو الرسمي <a href=\"https://github.com/anthropics/skills\" target=\"_blank\" rel=\"noopener noreferrer\"><bdi>anthropics/skills</bdi></a>، وإطار <a href=\"https://github.com/obra/superpowers\" target=\"_blank\" rel=\"noopener noreferrer\"><bdi>obra/superpowers</bdi></a> اللي يجبر الوكيل يخطط ويختبر ويراجع قبل ما يكتب كود، وإعداد <a href=\"https://github.com/garrytan/gstack\" target=\"_blank\" rel=\"noopener noreferrer\"><bdi>garrytan/gstack</bdi></a> من <bdi>Garry Tan</bdi>، و<a href=\"https://github.com/addyosmani/agent-skills\" target=\"_blank\" rel=\"noopener noreferrer\"><bdi>addyosmani/agent-skills</bdi></a> بمراحل <bdi>define / plan / build / verify / review / ship</bdi>، و<a href=\"https://github.com/mattpocock/skills\" target=\"_blank\" rel=\"noopener noreferrer\"><bdi>mattpocock/skills</bdi></a>.",
+              "detail": "البوست عليه 253 إعجاب و37 إعادة نشر و26 رد، واتحفظ 462 مرة."
+            },
+            {
+              "sources": [
+                {
+                  "type": "x",
+                  "url": "https://x.com/RRweb3/status/2121907402316595383",
+                  "label": "X — @RRweb3"
+                }
+              ],
+              "handle": "RRweb3",
+              "postUrl": "https://x.com/RRweb3/status/2121907402316595383",
+              "engagement": {
+                "likes": 69,
+                "reposts": 1,
+                "replies": 54
+              },
+              "summary": "<a href=\"https://x.com/RRweb3/status/2121907402316595383\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"handle\">@RRweb3</span></a> (15 نوفمبر): قال إن <bdi>skills</bdi> الرسمية لـ<bdi>Obsidian</bdi> بقت تغطي 7 مهام، وتعلّم <bdi>Claude Code</bdi> أو <bdi>Codex</bdi> أو <bdi>Cursor</bdi> يشتغل جوه الـ<bdi>vault</bdi> بـ<bdi>Markdown</bdi> حقيقي. البوست عليه 69 إعجاب و54 رد."
+            }
+          ]
+        },
+        {
+          "label": "Workflows",
+          "items": [
+            {
+              "sources": [
+                {
+                  "type": "x",
+                  "url": "https://x.com/IshanJX/status/2123234236207624410",
+                  "label": "X — @IshanJX"
+                }
+              ],
+              "handle": "IshanJX",
+              "postUrl": "https://x.com/IshanJX/status/2123234236207624410",
+              "engagement": {
+                "likes": 197,
+                "reposts": 1,
+                "replies": 1,
+                "bookmarks": 13
+              },
+              "summary": "<a href=\"https://x.com/IshanJX/status/2123234236207624410\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"handle\">@IshanJX</span></a> (19 نوفمبر): لخّص أسبوع <bdi>Google Antigravity</bdi>: <bdi>Gemini 4 Neon</bdi> و<bdi>Orchestrator</bdi> بقوا متاحين، <bdi>Hydrogen</bdi> اتنشر، أمر <code dir=\"ltr\">/swarm</code> لتشغيل <bdi>agents</bdi> بالتوازي، تطوير <bdi>Linux</bdi> عن بُعد عبر <bdi>SSH</bdi> في الإصدار <bdi>v2.33.0</bdi>، وبطاقات <bdi>GitHub PR</bdi> جوه الشات، وتبويبات <code dir=\"ltr\">/btw</code>. البوست عليه 197 إعجاب."
+            },
+            {
+              "sources": [
+                {
+                  "type": "x",
+                  "url": "https://x.com/ArtificialAnlys/status/2123170648772288540",
+                  "label": "X — @ArtificialAnlys"
+                }
+              ],
+              "handle": "ArtificialAnlys",
+              "postUrl": "https://x.com/ArtificialAnlys/status/2123170648772288540",
+              "engagement": {
+                "likes": 187,
+                "reposts": 26
+              },
+              "summary": "نفس نقطة الـ<bdi>harness</bdi> ظهرت في أرقام <a href=\"https://x.com/ArtificialAnlys/status/2123170648772288540\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"handle\">@ArtificialAnlys</span></a>: <bdi>Neon</bdi> على <bdi>Antigravity CLI</bdi> سجّل 59 على <bdi>Coding Agent Index</bdi>، مقابل 55 لـ<bdi>Carbon</bdi> على نفس المؤشر. يعني طريقة تشغيل الوكيل (المشغّل أو الـ<bdi>CLI</bdi>) بتفرق في النتيجة، مش بس اسم الموديل. البوست عليه 187 إعجاب و26 إعادة نشر."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "github",
+      "label": "تريند GitHub",
+      "kind": "github",
+      "noteHtml": "من صفحة <a href=\"https://github.com/trending\" target=\"_blank\" rel=\"noopener noreferrer\"><bdi>GitHub Trending</bdi></a> لليوم (21 نوفمبر 2026). الأرقام من الصفحة نفسها وقت إعداد التقرير.",
+      "items": [
+        {
+          "sources": [
+            {
+              "type": "github",
+              "url": "https://github.com/trending",
+              "label": "GitHub"
+            }
+          ],
+          "stars": 15876,
+          "starsToday": 1794,
+          "repoUrl": "https://github.com/elementalsouls/Claude-BugHunter",
+          "titleHtml": "<a href=\"https://github.com/elementalsouls/Claude-BugHunter\" target=\"_blank\" rel=\"noopener noreferrer\"><bdi>elementalsouls/Claude-BugHunter</bdi></a>",
+          "summary": "حزمة <bdi>skills</bdi> لـ<bdi>Claude Code</bdi> مخصصة لصيد الثغرات وأعمال <bdi>red-team</bdi> الخارجية (82 <bdi>skill</bdi> و15 أمر)."
+        },
+        {
+          "sources": [
+            {
+              "type": "github",
+              "url": "https://github.com/trending",
+              "label": "GitHub"
+            }
+          ],
+          "stars": 323653,
+          "starsToday": 884,
+          "repoUrl": "https://github.com/obra/superpowers",
+          "titleHtml": "<a href=\"https://github.com/obra/superpowers\" target=\"_blank\" rel=\"noopener noreferrer\"><bdi>obra/superpowers</bdi></a>",
+          "summary": "إطار <bdi>agentic skills</bdi> ومنهجية تطوير، ونفس الريبو اللي الناس شاركتها على <bdi>X</bdi> كحاجة تجبر الوكيل يخطط ويختبر قبل ما يكتب كود."
+        },
+        {
+          "sources": [
+            {
+              "type": "github",
+              "url": "https://github.com/trending",
+              "label": "GitHub"
+            }
+          ],
+          "stars": 62013,
+          "starsToday": 767,
+          "repoUrl": "https://github.com/HKUDS/CLI-Anything",
+          "titleHtml": "<a href=\"https://github.com/HKUDS/CLI-Anything\" target=\"_blank\" rel=\"noopener noreferrer\"><bdi>HKUDS/CLI-Anything</bdi></a>",
+          "summary": "مشروع لجعل البرامج قابلة للاستخدام من الـ<bdi>agents</bdi> عن طريق الـ<bdi>CLI</bdi>."
+        },
+        {
+          "sources": [
+            {
+              "type": "github",
+              "url": "https://github.com/trending",
+              "label": "GitHub"
+            }
+          ],
+          "stars": 18073,
+          "starsToday": 261,
+          "repoUrl": "https://github.com/cursor/plugins",
+          "titleHtml": "<a href=\"https://github.com/cursor/plugins\" target=\"_blank\" rel=\"noopener noreferrer\"><bdi>cursor/plugins</bdi></a>",
+          "summary": "مواصفات إضافات <bdi>Cursor</bdi> والإضافات الرسمية."
+        },
+        {
+          "sources": [
+            {
+              "type": "github",
+              "url": "https://github.com/trending",
+              "label": "GitHub"
+            }
+          ],
+          "stars": 206098,
+          "starsToday": 999,
+          "repoUrl": "https://github.com/firecrawl/firecrawl",
+          "titleHtml": "<a href=\"https://github.com/firecrawl/firecrawl\" target=\"_blank\" rel=\"noopener noreferrer\"><bdi>firecrawl/firecrawl</bdi></a>",
+          "summary": "بنية معرفة للـ<bdi>agents</bdi>: بحث وكشط صفحات والوصول لأكثر من 550 مصدر بيانات من <bdi>API</bdi> واحد."
+        },
+        {
+          "sources": [
+            {
+              "type": "github",
+              "url": "https://github.com/trending",
+              "label": "GitHub"
+            }
+          ],
+          "stars": 69756,
+          "starsToday": 582,
+          "repoUrl": "https://github.com/cathrynlavery/diagram-design",
+          "titleHtml": "<a href=\"https://github.com/cathrynlavery/diagram-design\" target=\"_blank\" rel=\"noopener noreferrer\"><bdi>cathrynlavery/diagram-design</bdi></a>",
+          "summary": "تصميم مخططات لـ<bdi>Claude Code</bdi> و<bdi>Codex</bdi> و<bdi>GitHub Copilot</bdi> و<bdi>Cursor</bdi> وغيرها، بـ45 نوع مخطط."
+        },
+        {
+          "sources": [
+            {
+              "type": "github",
+              "url": "https://github.com/trending",
+              "label": "GitHub"
+            }
+          ],
+          "stars": 71940,
+          "starsToday": 566,
+          "repoUrl": "https://github.com/mvanhorn/last30days-skill",
+          "titleHtml": "<a href=\"https://github.com/mvanhorn/last30days-skill\" target=\"_blank\" rel=\"noopener noreferrer\"><bdi>mvanhorn/last30days-skill</bdi></a>",
+          "summary": "<bdi>skill</bdi> للوكيل يبحث في موضوع عبر <bdi>Reddit</bdi> و<bdi>X</bdi> و<bdi>YouTube</bdi> و<bdi>HN</bdi> والويب ثم يلخّص نتيجة موثّقة."
+        },
+        {
+          "sources": [
+            {
+              "type": "github",
+              "url": "https://github.com/trending",
+              "label": "GitHub"
+            }
+          ],
+          "stars": 11378,
+          "starsToday": 324,
+          "repoUrl": "https://github.com/google-labs-code/stitch-skills",
+          "titleHtml": "<a href=\"https://github.com/google-labs-code/stitch-skills\" target=\"_blank\" rel=\"noopener noreferrer\"><bdi>google-labs-code/stitch-skills</bdi></a>",
+          "summary": "مكتبة <bdi>Agent Skills</bdi> تشتغل مع <bdi>Stitch MCP server</bdi>، ومتوافقة مع <bdi>Antigravity</bdi> و<bdi>Gemini CLI</bdi> و<bdi>Claude Code</bdi> و<bdi>Cursor</bdi>."
+        },
+        {
+          "sources": [
+            {
+              "type": "github",
+              "url": "https://github.com/trending",
+              "label": "GitHub"
+            }
+          ],
+          "stars": 3329,
+          "starsToday": 724,
+          "repoUrl": "https://github.com/mjmirza/app-store-compliance",
+          "titleHtml": "<a href=\"https://github.com/mjmirza/app-store-compliance\" target=\"_blank\" rel=\"noopener noreferrer\"><bdi>mjmirza/app-store-compliance</bdi></a>",
+          "summary": "دليل لتجنب رفض <bdi>App Store</bdi> و<bdi>Google Play</bdi> (117 نمط رفض)، مع <bdi>skill</bdi> لوكلاء الـ<bdi>coding</bdi>."
+        },
+        {
+          "sources": [
+            {
+              "type": "github",
+              "url": "https://github.com/trending",
+              "label": "GitHub"
+            }
+          ],
+          "stars": 13946,
+          "starsToday": 450,
+          "repoUrl": "https://github.com/Tracer-Cloud/opensre",
+          "titleHtml": "<a href=\"https://github.com/Tracer-Cloud/opensre\" target=\"_blank\" rel=\"noopener noreferrer\"><bdi>Tracer-Cloud/opensre</bdi></a>",
+          "summary": "وكيل مفتوح المصدر لاعتمادية الـ<bdi>CI/CD</bdi>. قريب من شغل الجودة والإطلاق."
+        }
+      ]
+    },
+    {
+      "id": "qa",
+      "label": "أدوات QA",
+      "kind": "tool",
+      "items": [
+        {
+          "sources": [
+            {
+              "type": "tool",
+              "url": "https://www.coderabbit.ai/blog/introducing-coderabbit-verify",
+              "label": "موقع CodeRabbit"
+            }
+          ],
+          "summary": "<a href=\"https://www.coderabbit.ai/blog/introducing-coderabbit-verify\" target=\"_blank\" rel=\"noopener noreferrer\"><bdi>CodeRabbit Verify</bdi></a> (18 نوفمبر، <bdi>public beta</bdi> مجاني حاليًا): بيختبر الـ<bdi>application</bdi> وهو شغال، مش الكود بس. بيولّد <bdi>scenarios</bdi> من الـ<bdi>PR</bdi>، و<bdi>user journeys</bdi> للـ<bdi>regression</bdi>، وبينشر النتيجة في الـ<bdi>PR</bdi>، وممكن يسلّم الـ<bdi>bug</bdi> لوكيل يصلّحه. التشغيل من تعليق <code dir=\"ltr\">@coderabbitai verify</code>."
+        },
+        {
+          "sources": [
+            {
+              "type": "tool",
+              "url": "https://www.testsprite.com/blog/introducing-testsprite-4-0",
+              "label": "موقع TestSprite"
+            }
+          ],
+          "summary": "<a href=\"https://www.testsprite.com/blog/introducing-testsprite-4-0\" target=\"_blank\" rel=\"noopener noreferrer\"><bdi>TestSprite 4.0</bdi></a> (20 نوفمبر): <bdi>testing agent</bdi> مستقل عن الوكيل اللي كاتب الكود.",
+          "detail": "بتديه الـ<bdi>spec</bdi> أو التذكرة أو كلام بسيط عن سلوك الأبلكيشن، وهو بيستكشف في متصفح حقيقي ويكتب الاختبارات ويشغّلها ويفرّق بين <bdi>bug</bdi> حقيقي و<bdi>test</bdi> مكسور وبيئة مكسورة. الفكرة المهمة: مصدر الـ“صح” لازم يكون الـ<bdi>spec</bdi>، مش الكود الحالي. فيه <bdi>CLI</bdi> و<bdi>MCP</bdi>، وبيشتغل كمان على <bdi>APIs</bdi>."
+        },
+        {
+          "sources": [
+            {
+              "type": "tool",
+              "url": "https://katalon.com/resources-center/blog/katalon-launches-ai-test-runner",
+              "label": "موقع Katalon"
+            }
+          ],
+          "summary": "<a href=\"https://katalon.com/resources-center/blog/katalon-launches-ai-test-runner\" target=\"_blank\" rel=\"noopener noreferrer\"><bdi>Katalon AI Test Runner</bdi></a> (الإعلان 16 نوفمبر، والتغطية 19 نوفمبر): بيشغّل <bdi>test cases</bdi> اليدوي المكتوبة بلغة طبيعية على <bdi>web</bdi> و<bdi>mobile</bdi> بالتوازي، من غير ما تكتب <bdi>scripts</bdi>، وبيرفق فيديو و<bdi>screenshots</bdi> مع كل نتيجة. موجود في <bdi>Katalon TestOps</bdi> وكمان عن طريق <bdi>Katalon MCP server</bdi>."
+        },
+        {
+          "sources": [
+            {
+              "type": "official",
+              "url": "https://aws.amazon.com/about-aws/whats-new/2026/11/device-farm-test-insights/",
+              "label": "مدونة AWS"
+            }
+          ],
+          "summary": "<a href=\"https://aws.amazon.com/about-aws/whats-new/2026/11/device-farm-test-insights/\" target=\"_blank\" rel=\"noopener noreferrer\"><bdi>AWS Device Farm Test Insights</bdi></a> (20 نوفمبر): تحليل أوضح لفشل اختبارات <bdi>Appium</bdi> و<bdi>Espresso</bdi> و<bdi>XCUITest</bdi> (<bdi>root cause</bdi>، <bdi>stack trace</bdi>، فيديو، تفصيل حسب الجهاز والـ<bdi>test</bdi>)، ومصممة كمان عشان الـ<bdi>AI agents</bdi> تشخّص الأعطال أسرع."
+        }
+      ]
+    },
+    {
+      "id": "tester",
+      "label": "مفيد لشغلك",
+      "kind": "official",
+      "items": [
+        {
+          "sources": [
+            {
+              "type": "tool",
+              "url": "https://www.coderabbit.ai/blog/introducing-coderabbit-verify",
+              "label": "موقع CodeRabbit"
+            }
+          ],
+          "summary": "لو عندك <bdi>PRs</bdi> كتير طلعة من <bdi>coding agents</bdi>، جرّب <a href=\"https://www.coderabbit.ai/blog/introducing-coderabbit-verify\" target=\"_blank\" rel=\"noopener noreferrer\"><bdi>CodeRabbit Verify</bdi></a> على <bdi>PR</bdi> واحد كتجربة: <code dir=\"ltr\">@coderabbitai verify</code>. الهدف تشوف إذا كان بيمسك <bdi>bugs</bdi> سلوكية الوحدة والـ<bdi>review</bdi> فاتوها. الـ<bdi>beta</bdi> حاليًا مجاني."
+        },
+        {
+          "sources": [
+            {
+              "type": "tool",
+              "url": "https://www.testsprite.com/blog/introducing-testsprite-4-0",
+              "label": "موقع TestSprite"
+            }
+          ],
+          "summary": "لو عايز <bdi>suite</bdi> رجعي من الـ<bdi>spec</bdi> مش من الكود، جرّب <a href=\"https://www.testsprite.com/blog/introducing-testsprite-4-0\" target=\"_blank\" rel=\"noopener noreferrer\"><bdi>TestSprite 4.0</bdi></a>: حط لينك الأبلكيشن + كام جملة عن السلوك المتوقع (أو تذكرة <bdi>Jira</bdi>/<bdi>Linear</bdi>). فيه خطة مجانية بتشمل الـ<bdi>agent</bdi> واختبار <bdi>PR</bdi> على <bdi>repository</bdi> واحد، وفيه <bdi>CLI</bdi>/<bdi>MCP</bdi> لو أصلاً شغال من <bdi>terminal</bdi>. ينفع كمان لـ<bdi>API flows</bdi>، وده قريب من شغل <bdi>Rest Assured</bdi>."
+        },
+        {
+          "sources": [
+            {
+              "type": "tool",
+              "url": "https://katalon.com/resources-center/blog/katalon-launches-ai-test-runner",
+              "label": "موقع Katalon"
+            }
+          ],
+          "summary": "لو فريقك أصلاً على <bdi>Katalon TestOps</bdi>، <a href=\"https://katalon.com/resources-center/blog/katalon-launches-ai-test-runner\" target=\"_blank\" rel=\"noopener noreferrer\"><bdi>AI Test Runner</bdi></a> يخلي الـ<bdi>manual cases</bdi> اللي عندك تتنفّذ بالتوازي على <bdi>web</bdi> و<bdi>mobile</bdi> من غير ما تتحوّل لـ<bdi>Selenium</bdi>/<bdi>Appium</bdi> الأول. مفيد كطبقة سرعة، مش بديل عن الـ<bdi>automationframework</bdi> بتاعتك."
+        },
+        {
+          "sources": [
+            {
+              "type": "official",
+              "url": "https://aws.amazon.com/about-aws/whats-new/2026/11/device-farm-test-insights/",
+              "label": "مدونة AWS"
+            }
+          ],
+          "summary": "لو بتشغّل <bdi>Appium</bdi> على <bdi>AWS Device Farm</bdi>، فعّل <a href=\"https://aws.amazon.com/about-aws/whats-new/2026/11/device-farm-test-insights/\" target=\"_blank\" rel=\"noopener noreferrer\"><bdi>Test Insights</bdi></a> واتفرج على فيديو الفشل والـ<bdi>root cause</bdi> قبل ما تقعد تلّف لوجات بنفسك. تقدر كمان تسدي الـ<bdi>metadata</bdi> دي لوكيل <bdi>AI</bdi> عشان يساعدك في التشخيص."
+        },
+        {
+          "sources": [
+            {
+              "type": "github",
+              "url": "https://github.com/Tracer-Cloud/opensre",
+              "label": "GitHub"
+            }
+          ],
+          "summary": "من تريند اليوم: <a href=\"https://github.com/Tracer-Cloud/opensre\" target=\"_blank\" rel=\"noopener noreferrer\"><bdi>Tracer-Cloud/opensre</bdi></a> وكيل لاعتمادية الـ<bdi>CI/CD</bdi> (13,946 نجمة، +450 اليوم). يستاهل نظرة لو بتتابع فشل البناء والإطلاق، من غير ما يعتبر بديل لأدوات الاختبار بتاعتك."
+        },
+        {
+          "sources": [],
+          "summary": "في شغلك اليومي على <bdi>Selenium</bdi> و<bdi>Appium</bdi> و<bdi>SHAFT</bdi> و<bdi>Rest Assured</bdi>، الموديلات الأنسب للتجربة الأسبوع دي هي <bdi>GPT-6.2 Sol</bdi> أو <bdi>Gemini 4 Hydrogen/Neon</bdi>: اطلب توليد أو صيانة اختبارات، بس ثبّت الـ<bdi>assertions</bdi> من الـ<bdi>requirements</bdi> مش من الـ<bdi>implementation</bdi> الحالي. الدرس المتكرر في أدوات الأسبوع: الاختبار اللي اتكتب من الكود بيحمي الـ<bdi>bug</bdi>."
+        },
+        {
+          "sources": [
+            {
+              "type": "official",
+              "url": "https://claude.com/resources/articles/self-hosted-claude-managed-agents",
+              "label": "مدونة Anthropic"
+            }
+          ],
+          "summary": "لو الشركة عندها قيود أمنية على البيانات، <a href=\"https://claude.com/resources/articles/self-hosted-claude-managed-agents\" target=\"_blank\" rel=\"noopener noreferrer\"><bdi>Self-hosted Claude Managed Agents</bdi></a> أقرب خطوة رسمية لتشغيل <bdi>agents</bdi> جوه الـ<bdi>perimeter</bdi> بدل ما الشغل كله يطلع بره."
+        },
+        {
+          "sources": [],
+          "summary": "نقطة الـ<bdi>harness</bdi> لسه مهمة: نفس الموديل ممكن يطلع نتيجة مختلفة حسب <bdi>Claude Code</bdi> أو <bdi>Codex</bdi> أو <bdi>Antigravity</bdi> أو <bdi>Copilot</bdi>. لو هتجرب حاجة واحدة في الـ<bdi>workflow</bdi>، جرّب إن الوكيل يكتب الاختبار، يشغّله، ويورّيلك الدليل (لوج، سكرين، تسجيل)، وبعدين تراجع أنت الـ<bdi>oracle</bdi>."
+        }
+      ]
+    }
+  ]
+}
+  </script>
+  <script>
+(function () {
+  "use strict";
+
+  var app = document.getElementById("app");
+  var raw = document.getElementById("report-data");
+  var root = document.documentElement;
+  var data;
+  try {
+    data = JSON.parse(raw.textContent);
+  } catch (err) {
+    app.innerHTML = '<p class="err">تعذر قراءة بيانات التقرير.</p>';
+    return;
+  }
+
+  var THEME_KEY = "ai-news-theme";
+  var THEMES = ["system", "light", "dark"];
+  var THEME_LABEL = { system: "تلقائي", light: "فاتح", dark: "داكن" };
+  var THEME_NEXT = { system: "الفاتح", light: "الداكن", dark: "التلقائي" };
+
+  function getTheme() {
+    var t = null;
+    try { t = localStorage.getItem(THEME_KEY); } catch (e) {}
+    return THEMES.indexOf(t) >= 0 ? t : "system";
+  }
+
+  function applyTheme(t) {
+    if (t === "system") root.removeAttribute("data-theme");
+    else root.setAttribute("data-theme", t);
+    try { localStorage.setItem(THEME_KEY, t); } catch (e) {}
+  }
+
+  function esc(s) {
+    return String(s)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;");
+  }
+
+  function fmt(n) {
+    return Number(n).toLocaleString("en-US");
+  }
+
+  function badges(sources) {
+    if (!sources || !sources.length) return "";
+    return (
+      '<div class="badges">' +
+      sources
+        .map(function (s) {
+          return (
+            '<a class="badge badge-' +
+            esc(s.type) +
+            '" href="' +
+            esc(s.url || s.href || "#") +
+            '" target="_blank" rel="noopener noreferrer">المصدر: ' +
+            esc(s.label) +
+            "</a>"
+          );
+        })
+        .join("") +
+      "</div>"
+    );
+  }
+
+  function engagement(e) {
+    if (!e) return "";
+    var parts = [];
+    if (e.likes) parts.push(fmt(e.likes) + " إعجاب");
+    if (e.reposts) parts.push(fmt(e.reposts) + " إعادة نشر");
+    if (e.replies) parts.push(fmt(e.replies) + " رد");
+    if (e.bookmarks) parts.push(fmt(e.bookmarks) + " حفظ");
+    if (!parts.length) return "";
+    return '<div class="meta">' + parts.join("، ") + "</div>";
+  }
+
+  function stars(item) {
+    if (item.stars == null) return "";
+    var t = fmt(item.stars) + " نجمة";
+    if (item.starsToday != null) t += "، +" + fmt(item.starsToday) + " اليوم";
+    return '<div class="meta">' + t + "</div>";
+  }
+
+  function moreBtn(id, open) {
+    return (
+      '<button class="more" type="button" data-toggle="' +
+      esc(id) +
+      '" aria-expanded="' +
+      (open ? "true" : "false") +
+      '">' +
+      (open ? "أقل" : "المزيد") +
+      "</button>"
+    );
+  }
+
+  var openSet = {};
+
+  function itemBlock(item, kind, prefix, i) {
+    var id = prefix + "-" + i;
+    var hasDetail = !!(item.detail && String(item.detail).trim());
+    var open = !!openSet[id];
+    var handle = item.handle
+      ? '<a class="handle" href="' +
+        esc(item.postUrl || item.sources && item.sources[0] && item.sources[0].url || "#") +
+        '" target="_blank" rel="noopener noreferrer">@' +
+        esc(item.handle) +
+        "</a>"
+      : "";
+    var title = item.titleHtml || esc(item.title || "");
+    return (
+      '<article class="item kind-' +
+      esc(kind || "official") +
+      (open ? " is-open" : "") +
+      '" id="' +
+      esc(id) +
+      '">' +
+      (handle ? '<div class="meta">' + handle + "</div>" : "") +
+      '<h3 class="item-title">' +
+      title +
+      "</h3>" +
+      (item.summary ? '<p class="summary">' + item.summary + "</p>" : "") +
+      engagement(item.engagement) +
+      stars(item) +
+      badges(item.sources) +
+      (hasDetail
+        ? '<div class="detail"><div class="detail-inner">' +
+          item.detail +
+          "</div></div>" +
+          moreBtn(id, open)
+        : "") +
+      "</article>"
+    );
+  }
+
+  function currentTheme() {
+    return getTheme();
+  }
+
+  function themeIcon(t) {
+    if (t === "dark") {
+      return '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 14.3A8.5 8.5 0 1 1 9.7 3 7 7 0 0 0 21 14.3z"/></svg>';
+    }
+    if (t === "light") {
+      return '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 3v2M12 19v2M5 12H3M21 12h-2M6.2 6.2 7.6 7.6M16.4 16.4l1.4 1.4M17.8 6.2 16.4 7.6M7.6 16.4 6.2 17.8"/></svg>';
+    }
+    return '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3v18"/></svg>';
+  }
+
+  var tabs = data.tabs || [];
+  var tabIds = tabs.map(function (t) { return t.id; });
+
+  function tabFromHash() {
+    var id = (location.hash || "").replace(/^#/, "");
+    return tabIds.indexOf(id) >= 0 ? id : (tabIds[0] || "");
+  }
+
+  function render(activeId, opts) {
+    opts = opts || {};
+    var theme = currentTheme();
+    var highlights = data.highlights || [];
+    var html = "";
+    html += '<div class="shell">';
+    html += '<header class="hero">';
+    html += '<div class="hero-copy"><h1>' + (data.titleHtml || esc(data.title || "")) + "</h1>";
+    html += '<p class="date">' + esc(data.date || "") + "</p></div>";
+    html += '<div class="hero-meta">';
+    html += '<div class="stamp" aria-hidden="true"><span class="day">' + esc(data.day || "") + '</span><span class="mon">' + esc(data.monthShort || "") + "</span></div>";
+    html +=
+      '<button class="icon-btn" type="button" id="theme-btn" aria-label="المظهر الحالي: ' +
+      THEME_LABEL[theme] +
+      ". اضغط للتبديل إلى " +
+      THEME_NEXT[theme] +
+      '">' +
+      themeIcon(theme) +
+      "</button>";
+    html += "</div>";
+    html += (data.introHtml ? '<p class="intro">' + data.introHtml + "</p>" : "") + "</header>";
+
+    html += '<section aria-labelledby="must-look">';
+    html += '<h2 class="kicker" id="must-look">' + esc(data.highlightsTitle || "لازم تبص عليها") + "</h2>";
+    html += '<div class="highlights">';
+    highlights.forEach(function (h, i) {
+      var id = "hl-" + i;
+      var open = !!openSet[id];
+      var hasDetail = !!(h.detail && String(h.detail).trim());
+      html +=
+        '<article class="hl' +
+        (open ? " is-open" : "") +
+        (opts.enterHighlights ? " is-entering" : "") +
+        '" id="' +
+        id +
+        '">';
+      html += '<span class="rank" aria-hidden="true">' + (i + 1) + "</span>";
+      html += "<h3>" + (h.titleHtml || esc(h.title || "")) + "</h3>";
+      if (h.summary) html += '<p class="summary">' + h.summary + "</p>";
+      html += badges(h.sources);
+      if (hasDetail) {
+        html += '<div class="detail"><div class="detail-inner">' + h.detail + "</div></div>";
+        html += moreBtn(id, open);
+      }
+      html += "</article>";
+    });
+    html += "</div></section>";
+
+    html += '<div class="board">';
+    html += '<div class="tabs-wrap" id="sections">';
+    html += '<div class="tabs" role="tablist" aria-label="أقسام التقرير">';
+    tabs.forEach(function (tab) {
+      var selected = tab.id === activeId;
+      var count = tab.count;
+      if (count == null) {
+        count = tab.items ? tab.items.length : 0;
+        if (tab.subsections) {
+          count += tab.subsections.reduce(function (n, s) { return n + (s.items ? s.items.length : 0); }, 0);
+        }
+      }
+      html +=
+        '<button class="tab" role="tab" type="button" id="tab-' +
+        esc(tab.id) +
+        '" aria-controls="panel-' +
+        esc(tab.id) +
+        '" aria-selected="' +
+        (selected ? "true" : "false") +
+        '" tabindex="' +
+        (selected ? "0" : "-1") +
+        '" data-tab="' +
+        esc(tab.id) +
+        '">' +
+        esc(tab.label) +
+        '<span class="count">' +
+        fmt(count) +
+        "</span></button>";
+    });
+    html += "</div></div>";
+
+    html += '<div class="panels">';
+    tabs.forEach(function (tab) {
+      var selected = tab.id === activeId;
+      html +=
+        '<section class="panel' +
+        (selected && opts.enterPanel ? " is-entering" : "") +
+        '" role="tabpanel" id="panel-' +
+        esc(tab.id) +
+        '" aria-labelledby="tab-' +
+        esc(tab.id) +
+        '"' +
+        (selected ? "" : " hidden") +
+        ">";
+      if (tab.noteHtml) html += '<p class="panel-note">' + tab.noteHtml + "</p>";
+      if (tab.subsections) {
+        tab.subsections.forEach(function (sub, si) {
+          html += '<h3 class="subhead">' + esc(sub.label) + "</h3>";
+          html += '<div class="list">';
+          (sub.items || []).forEach(function (item, ii) {
+            html += itemBlock(item, tab.kind || tab.id, tab.id + "-" + si, ii);
+          });
+          html += "</div>";
+        });
+      } else {
+        html += '<div class="list">';
+        (tab.items || []).forEach(function (item, ii) {
+          html += itemBlock(item, tab.kind || tab.id, tab.id, ii);
+        });
+        html += "</div>";
+      }
+      html += "</section>";
+    });
+    html += "</div>";
+    html += "</div>";
+    html += "</div>";
+    app.innerHTML = html;
+    bind(activeId);
+  }
+
+  function setTab(id, push) {
+    if (tabIds.indexOf(id) < 0) return;
+    if (push !== false) {
+      if (location.hash.replace(/^#/, "") !== id) {
+        history.replaceState(null, "", "#" + id);
+      }
+    }
+    render(id, { enterPanel: true });
+    var panel = document.getElementById("panel-" + id);
+    var tab = document.getElementById("tab-" + id);
+    if (tab) tab.focus();
+  }
+
+  function bind(activeId) {
+    var themeBtn = document.getElementById("theme-btn");
+    if (themeBtn) {
+      themeBtn.addEventListener("click", function () {
+        var cur = getTheme();
+        var next = THEMES[(THEMES.indexOf(cur) + 1) % THEMES.length];
+        applyTheme(next);
+        render(tabFromHash());
+        var btn = document.getElementById("theme-btn");
+        if (btn) btn.focus();
+      });
+    }
+
+    app.querySelectorAll("[data-toggle]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var id = btn.getAttribute("data-toggle");
+        openSet[id] = !openSet[id];
+        render(tabFromHash());
+        var again = app.querySelector('[data-toggle="' + id + '"]');
+        if (again) again.focus();
+      });
+    });
+
+    var tabButtons = Array.prototype.slice.call(app.querySelectorAll('[role="tab"]'));
+    tabButtons.forEach(function (btn, index) {
+      btn.addEventListener("click", function () {
+        setTab(btn.getAttribute("data-tab"));
+      });
+      btn.addEventListener("keydown", function (ev) {
+        var next = index;
+        if (ev.key === "ArrowLeft") next = (index + 1) % tabButtons.length;
+        else if (ev.key === "ArrowRight") next = (index - 1 + tabButtons.length) % tabButtons.length;
+        else if (ev.key === "Home") next = 0;
+        else if (ev.key === "End") next = tabButtons.length - 1;
+        else return;
+        ev.preventDefault();
+        setTab(tabButtons[next].getAttribute("data-tab"));
+      });
+    });
+  }
+
+  applyTheme(getTheme());
+  var start = tabFromHash();
+  if (location.hash.replace(/^#/, "") !== start && start) {
+    history.replaceState(null, "", "#" + start);
+  }
+  render(start, { enterHighlights: true });
+
+  window.addEventListener("hashchange", function () {
+    render(tabFromHash(), { enterPanel: true });
+  });
+})();
+  </script>
+</body>
+</html>

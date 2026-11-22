@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>تقرير أخبار الـAI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --paper: #f1f3f8;
+  --surface: #ffffff;
+  --ink: #14182a;
+  --muted: #5a6280;
+  --line: #d5dae8;
+  --accent: #2a46d6;
+  --accent-soft: #e8ecff;
+  --rose: #c43c6a;
+  --rose-soft: #fdeef3;
+  --x-ink: #1c1917;
+  --gh: #157a45;
+  --gh-soft: #e8f8ee;
+  --tool: #b45309;
+  --tool-soft: #fff4e6;
+  --official: #0f6b66;
+  --official-soft: #e6f7f5;
+  --news: #6b21a8;
+  --news-soft: #f4e8ff;
+  --shadow: 0 10px 28px rgba(20, 24, 42, 0.07);
+  --radius: 18px;
+  --focus: 0 0 0 2px var(--paper), 0 0 0 4px var(--accent);
+  --font: "IBM Plex Sans Arabic", "Segoe UI", Tahoma, Arial, sans-serif;
+  --shell: 1440px;
+  --pad: 1.15rem;
+  --nav: 16.5rem;
+}
+
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --paper: #0c1020;
+  --surface: #161b2e;
+  --ink: #e8ebf6;
+  --muted: #9aa3bb;
+  --line: #2b3150;
+  --accent: #8aa2ff;
+  --accent-soft: #1c2450;
+  --rose: #f081a3;
+  --rose-soft: #3a1b2a;
+  --x-ink: #e7e5e4;
+  --gh: #6ee7a8;
+  --gh-soft: #123226;
+  --tool: #fdba74;
+  --tool-soft: #3a2710;
+  --official: #5eead4;
+  --official-soft: #133734;
+  --news: #e9d5ff;
+  --news-soft: #2e1a4a;
+  --shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+  --focus: 0 0 0 2px var(--paper), 0 0 0 4px var(--accent);
+}
+
+html[data-theme="light"] { color-scheme: light; }
+
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) {
+    color-scheme: dark;
+    --paper: #0c1020;
+    --surface: #161b2e;
+    --ink: #e8ebf6;
+    --muted: #9aa3bb;
+    --line: #2b3150;
+    --accent: #8aa2ff;
+    --accent-soft: #1c2450;
+    --rose: #f081a3;
+    --rose-soft: #3a1b2a;
+    --x-ink: #e7e5e4;
+    --gh: #6ee7a8;
+    --gh-soft: #123226;
+    --tool: #fdba74;
+    --tool-soft: #3a2710;
+    --official: #5eead4;
+    --official-soft: #133734;
+    --news: #e9d5ff;
+    --news-soft: #2e1a4a;
+    --shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+    --focus: 0 0 0 2px var(--paper), 0 0 0 4px var(--accent);
+  }
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background:
+    radial-gradient(1400px 520px at 100% -12%, rgba(42, 70, 214, 0.10), transparent 58%),
+    radial-gradient(900px 380px at 0% 8%, rgba(196, 60, 106, 0.05), transparent 50%),
+    var(--paper);
+  color: var(--ink);
+  font-family: var(--font);
+  font-size: 17.5px;
+  line-height: 1.85;
+  touch-action: manipulation;
+}
+@media (pointer: fine) {
+  html { overscroll-behavior: none; }
+}
+
+.skip {
+  position: absolute;
+  right: 1rem;
+  top: -3.5rem;
+  background: var(--accent);
+  color: #fff;
+  padding: 0.4rem 0.8rem;
+  border-radius: 8px;
+  z-index: 100;
+}
+.skip:focus { top: 0.6rem; }
+
+.shell {
+  width: 100%;
+  max-width: var(--shell);
+  margin: 0 auto;
+  padding: 1.15rem var(--pad) 4rem;
+  padding-inline: max(var(--pad), env(safe-area-inset-right, 0px), env(safe-area-inset-left, 0px));
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  grid-template-areas:
+    "stamp copy theme"
+    "intro intro intro";
+  gap: 0.85rem 1.1rem;
+  align-items: start;
+  margin-bottom: 1.75rem;
+}
+.hero-copy { grid-area: copy; min-width: 0; }
+.hero-meta { display: contents; }
+.stamp { grid-area: stamp; }
+.icon-btn { grid-area: theme; justify-self: end; }
+.intro { grid-area: intro; }
+
+.stamp {
+  background: var(--ink);
+  color: var(--paper);
+  border-radius: 16px;
+  min-width: 4.7rem;
+  padding: 0.65rem 0.7rem 0.55rem;
+  text-align: center;
+  line-height: 1.15;
+}
+.stamp .day {
+  font-size: 1.9rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  display: block;
+}
+.stamp .mon {
+  font-size: 0.8rem;
+  opacity: 0.86;
+  display: block;
+  margin-top: 0.15rem;
+}
+.hero-copy h1 {
+  margin: 0;
+  font-size: clamp(1.55rem, 3.2vw, 2.15rem);
+  line-height: 1.3;
+  font-weight: 700;
+  text-wrap: balance;
+}
+.hero-copy .date {
+  margin: 0.2rem 0 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+.intro {
+  margin: 0;
+  max-width: 46rem;
+  color: var(--ink);
+}
+
+.icon-btn {
+  appearance: none;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--ink);
+  width: 2.6rem;
+  height: 2.6rem;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+}
+.icon-btn:hover { border-color: var(--accent); }
+.icon-btn:focus-visible,
+.tab:focus-visible,
+.more:focus-visible,
+a:focus-visible {
+  outline: none;
+  box-shadow: var(--focus);
+}
+.icon-btn svg { width: 1.15rem; height: 1.15rem; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+
+.kicker {
+  margin: 0 0 0.85rem;
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.highlights {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.9rem;
+  margin-bottom: 1.8rem;
+  align-items: stretch;
+}
+.hl {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1rem 1.1rem 0.95rem;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+.hl::before {
+  content: "";
+  position: absolute;
+  inset-block: 0;
+  inset-inline-start: 0;
+  width: 5px;
+  background: var(--rose);
+}
+.hl h3 {
+  margin: 0 0 0.45rem;
+  font-size: 1.05rem;
+  line-height: 1.5;
+  font-weight: 700;
+  text-wrap: pretty;
+  hyphens: none;
+}
+.hl h3 bdi, .item-title bdi, .hero-copy h1 bdi { white-space: nowrap; }
+.rank {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.55rem;
+  height: 1.55rem;
+  border-radius: 8px;
+  background: var(--rose-soft);
+  color: var(--rose);
+  font-size: 0.8rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  margin-bottom: 0.55rem;
+}
+.summary { margin: 0; color: var(--ink); }
+.muted { color: var(--muted); }
+
+.detail {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.32s ease;
+}
+.detail > .detail-inner { overflow: hidden; min-height: 0; }
+.is-open > .detail,
+.hl.is-open .detail { grid-template-rows: 1fr; }
+.detail-inner { padding-top: 0; }
+.is-open .detail-inner { padding-top: 0.7rem; }
+.detail-inner p { margin: 0 0 0.7rem; }
+.detail-inner p:last-child { margin-bottom: 0; }
+.detail-inner ul { margin: 0.3rem 0 0.7rem; padding: 0 1.1rem 0 0; }
+.detail-inner li { margin: 0 0 0.45rem; }
+
+.more {
+  appearance: none;
+  margin-top: auto;
+  padding-top: 0.8rem;
+  align-self: start;
+  border: 0;
+  background: transparent;
+  color: var(--accent);
+  font: inherit;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  padding-inline: 0;
+  padding-bottom: 0;
+  text-decoration: underline;
+  text-underline-offset: 0.16em;
+}
+.more::after { content: " ⌄"; }
+.is-open > .more::after,
+.hl.is-open .more::after { content: " ⌃"; }
+
+.badges { display: flex; flex-wrap: wrap; gap: 0.35rem; margin: 0.55rem 0 0; }
+.badge {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.45;
+  padding: 0.12rem 0.55rem;
+  border-radius: 999px;
+  text-decoration: none;
+  color: inherit;
+}
+.badge:hover { filter: brightness(0.96); color: inherit; }
+.badge-official { background: var(--official-soft); color: var(--official); }
+.badge-x { background: #ececec; color: var(--x-ink); }
+html[data-theme="dark"] .badge-x,
+html:not([data-theme="light"]) .badge-x { background: #2a2725; color: var(--x-ink); }
+@media (prefers-color-scheme: light) {
+  html:not([data-theme="dark"]) .badge-x { background: #ececec; color: #1c1917; }
+}
+.badge-news { background: var(--news-soft); color: var(--news); }
+.badge-tool { background: var(--tool-soft); color: var(--tool); }
+.badge-github { background: var(--gh-soft); color: var(--gh); }
+
+.panel, .hl, .item { scroll-margin-top: 4.75rem; }
+
+.board { display: block; }
+.panels { min-width: 0; }
+
+.tabs-wrap {
+  position: sticky;
+  top: env(safe-area-inset-top, 0px);
+  z-index: 20;
+  background: color-mix(in srgb, var(--paper) 86%, transparent);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 0.45rem 0 0.55rem;
+  margin: 0 -0.15rem 1rem;
+  scroll-margin-top: 0.5rem;
+}
+.tabs {
+  display: flex;
+  gap: 0.35rem;
+  overflow-x: auto;
+  padding: 0.15rem;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  scrollbar-width: none;
+}
+.tabs::-webkit-scrollbar { display: none; }
+.tab {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  font: inherit;
+  font-weight: 600;
+  font-size: 0.92rem;
+  padding: 0.45rem 0.75rem;
+  border-radius: 10px;
+  cursor: pointer;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.tab[aria-selected="true"] {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+.count {
+  font-variant-numeric: tabular-nums;
+  font-size: 0.75rem;
+  background: color-mix(in srgb, currentColor 12%, transparent);
+  padding: 0 0.38rem;
+  border-radius: 999px;
+  line-height: 1.5;
+}
+
+.panel[hidden] { display: none; }
+.panel-note { color: var(--muted); margin: 0 0 0.9rem; font-size: 0.98rem; }
+.subhead {
+  margin: 1.35rem 0 0.7rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  padding-inline-start: 0.65rem;
+  border-inline-start: 3px solid var(--accent);
+}
+.subhead:first-child { margin-top: 0.2rem; }
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+  align-items: stretch;
+}
+.item {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 0.95rem 1.05rem;
+  min-width: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.item.kind-x { border-inline-start: 4px solid var(--x-ink); }
+.item.kind-github { border-inline-start: 4px solid var(--gh); }
+.item.kind-tool { border-inline-start: 4px solid var(--tool); }
+.item.kind-official { border-inline-start: 4px solid var(--official); }
+.item-title {
+  margin: 0;
+  font-size: 1.02rem;
+  font-weight: 700;
+  line-height: 1.5;
+  text-wrap: balance;
+}
+.item-title:empty { display: none; }
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.8rem;
+  margin-top: 0.25rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-variant-numeric: tabular-nums;
+}
+.handle { font-weight: 700; unicode-bidi: isolate; direction: ltr; }
+bdi, [dir="ltr"] { unicode-bidi: isolate; }
+a { color: var(--accent); text-decoration: underline; text-underline-offset: 0.16em; }
+a:hover { color: var(--ink); }
+code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.88em;
+  background: var(--accent-soft);
+  border-radius: 6px;
+  padding: 0.05em 0.35em;
+  direction: ltr;
+  unicode-bidi: isolate;
+  white-space: nowrap;
+}
+
+.hl, .item, .intro, .hero-copy { overflow-wrap: break-word; }
+
+@media (hover: hover) and (pointer: fine) {
+  .hl, .item {
+    transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+  }
+  .hl:hover, .item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 16px 34px rgba(20, 24, 42, 0.11);
+    border-color: color-mix(in srgb, var(--accent) 38%, var(--line));
+  }
+}
+
+.panel.is-entering {
+  animation: panel-in 0.34s ease both;
+}
+@keyframes panel-in {
+  from { opacity: 0; transform: translateX(-14px); }
+  to { opacity: 1; transform: none; }
+}
+.hl.is-entering {
+  animation: hl-in 0.45s ease both;
+}
+.hl.is-entering:nth-child(2) { animation-delay: 0.07s; }
+.hl.is-entering:nth-child(3) { animation-delay: 0.14s; }
+@keyframes hl-in {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .hl, .panel, .detail, .item { animation: none !important; transition: none !important; }
+  .hl:hover, .item:hover { transform: none; }
+}
+
+/* Tablet: 768–1023 */
+@media (min-width: 768px) {
+  :root { --pad: 1.6rem; }
+  body { font-size: 17.5px; }
+  .shell { padding-top: 1.5rem; }
+  .stamp { min-width: 5.2rem; padding: 0.7rem 0.75rem 0.6rem; }
+  .stamp .day { font-size: 2.15rem; }
+  .highlights { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .list { grid-template-columns: repeat(auto-fill, minmax(min(100%, 21.25rem), 1fr)); gap: 0.9rem; }
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  .highlights .hl:last-child:nth-child(odd) { grid-column: 1 / -1; }
+}
+
+/* Desktop: 1024+ split hero, 3-col highlights, item card grid */
+@media (min-width: 1024px) {
+  :root { --pad: 2rem; }
+  .shell { padding-top: 2rem; padding-bottom: 4.5rem; }
+  .hero {
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas:
+      "copy meta"
+      "intro meta";
+    column-gap: 2.5rem;
+    row-gap: 0.8rem;
+    align-items: start;
+    margin-bottom: 2.1rem;
+  }
+  .hero-copy { grid-area: copy; }
+  .intro { grid-area: intro; margin: 0; max-width: 46rem; }
+  .hero-meta {
+    display: flex;
+    grid-area: meta;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.85rem;
+    min-width: 7.2rem;
+  }
+  .stamp, .icon-btn { grid-area: auto; justify-self: auto; }
+  .stamp { min-width: 6.4rem; padding: 0.95rem 0.9rem 0.8rem; border-radius: 20px; }
+  .stamp .day { font-size: 2.7rem; }
+  .stamp .mon { font-size: 0.9rem; }
+  .hero-copy h1 {
+    font-size: clamp(2rem, 2.4vw, 2.65rem);
+  }
+  .hero-copy .date { font-size: 1.02rem; }
+  .highlights { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.05rem; }
+  .hl { padding: 1.15rem 1.2rem 1.05rem; }
+  .list { grid-template-columns: repeat(auto-fill, minmax(min(100%, 21.25rem), 1fr)); }
+  .panel, .hl, .item { scroll-margin-top: 5.25rem; }
+}
+
+/* Wide desktop: vertical sticky section nav on the RTL start (right) */
+@media (min-width: 1280px) {
+  .board {
+    display: grid;
+    grid-template-columns: var(--nav) minmax(0, 1fr);
+    gap: 1.6rem 1.75rem;
+    align-items: start;
+  }
+  .tabs-wrap {
+    position: sticky;
+    top: max(1rem, env(safe-area-inset-top, 0px));
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+  .tabs {
+    flex-direction: column;
+    overflow: visible;
+    padding: 0.45rem;
+    gap: 0.28rem;
+    border-radius: 18px;
+  }
+  .tab {
+    width: 100%;
+    justify-content: space-between;
+    white-space: normal;
+    text-align: start;
+    padding: 0.72rem 0.85rem;
+    line-height: 1.45;
+  }
+  .panel, .hl, .item { scroll-margin-top: 1.25rem; }
+}
+
+@media (max-width: 767px) {
+  body { font-size: 16.5px; }
+  .shell { padding-top: 1rem; padding-bottom: 3.4rem; }
+  .hero {
+    grid-template-areas:
+      "stamp copy theme"
+      "date date date"
+      "intro intro intro";
+  }
+  .hero-copy { display: contents; }
+  .hero-copy h1 { grid-area: copy; }
+  .hero-copy .date { grid-area: date; margin: 0; }
+}
+
+@media print {
+  body { background: #fff; }
+  .board { display: block; }
+  .tabs-wrap, .icon-btn, .more, .skip { display: none !important; }
+  .panel[hidden] { display: block !important; }
+  .detail { grid-template-rows: 1fr !important; }
+  .hl, .item { box-shadow: none; break-inside: avoid; transform: none; }
+  .highlights, .list { grid-template-columns: 1fr 1fr; }
+}
+
+.err { padding: 2rem; color: #b91c1c; }
+
+  </style>
+</head>
+<body>
+  <a class="skip" href="#app">تخطي إلى المحتوى</a>
+  <div id="app"></div>
+  <noscript><p class="err">افتح الملف في متصفح فيه JavaScript عشان التبويبات والبطاقات تشتغل.</p></noscript>
+  <!--
+  بيانات التقرير موجودة في عنصر script type=application/json بالمعرّف report-data.
+  الصفحة بترسم الواجهة كلها من الـJSON ده. لتقرير جديد: انسخ template.html واملأ الـJSON فقط.
+
+  المخطط (schema):
+  {
+    title, titleHtml, pageTitle, date, day, monthShort, introHtml, highlightsTitle,
+    highlights: [ Highlight, ... ],
+    tabs: [ Tab, ... ]
+  }
+
+  Highlight: { title او titleHtml, summary, detail, sources: [Source] }
+  Source: { type: official | x | news | tool | github, label, url }
+  Tab: { id, label, kind, noteHtml?, items: [Item], subsections?: [{label, items}] }
+  Item: { title او titleHtml, summary, detail?, sources,
+          handle?, postUrl?, engagement?: {likes, reposts, replies, bookmarks},
+          stars?, starsToday?, repoUrl? }
+
+  قواعد: لا تخترع أخبار أو حسابات أو أرقام. احذف أي تبويب فرعي في X فاضي.
+  المصطلحات الإنجليزية داخل bdi. كل رابط: target=_blank و rel=noopener noreferrer.
+-->
+
+  <script type="application/json" id="report-data">
+{"title":"تقرير أخبار الـAI الصباحي","pageTitle":"أخبار الـAI – الأحد 22 نوفمبر 2026","date":"الأحد 22 نوفمبر 2026 (توقيت القاهرة)","day":"22","monthShort":"نوفمبر","introHtml":"صباح الفل يا حسام 👋 أول يوم في الأسبوع، فجمعنالك أهم حاجات الويك إند: <bdi dir=\"ltr\">Code Mode<\/bdi> في <bdi dir=\"ltr\">Claude Code<\/bdi>، و<bdi dir=\"ltr\">MCP Events<\/bdi>، و<bdi dir=\"ltr\">Gemini 4 Neon<\/bdi>، وتريند جامد للـ<bdi dir=\"ltr\">agent skills<\/bdi> على <bdi dir=\"ltr\">GitHub<\/bdi>.","highlightsTitle":"لازم تبص عليها","highlights":[{"rank":1,"titleHtml":"<bdi dir=\"ltr\">Claude Code<\/bdi> نزّل <bdi dir=\"ltr\">Code Mode<\/bdi> (تجريبي)","summaryHtml":"بدل ما <bdi dir=\"ltr\">Claude<\/bdi> ينادي كل tool لوحده، بيكتب script صغير يربط الـtools ببعض ويشغّلها مرة واحدة، وكمان يقدر يرد عليك وهو لسه بيشغّل أوامر طويلة. النتيجة سرعة أكتر و context أنضف.","detailHtml":"بتفعّله بـ <code>CLAUDE_CODE_EXPERIMENTAL_CODE_MODE=1<\/code>. البوست الرسمي من <bdi dir=\"ltr\">@ClaudeDevs<\/bdi> عليه حوالي 12.5 ألف لايك و14.5 ألف bookmark، و<bdi dir=\"ltr\">Addy Osmani<\/bdi> رجّع نشره وطلب feedback. مفيد جدًا لما تشغّل suite طويلة وعايز الـagent يفلتر الـlogs بدل ما يملا الـcontext.","sources":[{"type":"x","href":"https://x.com/ClaudeDevs/status/2122801681939234950","label":"X","handle":"ClaudeDevs","url":"https://x.com/ClaudeDevs/status/2122801681939234950"},{"type":"x","href":"https://x.com/addyosmani/status/2124229492248019362","label":"X","handle":"addyosmani","url":"https://x.com/addyosmani/status/2124229492248019362"}],"handle":"ClaudeDevs","engagement":{"likes":12534,"reposts":787,"replies":468,"bookmarks":14552},"summary":"بدل ما <bdi dir=\"ltr\">Claude<\/bdi> ينادي كل tool لوحده، بيكتب script صغير يربط الـtools ببعض ويشغّلها مرة واحدة، وكمان يقدر يرد عليك وهو لسه بيشغّل أوامر طويلة. النتيجة سرعة أكتر و context أنضف.","detail":"بتفعّله بـ <code>CLAUDE_CODE_EXPERIMENTAL_CODE_MODE=1<\/code>. البوست الرسمي من <bdi dir=\"ltr\">@ClaudeDevs<\/bdi> عليه حوالي 12.5 ألف لايك و14.5 ألف bookmark، و<bdi dir=\"ltr\">Addy Osmani<\/bdi> رجّع نشره وطلب feedback. مفيد جدًا لما تشغّل suite طويلة وعايز الـagent يفلتر الـlogs بدل ما يملا الـcontext."},{"rank":2,"titleHtml":"<bdi dir=\"ltr\">MCP Events<\/bdi> بقى في <bdi dir=\"ltr\">beta<\/bdi> نهائي","summaryHtml":"extension جديد في <bdi dir=\"ltr\">MCP<\/bdi> بيخلي الـagents تشترك في events من برّه وتتصرف لوحدها من غير prompt، زي ما يحصل حاجة في CI أو في سيستم.","detailHtml":"أعلنه <bdi dir=\"ltr\">@Poita_<\/bdi> (من الـmaintainers) والـspec موجودة على الموقع الرسمي للـ<bdi dir=\"ltr\">MCP<\/bdi>. ده مهم لأي حد عايز agent يصحى لوحده لما build يقع أو test يفشل.","sources":[{"type":"official","href":"https://modelcontextprotocol.io/extensions/events/overview","label":"الموقع الرسمي","url":"https://modelcontextprotocol.io/extensions/events/overview"},{"type":"x","href":"https://x.com/Poita_/status/2123812640254251472","label":"X","handle":"Poita_","url":"https://x.com/Poita_/status/2123812640254251472"}],"handle":"Poita_","engagement":{"likes":559,"reposts":65,"replies":48,"bookmarks":521},"summary":"extension جديد في <bdi dir=\"ltr\">MCP<\/bdi> بيخلي الـagents تشترك في events من برّه وتتصرف لوحدها من غير prompt، زي ما يحصل حاجة في CI أو في سيستم.","detail":"أعلنه <bdi dir=\"ltr\">@Poita_<\/bdi> (من الـmaintainers) والـspec موجودة على الموقع الرسمي للـ<bdi dir=\"ltr\">MCP<\/bdi>. ده مهم لأي حد عايز agent يصحى لوحده لما build يقع أو test يفشل."},{"rank":3,"titleHtml":"<bdi dir=\"ltr\">Google<\/bdi> ضافت <bdi dir=\"ltr\">Gemini 4 Neon<\/bdi>","summaryHtml":"موديل جديد في عيلة <bdi dir=\"ltr\">Gemini 4<\/bdi> قوي في الـcoding والـreasoning، وجوجل بتقول تكلفته للـtask أقل 50–80% من المنافسين.","detailHtml":"نزل خلال الويك إند وعليه كلام كتير على X، منه بوست ساخر من مستخدم قال إن الموديل بدأ \"يتريق\" عليه وهو بيحل معادلة. الـbenchmarks في البوست الرسمي.","sources":[{"type":"x","href":"https://x.com/NewsFromGoogle/status/2123959779894632746","label":"X","handle":"NewsFromGoogle","url":"https://x.com/NewsFromGoogle/status/2123959779894632746"}],"handle":"NewsFromGoogle","engagement":{"likes":3634,"reposts":141,"replies":106,"bookmarks":269},"summary":"موديل جديد في عيلة <bdi dir=\"ltr\">Gemini 4<\/bdi> قوي في الـcoding والـreasoning، وجوجل بتقول تكلفته للـtask أقل 50–80% من المنافسين.","detail":"نزل خلال الويك إند وعليه كلام كتير على X، منه بوست ساخر من مستخدم قال إن الموديل بدأ \"يتريق\" عليه وهو بيحل معادلة. الـbenchmarks في البوست الرسمي."}],"tabs":[{"id":"official","label":"إصدارات رسمية","items":[{"titleHtml":"<bdi dir=\"ltr\">Claude Code<\/bdi> نزّل <bdi dir=\"ltr\">Code Mode<\/bdi> (تجريبي)","summaryHtml":"بدل ما <bdi dir=\"ltr\">Claude<\/bdi> ينادي كل tool لوحده، بيكتب script صغير يربط الـtools ببعض ويشغّلها مرة واحدة، وكمان يقدر يرد عليك وهو لسه بيشغّل أوامر طويلة. النتيجة سرعة أكتر و context أنضف.","detailHtml":"بتفعّله بـ <code>CLAUDE_CODE_EXPERIMENTAL_CODE_MODE=1<\/code>. البوست الرسمي من <bdi dir=\"ltr\">@ClaudeDevs<\/bdi> عليه حوالي 12.5 ألف لايك و14.5 ألف bookmark، و<bdi dir=\"ltr\">Addy Osmani<\/bdi> رجّع نشره وطلب feedback. مفيد جدًا لما تشغّل suite طويلة وعايز الـagent يفلتر الـlogs بدل ما يملا الـcontext.","sources":[{"type":"x","href":"https://x.com/ClaudeDevs/status/2122801681939234950","label":"X","handle":"ClaudeDevs","url":"https://x.com/ClaudeDevs/status/2122801681939234950"},{"type":"x","href":"https://x.com/addyosmani/status/2124229492248019362","label":"X","handle":"addyosmani","url":"https://x.com/addyosmani/status/2124229492248019362"}],"handle":"ClaudeDevs","engagement":{"likes":12534,"reposts":787,"replies":468,"bookmarks":14552},"summary":"بدل ما <bdi dir=\"ltr\">Claude<\/bdi> ينادي كل tool لوحده، بيكتب script صغير يربط الـtools ببعض ويشغّلها مرة واحدة، وكمان يقدر يرد عليك وهو لسه بيشغّل أوامر طويلة. النتيجة سرعة أكتر و context أنضف.","detail":"بتفعّله بـ <code>CLAUDE_CODE_EXPERIMENTAL_CODE_MODE=1<\/code>. البوست الرسمي من <bdi dir=\"ltr\">@ClaudeDevs<\/bdi> عليه حوالي 12.5 ألف لايك و14.5 ألف bookmark، و<bdi dir=\"ltr\">Addy Osmani<\/bdi> رجّع نشره وطلب feedback. مفيد جدًا لما تشغّل suite طويلة وعايز الـagent يفلتر الـlogs بدل ما يملا الـcontext."},{"titleHtml":"<bdi dir=\"ltr\">Google<\/bdi> ضافت <bdi dir=\"ltr\">Gemini 4 Neon<\/bdi>","summaryHtml":"موديل جديد في عيلة <bdi dir=\"ltr\">Gemini 4<\/bdi> قوي في الـcoding والـreasoning، وجوجل بتقول تكلفته للـtask أقل 50–80% من المنافسين.","detailHtml":"نزل خلال الويك إند وعليه كلام كتير على X، منه بوست ساخر من مستخدم قال إن الموديل بدأ \"يتريق\" عليه وهو بيحل معادلة. الـbenchmarks في البوست الرسمي.","sources":[{"type":"x","href":"https://x.com/NewsFromGoogle/status/2123959779894632746","label":"X","handle":"NewsFromGoogle","url":"https://x.com/NewsFromGoogle/status/2123959779894632746"}],"handle":"NewsFromGoogle","engagement":{"likes":3634,"reposts":141,"replies":106,"bookmarks":269},"summary":"موديل جديد في عيلة <bdi dir=\"ltr\">Gemini 4<\/bdi> قوي في الـcoding والـreasoning، وجوجل بتقول تكلفته للـtask أقل 50–80% من المنافسين.","detail":"نزل خلال الويك إند وعليه كلام كتير على X، منه بوست ساخر من مستخدم قال إن الموديل بدأ \"يتريق\" عليه وهو بيحل معادلة. الـbenchmarks في البوست الرسمي."},{"titleHtml":"<bdi dir=\"ltr\">MCP Events<\/bdi> بقى في <bdi dir=\"ltr\">beta<\/bdi> نهائي","summaryHtml":"extension جديد في <bdi dir=\"ltr\">MCP<\/bdi> بيخلي الـagents تشترك في events من برّه وتتصرف لوحدها من غير prompt، زي ما يحصل حاجة في CI أو في سيستم.","detailHtml":"أعلنه <bdi dir=\"ltr\">@Poita_<\/bdi> (من الـmaintainers) والـspec موجودة على الموقع الرسمي للـ<bdi dir=\"ltr\">MCP<\/bdi>. ده مهم لأي حد عايز agent يصحى لوحده لما build يقع أو test يفشل.","sources":[{"type":"official","href":"https://modelcontextprotocol.io/extensions/events/overview","label":"الموقع الرسمي","url":"https://modelcontextprotocol.io/extensions/events/overview"},{"type":"x","href":"https://x.com/Poita_/status/2123812640254251472","label":"X","handle":"Poita_","url":"https://x.com/Poita_/status/2123812640254251472"}],"handle":"Poita_","engagement":{"likes":559,"reposts":65,"replies":48,"bookmarks":521},"summary":"extension جديد في <bdi dir=\"ltr\">MCP<\/bdi> بيخلي الـagents تشترك في events من برّه وتتصرف لوحدها من غير prompt، زي ما يحصل حاجة في CI أو في سيستم.","detail":"أعلنه <bdi dir=\"ltr\">@Poita_<\/bdi> (من الـmaintainers) والـspec موجودة على الموقع الرسمي للـ<bdi dir=\"ltr\">MCP<\/bdi>. ده مهم لأي حد عايز agent يصحى لوحده لما build يقع أو test يفشل."},{"titleHtml":"<bdi dir=\"ltr\">OpenAI<\/bdi>: <bdi dir=\"ltr\">Codex<\/bdi> بيصطاد الـperformance regressions","summaryHtml":"<bdi dir=\"ltr\">OpenAI<\/bdi> بنت \"<bdi dir=\"ltr\">Performance Factory<\/bdi>\": agents من <bdi dir=\"ltr\">Codex<\/bdi> بتحقق في بطء <bdi dir=\"ltr\">ChatGPT<\/bdi>، تقترح fix، والمهندسين يراجعوا، وبعدين تتأكد إن الـfix اشتغل في production.","detailHtml":"حسب بوستات كتير بتنقل عن <bdi dir=\"ltr\">VentureBeat<\/bdi>: أكتر من 1,700 investigation في حوالي 3 شهور، ولقوا 600+ root cause، بس حوالي 15 fix بس اتشحنوا زي ما الـagent كتبهم بالظبط. يعني الـdiagnosis اتأتمت، لكن الإنسان لسه بيوقّع على الـmerge.","sources":[{"type":"x","href":"https://x.com/OpenAIDevs/status/2123471880292299171","label":"X","handle":"OpenAIDevs","url":"https://x.com/OpenAIDevs/status/2123471880292299171"}],"handle":"OpenAIDevs","engagement":{"likes":2259,"reposts":139,"replies":244,"bookmarks":699},"summary":"<bdi dir=\"ltr\">OpenAI<\/bdi> بنت \"<bdi dir=\"ltr\">Performance Factory<\/bdi>\": agents من <bdi dir=\"ltr\">Codex<\/bdi> بتحقق في بطء <bdi dir=\"ltr\">ChatGPT<\/bdi>، تقترح fix، والمهندسين يراجعوا، وبعدين تتأكد إن الـfix اشتغل في production.","detail":"حسب بوستات كتير بتنقل عن <bdi dir=\"ltr\">VentureBeat<\/bdi>: أكتر من 1,700 investigation في حوالي 3 شهور، ولقوا 600+ root cause، بس حوالي 15 fix بس اتشحنوا زي ما الـagent كتبهم بالظبط. يعني الـdiagnosis اتأتمت، لكن الإنسان لسه بيوقّع على الـmerge."},{"titleHtml":"تطبيق <bdi dir=\"ltr\">Claude<\/bdi> على الموبايل اتجدد","summaryHtml":"تابات جديدة تحت لـ<bdi dir=\"ltr\">Chat<\/bdi> و<bdi dir=\"ltr\">Projects<\/bdi> و<bdi dir=\"ltr\">Code<\/bdi> و<bdi dir=\"ltr\">Artifacts<\/bdi>، وبقى أسهل تبدأ أو تكمّل session من الموبايل.","sources":[{"type":"x","href":"https://x.com/daniel__designs/status/2123860186951516287","label":"X","handle":"daniel__designs","url":"https://x.com/daniel__designs/status/2123860186951516287"}],"handle":"daniel__designs","engagement":{"likes":4136,"reposts":173,"replies":260,"bookmarks":1122},"summary":"تابات جديدة تحت لـ<bdi dir=\"ltr\">Chat<\/bdi> و<bdi dir=\"ltr\">Projects<\/bdi> و<bdi dir=\"ltr\">Code<\/bdi> و<bdi dir=\"ltr\">Artifacts<\/bdi>، وبقى أسهل تبدأ أو تكمّل session من الموبايل."},{"titleHtml":"<bdi dir=\"ltr\">ChatGPT<\/bdi>: redesign و<bdi dir=\"ltr\">Codex Remote<\/bdi> أثبت","summaryHtml":"تصميم جديد للتطبيق، <bdi dir=\"ltr\">Spaces<\/bdi> لمشتركين <bdi dir=\"ltr\">Plus<\/bdi>، تحسينات performance، و<bdi dir=\"ltr\">Codex Remote<\/bdi> بقى more reliable.","sources":[{"type":"x","href":"https://x.com/ajambrosino/status/2123840812534452296","label":"X","handle":"ajambrosino","url":"https://x.com/ajambrosino/status/2123840812534452296"}],"handle":"ajambrosino","engagement":{"likes":2586,"reposts":128,"replies":261,"bookmarks":470},"summary":"تصميم جديد للتطبيق، <bdi dir=\"ltr\">Spaces<\/bdi> لمشتركين <bdi dir=\"ltr\">Plus<\/bdi>، تحسينات performance، و<bdi dir=\"ltr\">Codex Remote<\/bdi> بقى more reliable."},{"titleHtml":"<bdi dir=\"ltr\">OpenAI<\/bdi> نشرت بحث عن الـdistillation","summaryHtml":"إزاي بيكتشفوا ويوقفوا محاولات منظمة لاستخلاص قدرات موديلاتهم من غير الـsafeguards.","sources":[{"type":"x","href":"https://x.com/OpenAI/status/2123862344422088794","label":"X","handle":"OpenAI","url":"https://x.com/OpenAI/status/2123862344422088794"}],"handle":"OpenAI","engagement":{"likes":4535,"reposts":349,"replies":970,"bookmarks":1548},"summary":"إزاي بيكتشفوا ويوقفوا محاولات منظمة لاستخلاص قدرات موديلاتهم من غير الـsafeguards."}]},{"id":"x","label":"من X","items":[],"subsections":[{"id":"x-trending","label":"تريند الناس بتتكلم عنه","items":[{"titleHtml":"\"<bdi dir=\"ltr\">Effective Swarm Riding<\/bdi>\" لـ<bdi dir=\"ltr\">Georgios Konstantopoulos<\/bdi>","summaryHtml":"thread عن إزاي تشغّل swarm من الـcoding agents: الـinfra الصح، الـattitude، وتعليمات جريئة. أكتر بوست اتعمله bookmark في الموضوع ده الويك إند.","sources":[{"type":"x","href":"https://x.com/gakonst/status/2123839118409109853","label":"X","handle":"gakonst","url":"https://x.com/gakonst/status/2123839118409109853"}],"handle":"gakonst","engagement":{"likes":1882,"reposts":135,"replies":61,"bookmarks":3924},"summary":"thread عن إزاي تشغّل swarm من الـcoding agents: الـinfra الصح، الـattitude، وتعليمات جريئة. أكتر بوست اتعمله bookmark في الموضوع ده الويك إند."},{"titleHtml":"<bdi dir=\"ltr\">Gemini 4 Neon<\/bdi> \"بيتريق\" على المستخدم","summaryHtml":"بوست فيرال: الموديل بدأ يكتب code لمعادلة بسيطة وبعدين علّق على المستخدم بسخرية. هزار أكتر منه خبر، بس بيوضح شخصية الموديل.","sources":[{"type":"x","href":"https://x.com/TechyAizen/status/2124104358862188830","label":"X","handle":"TechyAizen","url":"https://x.com/TechyAizen/status/2124104358862188830"}],"handle":"TechyAizen","engagement":{"likes":2862,"reposts":84,"replies":180,"bookmarks":332},"summary":"بوست فيرال: الموديل بدأ يكتب code لمعادلة بسيطة وبعدين علّق على المستخدم بسخرية. هزار أكتر منه خبر، بس بيوضح شخصية الموديل."}]},{"id":"x-skills","label":"Skills مهمة نزلت","items":[{"titleHtml":"إزاي تكتب <bdi dir=\"ltr\">Agent Skills<\/bdi> بتشتغل فعلًا","summaryHtml":"أهم نصيحة: شغّل الـagent على 3 tasks حقيقية من غير skill، واكتب كل غلطة عملها؛ اللستة دي هي الـskill. والـdescription هو الـtrigger مش ملخص.","sources":[{"type":"x","href":"https://x.com/akshay_pachaar/status/2124118137671155887","label":"X","handle":"akshay_pachaar","url":"https://x.com/akshay_pachaar/status/2124118137671155887"}],"handle":"akshay_pachaar","engagement":{"likes":189,"reposts":31,"replies":70,"bookmarks":254},"summary":"أهم نصيحة: شغّل الـagent على 3 tasks حقيقية من غير skill، واكتب كل غلطة عملها؛ اللستة دي هي الـskill. والـdescription هو الـtrigger مش ملخص."},{"titleHtml":"الـdescription بتاع الـskill بيكلفك tokens في كل رسالة","summaryHtml":"اسم الـskill ووصفها قاعدين في الـcontext على طول، والتعليمات الكاملة بتتحمّل بس لما تستخدمها؛ فخلّي الوصف قصير ودقيق.","sources":[{"type":"x","href":"https://x.com/kv1nsiii/status/2124199293783310632","label":"X","handle":"kv1nsiii","url":"https://x.com/kv1nsiii/status/2124199293783310632"}],"handle":"kv1nsiii","engagement":{"likes":50,"replies":17,"bookmarks":30},"summary":"اسم الـskill ووصفها قاعدين في الـcontext على طول، والتعليمات الكاملة بتتحمّل بس لما تستخدمها؛ فخلّي الوصف قصير ودقيق."}]}]},{"id":"github","label":"تريند GitHub","noteHtml":"الأرقام من <a href=\"https://github.com/trending\" target=\"_blank\" rel=\"noopener\">GitHub Trending<\/a> صباح الأحد 22 نوفمبر 2026 (توقيت القاهرة).","items":[{"titleHtml":"<bdi dir=\"ltr\">elementalsouls/Claude-BugHunter<\/bdi>","summaryHtml":"bundle فيه 82 skill لـ<bdi dir=\"ltr\">Claude Code<\/bdi> للـbug hunting والـred-team، مبني على 681 pattern من reports منشورة. رقم 1 في التريند النهارده.","sources":[{"type":"github","href":"https://github.com/elementalsouls/Claude-BugHunter","label":"GitHub","url":"https://github.com/elementalsouls/Claude-BugHunter"}],"stars":16389,"starsToday":1803,"summary":"bundle فيه 82 skill لـ<bdi dir=\"ltr\">Claude Code<\/bdi> للـbug hunting والـred-team، مبني على 681 pattern من reports منشورة. رقم 1 في التريند النهارده."},{"titleHtml":"<bdi dir=\"ltr\">obra/superpowers<\/bdi>","summaryHtml":"framework للـagentic skills ومنهجية تطوير؛ لسه بيطلع في التريند.","sources":[{"type":"github","href":"https://github.com/obra/superpowers","label":"GitHub","url":"https://github.com/obra/superpowers"}],"stars":323863,"starsToday":883,"summary":"framework للـagentic skills ومنهجية تطوير؛ لسه بيطلع في التريند."},{"titleHtml":"<bdi dir=\"ltr\">HKUDS/CLI-Anything<\/bdi>","summaryHtml":"بيخلي أي software يبقى agent-native عن طريق CLI.","sources":[{"type":"github","href":"https://github.com/HKUDS/CLI-Anything","label":"GitHub","url":"https://github.com/HKUDS/CLI-Anything"}],"stars":62216,"starsToday":769,"summary":"بيخلي أي software يبقى agent-native عن طريق CLI."},{"titleHtml":"<bdi dir=\"ltr\">mvanhorn/last30days-skill<\/bdi>","summaryHtml":"skill بتبحث في Reddit وX وYouTube وHN والويب وتطلع ملخص بمصادر.","sources":[{"type":"github","href":"https://github.com/mvanhorn/last30days-skill","label":"GitHub","url":"https://github.com/mvanhorn/last30days-skill"}],"stars":72158,"starsToday":560,"summary":"skill بتبحث في Reddit وX وYouTube وHN والويب وتطلع ملخص بمصادر."},{"titleHtml":"<bdi dir=\"ltr\">cathrynlavery/diagram-design<\/bdi>","summaryHtml":"skill لرسم diagrams بـHTML/SVG لـ<bdi dir=\"ltr\">Claude Code<\/bdi> و<bdi dir=\"ltr\">Codex<\/bdi> و<bdi dir=\"ltr\">Cursor<\/bdi>.","sources":[{"type":"github","href":"https://github.com/cathrynlavery/diagram-design","label":"GitHub","url":"https://github.com/cathrynlavery/diagram-design"}],"stars":69904,"starsToday":583,"summary":"skill لرسم diagrams بـHTML/SVG لـ<bdi dir=\"ltr\">Claude Code<\/bdi> و<bdi dir=\"ltr\">Codex<\/bdi> و<bdi dir=\"ltr\">Cursor<\/bdi>."},{"titleHtml":"<bdi dir=\"ltr\">Tracer-Cloud/opensre<\/bdi>","summaryHtml":"open-source agent لـreliability الـCI/CD.","sources":[{"type":"github","href":"https://github.com/Tracer-Cloud/opensre","label":"GitHub","url":"https://github.com/Tracer-Cloud/opensre"}],"stars":14079,"starsToday":450,"summary":"open-source agent لـreliability الـCI/CD."},{"titleHtml":"<bdi dir=\"ltr\">google-labs-code/stitch-skills<\/bdi>","summaryHtml":"skills رسمية من <bdi dir=\"ltr\">Google Labs<\/bdi> للشغل مع <bdi dir=\"ltr\">Stitch MCP<\/bdi>.","sources":[{"type":"github","href":"https://github.com/google-labs-code/stitch-skills","label":"GitHub","url":"https://github.com/google-labs-code/stitch-skills"}],"stars":11563,"starsToday":326,"summary":"skills رسمية من <bdi dir=\"ltr\">Google Labs<\/bdi> للشغل مع <bdi dir=\"ltr\">Stitch MCP<\/bdi>."},{"titleHtml":"<bdi dir=\"ltr\">cursor/plugins<\/bdi>","summaryHtml":"الـspec والـplugins الرسمية بتاعة <bdi dir=\"ltr\">Cursor<\/bdi>.","sources":[{"type":"github","href":"https://github.com/cursor/plugins","label":"GitHub","url":"https://github.com/cursor/plugins"}],"stars":18172,"starsToday":260,"summary":"الـspec والـplugins الرسمية بتاعة <bdi dir=\"ltr\">Cursor<\/bdi>."},{"titleHtml":"<bdi dir=\"ltr\">ChromeDevTools/chrome-devtools-mcp<\/bdi>","summaryHtml":"MCP server بيدي الـagent وصول لـChrome DevTools. من تريند الأسبوع: 2,795 نجمة الأسبوع ده.","sources":[{"type":"github","href":"https://github.com/ChromeDevTools/chrome-devtools-mcp","label":"GitHub","url":"https://github.com/ChromeDevTools/chrome-devtools-mcp"}],"stars":58724,"summary":"MCP server بيدي الـagent وصول لـChrome DevTools. من تريند الأسبوع: 2,795 نجمة الأسبوع ده."},{"titleHtml":"<bdi dir=\"ltr\">alibaba/open-code-review<\/bdi>","summaryHtml":"code review hybrid: pipelines deterministic + LLM agent. من تريند الأسبوع: 4,032 نجمة الأسبوع ده.","sources":[{"type":"github","href":"https://github.com/alibaba/open-code-review","label":"GitHub","url":"https://github.com/alibaba/open-code-review"}],"stars":55175,"summary":"code review hybrid: pipelines deterministic + LLM agent. من تريند الأسبوع: 4,032 نجمة الأسبوع ده."}]},{"id":"qa","label":"أدوات QA","items":[{"titleHtml":"<bdi dir=\"ltr\">chrome-devtools-mcp<\/bdi>","summaryHtml":"الـagent يقدر يفتح الصفحة ويشوف console وnetwork وperformance بنفسه؛ مناسب للـexploratory testing وdebug الـUI failures.","sources":[{"type":"github","href":"https://github.com/ChromeDevTools/chrome-devtools-mcp","label":"GitHub","url":"https://github.com/ChromeDevTools/chrome-devtools-mcp"}],"stars":58724,"summary":"الـagent يقدر يفتح الصفحة ويشوف console وnetwork وperformance بنفسه؛ مناسب للـexploratory testing وdebug الـUI failures."},{"titleHtml":"<bdi dir=\"ltr\">Hud<\/bdi>: runtime sensor للكود اللي الـAI كتبه","summaryHtml":"بيراقب الكود في production، يحدد baselines، ويقول لو الـPR safe أو محتاج review. شعارهم: \"It looked good to me\" أخطر جملة في عصر الـAI code.","sources":[{"type":"x","href":"https://x.com/roee/status/2123450837422718985","label":"X","handle":"roee","url":"https://x.com/roee/status/2123450837422718985"}],"handle":"roee","engagement":{"likes":666,"reposts":125,"replies":132,"bookmarks":282},"summary":"بيراقب الكود في production، يحدد baselines، ويقول لو الـPR safe أو محتاج review. شعارهم: \"It looked good to me\" أخطر جملة في عصر الـAI code."},{"titleHtml":"<bdi dir=\"ltr\">Tracer-Cloud/opensre<\/bdi>","summaryHtml":"agent مفتوح المصدر لـreliability الـCI/CD، يستاهل تجربة على pipeline الـtests.","sources":[{"type":"github","href":"https://github.com/Tracer-Cloud/opensre","label":"GitHub","url":"https://github.com/Tracer-Cloud/opensre"}],"stars":14079,"starsToday":450,"summary":"agent مفتوح المصدر لـreliability الـCI/CD، يستاهل تجربة على pipeline الـtests."},{"titleHtml":"<bdi dir=\"ltr\">alibaba/open-code-review<\/bdi>","summaryHtml":"review للكود بخليط من checks ثابتة وLLM agent؛ ممكن يمسك حاجات قبل ما توصل للـtesting.","sources":[{"type":"github","href":"https://github.com/alibaba/open-code-review","label":"GitHub","url":"https://github.com/alibaba/open-code-review"}],"stars":55175,"summary":"review للكود بخليط من checks ثابتة وLLM agent؛ ممكن يمسك حاجات قبل ما توصل للـtesting."},{"titleHtml":"<bdi dir=\"ltr\">Claude-BugHunter<\/bdi>","summaryHtml":"لو بتعمل security testing على APIs، الـskills دي فيها patterns لـ24 class من الثغرات.","sources":[{"type":"github","href":"https://github.com/elementalsouls/Claude-BugHunter","label":"GitHub","url":"https://github.com/elementalsouls/Claude-BugHunter"}],"stars":16389,"starsToday":1803,"summary":"لو بتعمل security testing على APIs، الـskills دي فيها patterns لـ24 class من الثغرات."}]},{"id":"tester","label":"مفيد لشغلك","items":[{"titleHtml":"جرّب <bdi dir=\"ltr\">Code Mode<\/bdi> على suite الـ<bdi dir=\"ltr\">Rest Assured<\/bdi>","summaryHtml":"فعّل <code>CLAUDE_CODE_EXPERIMENTAL_CODE_MODE=1<\/code> واطلب منه يشغّل الـsuite ويفلتر الـfailures ويجمّعها حسب السبب، وقارن الوقت والـcontext بالطريقة العادية.","sources":[{"type":"x","href":"https://x.com/ClaudeDevs/status/2122801681939234950","label":"X","handle":"ClaudeDevs","url":"https://x.com/ClaudeDevs/status/2122801681939234950"}],"summary":"فعّل <code>CLAUDE_CODE_EXPERIMENTAL_CODE_MODE=1<\/code> واطلب منه يشغّل الـsuite ويفلتر الـfailures ويجمّعها حسب السبب، وقارن الوقت والـcontext بالطريقة العادية."},{"titleHtml":"اعمل skill لمشروع <bdi dir=\"ltr\">SHAFT<\/bdi> بالطريقة الصح","summaryHtml":"شغّل الـagent على 3 tasks حقيقية (test جديد، locator، assertion) من غير skill، سجّل غلطاته، وخلي اللستة دي هي الـskill بـdescription قصير.","sources":[{"type":"x","href":"https://x.com/akshay_pachaar/status/2124118137671155887","label":"X","handle":"akshay_pachaar","url":"https://x.com/akshay_pachaar/status/2124118137671155887"}],"summary":"شغّل الـagent على 3 tasks حقيقية (test جديد، locator، assertion) من غير skill، سجّل غلطاته، وخلي اللستة دي هي الـskill بـdescription قصير."},{"titleHtml":"\"<bdi dir=\"ltr\">Performance Factory<\/bdi>\" صغيرة للـflaky tests","summaryHtml":"نفس فكرة <bdi dir=\"ltr\">OpenAI<\/bdi>: agent يحقق في كل test فشل، يكتب root cause ويقترح fix، وإنت اللي توافق. ابدأ بالـflaky tests في الـnightly run.","sources":[{"type":"x","href":"https://x.com/OpenAIDevs/status/2123471880292299171","label":"X","handle":"OpenAIDevs","url":"https://x.com/OpenAIDevs/status/2123471880292299171"}],"summary":"نفس فكرة <bdi dir=\"ltr\">OpenAI<\/bdi>: agent يحقق في كل test فشل، يكتب root cause ويقترح fix، وإنت اللي توافق. ابدأ بالـflaky tests في الـnightly run."},{"titleHtml":"وصّل <bdi dir=\"ltr\">chrome-devtools-mcp<\/bdi> بالـagent بتاعك","summaryHtml":"لما <bdi dir=\"ltr\">Selenium<\/bdi> test يفشل، خلّي الـagent يفتح نفس الصفحة ويقرالك الـconsole errors والـnetwork calls بدل ما تدوّر يدوي.","sources":[{"type":"github","href":"https://github.com/ChromeDevTools/chrome-devtools-mcp","label":"GitHub","url":"https://github.com/ChromeDevTools/chrome-devtools-mcp"}],"summary":"لما <bdi dir=\"ltr\">Selenium<\/bdi> test يفشل، خلّي الـagent يفتح نفس الصفحة ويقرالك الـconsole errors والـnetwork calls بدل ما تدوّر يدوي."}]}]}
+</script>
+  <script>
+(function () {
+  "use strict";
+
+  var app = document.getElementById("app");
+  var raw = document.getElementById("report-data");
+  var root = document.documentElement;
+  var data;
+  try {
+    data = JSON.parse(raw.textContent);
+  } catch (err) {
+    app.innerHTML = '<p class="err">تعذر قراءة بيانات التقرير.</p>';
+    return;
+  }
+
+  var THEME_KEY = "ai-news-theme";
+  var THEMES = ["system", "light", "dark"];
+  var THEME_LABEL = { system: "تلقائي", light: "فاتح", dark: "داكن" };
+  var THEME_NEXT = { system: "الفاتح", light: "الداكن", dark: "التلقائي" };
+
+  function getTheme() {
+    var t = null;
+    try { t = localStorage.getItem(THEME_KEY); } catch (e) {}
+    return THEMES.indexOf(t) >= 0 ? t : "system";
+  }
+
+  function applyTheme(t) {
+    if (t === "system") root.removeAttribute("data-theme");
+    else root.setAttribute("data-theme", t);
+    try { localStorage.setItem(THEME_KEY, t); } catch (e) {}
+  }
+
+  function esc(s) {
+    return String(s)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;");
+  }
+
+  function fmt(n) {
+    return Number(n).toLocaleString("en-US");
+  }
+
+  function badges(sources) {
+    if (!sources || !sources.length) return "";
+    return (
+      '<div class="badges">' +
+      sources
+        .map(function (s) {
+          return (
+            '<a class="badge badge-' +
+            esc(s.type) +
+            '" href="' +
+            esc(s.url || s.href || "#") +
+            '" target="_blank" rel="noopener noreferrer">المصدر: ' +
+            esc(s.label) +
+            "</a>"
+          );
+        })
+        .join("") +
+      "</div>"
+    );
+  }
+
+  function engagement(e) {
+    if (!e) return "";
+    var parts = [];
+    if (e.likes) parts.push(fmt(e.likes) + " إعجاب");
+    if (e.reposts) parts.push(fmt(e.reposts) + " إعادة نشر");
+    if (e.replies) parts.push(fmt(e.replies) + " رد");
+    if (e.bookmarks) parts.push(fmt(e.bookmarks) + " حفظ");
+    if (!parts.length) return "";
+    return '<div class="meta">' + parts.join("، ") + "</div>";
+  }
+
+  function stars(item) {
+    if (item.stars == null) return "";
+    var t = fmt(item.stars) + " نجمة";
+    if (item.starsToday != null) t += "، +" + fmt(item.starsToday) + " اليوم";
+    return '<div class="meta">' + t + "</div>";
+  }
+
+  function moreBtn(id, open) {
+    return (
+      '<button class="more" type="button" data-toggle="' +
+      esc(id) +
+      '" aria-expanded="' +
+      (open ? "true" : "false") +
+      '">' +
+      (open ? "أقل" : "المزيد") +
+      "</button>"
+    );
+  }
+
+  var openSet = {};
+
+  function itemBlock(item, kind, prefix, i) {
+    var id = prefix + "-" + i;
+    var hasDetail = !!(item.detail && String(item.detail).trim());
+    var open = !!openSet[id];
+    var handle = item.handle
+      ? '<a class="handle" href="' +
+        esc(item.postUrl || item.sources && item.sources[0] && item.sources[0].url || "#") +
+        '" target="_blank" rel="noopener noreferrer">@' +
+        esc(item.handle) +
+        "</a>"
+      : "";
+    var title = item.titleHtml || esc(item.title || "");
+    return (
+      '<article class="item kind-' +
+      esc(kind || "official") +
+      (open ? " is-open" : "") +
+      '" id="' +
+      esc(id) +
+      '">' +
+      (handle ? '<div class="meta">' + handle + "</div>" : "") +
+      '<h3 class="item-title">' +
+      title +
+      "</h3>" +
+      (item.summary ? '<p class="summary">' + item.summary + "</p>" : "") +
+      engagement(item.engagement) +
+      stars(item) +
+      badges(item.sources) +
+      (hasDetail
+        ? '<div class="detail"><div class="detail-inner">' +
+          item.detail +
+          "</div></div>" +
+          moreBtn(id, open)
+        : "") +
+      "</article>"
+    );
+  }
+
+  function currentTheme() {
+    return getTheme();
+  }
+
+  function themeIcon(t) {
+    if (t === "dark") {
+      return '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 14.3A8.5 8.5 0 1 1 9.7 3 7 7 0 0 0 21 14.3z"/></svg>';
+    }
+    if (t === "light") {
+      return '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 3v2M12 19v2M5 12H3M21 12h-2M6.2 6.2 7.6 7.6M16.4 16.4l1.4 1.4M17.8 6.2 16.4 7.6M7.6 16.4 6.2 17.8"/></svg>';
+    }
+    return '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3v18"/></svg>';
+  }
+
+  var tabs = data.tabs || [];
+  var tabIds = tabs.map(function (t) { return t.id; });
+
+  function tabFromHash() {
+    var id = (location.hash || "").replace(/^#/, "");
+    return tabIds.indexOf(id) >= 0 ? id : (tabIds[0] || "");
+  }
+
+  function render(activeId, opts) {
+    opts = opts || {};
+    var theme = currentTheme();
+    var highlights = data.highlights || [];
+    var html = "";
+    html += '<div class="shell">';
+    html += '<header class="hero">';
+    html += '<div class="hero-copy"><h1>' + (data.titleHtml || esc(data.title || "")) + "</h1>";
+    html += '<p class="date">' + esc(data.date || "") + "</p></div>";
+    html += '<div class="hero-meta">';
+    html += '<div class="stamp" aria-hidden="true"><span class="day">' + esc(data.day || "") + '</span><span class="mon">' + esc(data.monthShort || "") + "</span></div>";
+    html +=
+      '<button class="icon-btn" type="button" id="theme-btn" aria-label="المظهر الحالي: ' +
+      THEME_LABEL[theme] +
+      ". اضغط للتبديل إلى " +
+      THEME_NEXT[theme] +
+      '">' +
+      themeIcon(theme) +
+      "</button>";
+    html += "</div>";
+    html += (data.introHtml ? '<p class="intro">' + data.introHtml + "</p>" : "") + "</header>";
+
+    html += '<section aria-labelledby="must-look">';
+    html += '<h2 class="kicker" id="must-look">' + esc(data.highlightsTitle || "لازم تبص عليها") + "</h2>";
+    html += '<div class="highlights">';
+    highlights.forEach(function (h, i) {
+      var id = "hl-" + i;
+      var open = !!openSet[id];
+      var hasDetail = !!(h.detail && String(h.detail).trim());
+      html +=
+        '<article class="hl' +
+        (open ? " is-open" : "") +
+        (opts.enterHighlights ? " is-entering" : "") +
+        '" id="' +
+        id +
+        '">';
+      html += '<span class="rank" aria-hidden="true">' + (i + 1) + "</span>";
+      html += "<h3>" + (h.titleHtml || esc(h.title || "")) + "</h3>";
+      if (h.summary) html += '<p class="summary">' + h.summary + "</p>";
+      html += badges(h.sources);
+      if (hasDetail) {
+        html += '<div class="detail"><div class="detail-inner">' + h.detail + "</div></div>";
+        html += moreBtn(id, open);
+      }
+      html += "</article>";
+    });
+    html += "</div></section>";
+
+    html += '<div class="board">';
+    html += '<div class="tabs-wrap" id="sections">';
+    html += '<div class="tabs" role="tablist" aria-label="أقسام التقرير">';
+    tabs.forEach(function (tab) {
+      var selected = tab.id === activeId;
+      var count = tab.count;
+      if (count == null) {
+        count = tab.items ? tab.items.length : 0;
+        if (tab.subsections) {
+          count += tab.subsections.reduce(function (n, s) { return n + (s.items ? s.items.length : 0); }, 0);
+        }
+      }
+      html +=
+        '<button class="tab" role="tab" type="button" id="tab-' +
+        esc(tab.id) +
+        '" aria-controls="panel-' +
+        esc(tab.id) +
+        '" aria-selected="' +
+        (selected ? "true" : "false") +
+        '" tabindex="' +
+        (selected ? "0" : "-1") +
+        '" data-tab="' +
+        esc(tab.id) +
+        '">' +
+        esc(tab.label) +
+        '<span class="count">' +
+        fmt(count) +
+        "</span></button>";
+    });
+    html += "</div></div>";
+
+    html += '<div class="panels">';
+    tabs.forEach(function (tab) {
+      var selected = tab.id === activeId;
+      html +=
+        '<section class="panel' +
+        (selected && opts.enterPanel ? " is-entering" : "") +
+        '" role="tabpanel" id="panel-' +
+        esc(tab.id) +
+        '" aria-labelledby="tab-' +
+        esc(tab.id) +
+        '"' +
+        (selected ? "" : " hidden") +
+        ">";
+      if (tab.noteHtml) html += '<p class="panel-note">' + tab.noteHtml + "</p>";
+      if (tab.subsections) {
+        tab.subsections.forEach(function (sub, si) {
+          html += '<h3 class="subhead">' + esc(sub.label) + "</h3>";
+          html += '<div class="list">';
+          (sub.items || []).forEach(function (item, ii) {
+            html += itemBlock(item, tab.kind || tab.id, tab.id + "-" + si, ii);
+          });
+          html += "</div>";
+        });
+      } else {
+        html += '<div class="list">';
+        (tab.items || []).forEach(function (item, ii) {
+          html += itemBlock(item, tab.kind || tab.id, tab.id, ii);
+        });
+        html += "</div>";
+      }
+      html += "</section>";
+    });
+    html += "</div>";
+    html += "</div>";
+    html += "</div>";
+    app.innerHTML = html;
+    bind(activeId);
+  }
+
+  function setTab(id, push) {
+    if (tabIds.indexOf(id) < 0) return;
+    if (push !== false) {
+      if (location.hash.replace(/^#/, "") !== id) {
+        history.replaceState(null, "", "#" + id);
+      }
+    }
+    render(id, { enterPanel: true });
+    var panel = document.getElementById("panel-" + id);
+    var tab = document.getElementById("tab-" + id);
+    if (tab) tab.focus();
+  }
+
+  function bind(activeId) {
+    var themeBtn = document.getElementById("theme-btn");
+    if (themeBtn) {
+      themeBtn.addEventListener("click", function () {
+        var cur = getTheme();
+        var next = THEMES[(THEMES.indexOf(cur) + 1) % THEMES.length];
+        applyTheme(next);
+        render(tabFromHash());
+        var btn = document.getElementById("theme-btn");
+        if (btn) btn.focus();
+      });
+    }
+
+    app.querySelectorAll("[data-toggle]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var id = btn.getAttribute("data-toggle");
+        openSet[id] = !openSet[id];
+        render(tabFromHash());
+        var again = app.querySelector('[data-toggle="' + id + '"]');
+        if (again) again.focus();
+      });
+    });
+
+    var tabButtons = Array.prototype.slice.call(app.querySelectorAll('[role="tab"]'));
+    tabButtons.forEach(function (btn, index) {
+      btn.addEventListener("click", function () {
+        setTab(btn.getAttribute("data-tab"));
+      });
+      btn.addEventListener("keydown", function (ev) {
+        var next = index;
+        if (ev.key === "ArrowLeft") next = (index + 1) % tabButtons.length;
+        else if (ev.key === "ArrowRight") next = (index - 1 + tabButtons.length) % tabButtons.length;
+        else if (ev.key === "Home") next = 0;
+        else if (ev.key === "End") next = tabButtons.length - 1;
+        else return;
+        ev.preventDefault();
+        setTab(tabButtons[next].getAttribute("data-tab"));
+      });
+    });
+  }
+
+  applyTheme(getTheme());
+  var start = tabFromHash();
+  if (location.hash.replace(/^#/, "") !== start && start) {
+    history.replaceState(null, "", "#" + start);
+  }
+  render(start, { enterHighlights: true });
+
+  window.addEventListener("hashchange", function () {
+    render(tabFromHash(), { enterPanel: true });
+  });
+})();
+  </script>
+</body>
+</html>
