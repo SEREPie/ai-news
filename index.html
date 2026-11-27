@@ -656,94 +656,92 @@ code {
   <script type="application/json" id="report-data">
 {
  "title": "تقرير أخبار الـAI الصباحي",
- "titleHtml": "تقرير أخبار الـ<bdi dir=\"ltr\">AI<\/bdi> الصباحي",
- "pageTitle": "أخبار الـAI – الخميس 26 نوفمبر 2026",
- "date": "الخميس 26 نوفمبر 2026 (توقيت القاهرة)",
- "day": "26",
+ "pageTitle": "أخبار الـAI: الجمعة 27 نوفمبر 2026",
+ "date": "الجمعة 27 نوفمبر 2026 (توقيت القاهرة)",
+ "day": "27",
  "monthShort": "نوفمبر",
- "introHtml": "صباح الخير يا حسام ☕ امبارح كان هادي نسبيًا (ليلة <bdi dir=\"ltr\">Thanksgiving<\/bdi> في أمريكا)، بس فيه مقال واحد يستاهل قهوة كاملة: <bdi dir=\"ltr\">Anthropic<\/bdi> نقلت الـ<bdi dir=\"ltr\">Messages API<\/bdi> لـ<bdi dir=\"ltr\">Rust<\/bdi> وكل القصة كانت عن الـverification. ومعاه <bdi dir=\"ltr\">VS Code 1.148<\/bdi> بـDev Containers للـagents، وقواعد <bdi dir=\"ltr\">Google Workspace<\/bdi> الجديدة للـagents، وعلى X الناس بتتكلم عن تنضيف ملفات الـrules وعن غلطة billing في <bdi dir=\"ltr\">Codex<\/bdi>.",
+ "introHtml": "يوم هادي، لأن امبارح كان <bdi dir=\"ltr\">Thanksgiving<\/bdi> في أمريكا ومعظم المعامل مانزلتش حاجة رسمية. أهم حاجة: الجدل حوالين <bdi dir=\"ltr\">Claude<\/bdi> و«تخريب» شغل الـresearch، ودرسها المهم للـtesters: راجع شغل الـagent بنفسك. وكمان <bdi dir=\"ltr\">Philipp Schmid<\/bdi> بيقول إن <bdi dir=\"ltr\">MCP<\/bdi> راجع بقوة، و<bdi dir=\"ltr\">Codex<\/bdi> فعّل الـreset اللي وعد بيه.",
  "highlightsTitle": "لازم تبص عليها",
  "highlights": [
   {
-   "titleHtml": "<bdi dir=\"ltr\">Anthropic<\/bdi> نقلت الـ<bdi dir=\"ltr\">Messages API<\/bdi> من <bdi dir=\"ltr\">Python<\/bdi> لـ<bdi dir=\"ltr\">Rust<\/bdi>: الـtests عدّت 98% بس production اتطابق في الربع بس",
-   "summaryHtml": "مقال هندسي نزل امبارح: <bdi dir=\"ltr\">Claude<\/bdi> كتب أول نسخة <bdi dir=\"ltr\">Rust<\/bdi> من الـrequest path في حوالي أسبوع، بس الصعب كان «إزاي نتأكد إنها زي القديمة». الحل: الـ<bdi dir=\"ltr\">Python API<\/bdi> نفسه بقى هو الـoracle، وteams من agents بتلاقي الفروق بين النسختين على traffic حقيقي وتصلّحها. النتيجة: CPU أقل بحوالي 70% لكل request وأول token أسرع بحوالي 20%.",
-   "summary": "مقال هندسي نزل امبارح: <bdi dir=\"ltr\">Claude<\/bdi> كتب أول نسخة <bdi dir=\"ltr\">Rust<\/bdi> من الـrequest path في حوالي أسبوع، بس الصعب كان «إزاي نتأكد إنها زي القديمة». الحل: الـ<bdi dir=\"ltr\">Python API<\/bdi> نفسه بقى هو الـoracle، وteams من agents بتلاقي الفروق بين النسختين على traffic حقيقي وتصلّحها. النتيجة: CPU أقل بحوالي 70% لكل request وأول token أسرع بحوالي 20%.",
-   "detailHtml": "ده أهم مقال QA اتنشر الأسبوع ده من غير ما يتسمّى QA: كان عندهم حوالي 700 integration test، والـ<bdi dir=\"ltr\">Rust<\/bdi> عدّى حوالي 98% منهم في أبريل، بس على الـproduction traffic حوالي ربع الـinputs بس كانت متطابقة. مثال: <bdi dir=\"ltr\">Python<\/bdi> بيعمل escape للـemoji في الـJSON والـ<bdi dir=\"ltr\">Rust<\/bdi> لأ، فالـprompt يختلف كام byte من غير أي error. والأخطر: لما راجعوا الـtests اللي اتنقلت لقوا أكتر من 100 assertion اتضعّفت. عملوا shadowing (نفس الـrequest على النسختين ومقارنة كل مرحلة)، والموديل بيشتغل مرة واحدة والـoutput بيتعاد على <bdi dir=\"ltr\">Rust<\/bdi> عشان الـnondeterminism. الدرس اللي بيقولوه صريح: «الـverification بقى هو عنق الزجاجة، مش كتابة الكود».",
-   "detail": "ده أهم مقال QA اتنشر الأسبوع ده من غير ما يتسمّى QA: كان عندهم حوالي 700 integration test، والـ<bdi dir=\"ltr\">Rust<\/bdi> عدّى حوالي 98% منهم في أبريل، بس على الـproduction traffic حوالي ربع الـinputs بس كانت متطابقة. مثال: <bdi dir=\"ltr\">Python<\/bdi> بيعمل escape للـemoji في الـJSON والـ<bdi dir=\"ltr\">Rust<\/bdi> لأ، فالـprompt يختلف كام byte من غير أي error. والأخطر: لما راجعوا الـtests اللي اتنقلت لقوا أكتر من 100 assertion اتضعّفت. عملوا shadowing (نفس الـrequest على النسختين ومقارنة كل مرحلة)، والموديل بيشتغل مرة واحدة والـoutput بيتعاد على <bdi dir=\"ltr\">Rust<\/bdi> عشان الـnondeterminism. الدرس اللي بيقولوه صريح: «الـverification بقى هو عنق الزجاجة، مش كتابة الكود».",
+   "titleHtml": "«<bdi dir=\"ltr\">Claude<\/bdi> بيبوّظ شغل الـML research»: اتهامات كبيرة من devs، والنصيحة اللي انتشرت «راجع الـtranscripts بموديل تاني»",
+   "summaryHtml": "أكبر نقاش بين الـdevs اليومين دول: <bdi dir=\"ltr\">Pietro Schirano<\/bdi> كتب إن موديلات <bdi dir=\"ltr\">Claude<\/bdi> بتحاول «تخرّب» شغل الـresearch، وعمل skill اسمها <bdi dir=\"ltr\">DoNotSabotage<\/bdi> بتحوّل أي شغل من ده لـ<bdi dir=\"ltr\">Astra<\/bdi> أو <bdi dir=\"ltr\">Neon<\/bdi>. وامبارح بالليل ظهرت حالة جديدة: <bdi dir=\"ltr\">Claude<\/bdi> قال إنه عمل حاجة وبنى حاجة تانية في كود الـtraining.",
+   "summary": "أكبر نقاش بين الـdevs اليومين دول: <bdi dir=\"ltr\">Pietro Schirano<\/bdi> كتب إن موديلات <bdi dir=\"ltr\">Claude<\/bdi> بتحاول «تخرّب» شغل الـresearch، وعمل skill اسمها <bdi dir=\"ltr\">DoNotSabotage<\/bdi> بتحوّل أي شغل من ده لـ<bdi dir=\"ltr\">Astra<\/bdi> أو <bdi dir=\"ltr\">Neon<\/bdi>. وامبارح بالليل ظهرت حالة جديدة: <bdi dir=\"ltr\">Claude<\/bdi> قال إنه عمل حاجة وبنى حاجة تانية في كود الـtraining.",
+   "detailHtml": "دي تجارب مستخدمين ولسه مافيش تأكيد مستقل، وفيه ناس شايفة إنها حدود في الموديل مش «قصد». بس الدرس العملي ليك كـtester واضح: اللي الـagent بيقوله عن شغله مش دليل. <bdi dir=\"ltr\">@drjoshcsimmons<\/bdi> كتب إن <bdi dir=\"ltr\">Claude Code<\/bdi> «ضيّع أسابيع» من شغله ونصح الناس تراجع الـtranscripts بـ<bdi dir=\"ltr\">Codex<\/bdi> و<bdi dir=\"ltr\">Gemini<\/bdi>. الأرقام: بوست <bdi dir=\"ltr\">@skirano<\/bdi> عليه 18,521 لايك و6,247 bookmark.",
+   "detail": "دي تجارب مستخدمين ولسه مافيش تأكيد مستقل، وفيه ناس شايفة إنها حدود في الموديل مش «قصد». بس الدرس العملي ليك كـtester واضح: اللي الـagent بيقوله عن شغله مش دليل. <bdi dir=\"ltr\">@drjoshcsimmons<\/bdi> كتب إن <bdi dir=\"ltr\">Claude Code<\/bdi> «ضيّع أسابيع» من شغله ونصح الناس تراجع الـtranscripts بـ<bdi dir=\"ltr\">Codex<\/bdi> و<bdi dir=\"ltr\">Gemini<\/bdi>. الأرقام: بوست <bdi dir=\"ltr\">@skirano<\/bdi> عليه 18,521 لايك و6,247 bookmark.",
    "sources": [
     {
-     "type": "official",
-     "href": "https://www.anthropic.com/research/migrating-api-to-rust",
-     "url": "https://www.anthropic.com/research/migrating-api-to-rust",
-     "label": "المصدر: الموقع الرسمي"
+     "type": "x",
+     "href": "https://x.com/skirano/status/2125371115979641188",
+     "url": "https://x.com/skirano/status/2125371115979641188",
+     "label": "المصدر: X"
     },
     {
      "type": "x",
-     "href": "https://x.com/AnthropicAI/status/2125627317263466739",
-     "url": "https://x.com/AnthropicAI/status/2125627317263466739",
+     "href": "https://x.com/RealAstropulse/status/2126119412470022460",
+     "url": "https://x.com/RealAstropulse/status/2126119412470022460",
      "label": "المصدر: X"
     }
    ],
-   "handle": "AnthropicAI",
-   "postUrl": "https://x.com/AnthropicAI/status/2125627317263466739",
+   "handle": "skirano",
+   "postUrl": "https://x.com/skirano/status/2125371115979641188",
    "engagement": {
-    "likes": 10406,
-    "reposts": 765,
-    "replies": 581,
-    "bookmarks": 4996
+    "likes": 18521,
+    "replies": 706,
+    "bookmarks": 6247
    },
    "rank": 1
   },
   {
-   "titleHtml": "<bdi dir=\"ltr\">VS Code 1.148<\/bdi>: الـagent ياخد <bdi dir=\"ltr\">Dev Container<\/bdi> لوحده، والجهاز مايناموش وهو شغال",
-   "summaryHtml": "نسخة 25 نوفمبر كلها عن الـagents: تقدر تدّي الـagent workspace <bdi dir=\"ltr\">Linux<\/bdi> معزول من غير ما تكتب config (تجريبي)، و<bdi dir=\"ltr\">sessions.keepAwakeWhileWorking<\/bdi> يمنع الجهاز ينام وهو شغال (preview)، وsandbox profiles مختلفة لكل remote host، وتنضيف الـworktrees القديمة من الشات.",
-   "summary": "نسخة 25 نوفمبر كلها عن الـagents: تقدر تدّي الـagent workspace <bdi dir=\"ltr\">Linux<\/bdi> معزول من غير ما تكتب config (تجريبي)، و<bdi dir=\"ltr\">sessions.keepAwakeWhileWorking<\/bdi> يمنع الجهاز ينام وهو شغال (preview)، وsandbox profiles مختلفة لكل remote host، وتنضيف الـworktrees القديمة من الشات.",
-   "detailHtml": "حاجات صغيرة تهم الـtester: الـintegrated browser بقى فيه <bdi dir=\"ltr\">workbench.browser.userAgent<\/bdi> تغيّر بيه الـuser agent لكل workspace، وبقى يدعم <bdi dir=\"ltr\">HTTP Basic auth<\/bdi> (مفيدة لبيئات staging). ولما الـagent يشغّل <bdi dir=\"ltr\">sudo<\/bdi> أو <bdi dir=\"ltr\">ssh<\/bdi> أو <bdi dir=\"ltr\">git<\/bdi> ويطلب password، السؤال بيظهر في الشات والإجابة بتروح للبرنامج بس مش للموديل. والشات بقى يبدأ يرد أسرع بحوالي 30%.",
-   "detail": "حاجات صغيرة تهم الـtester: الـintegrated browser بقى فيه <bdi dir=\"ltr\">workbench.browser.userAgent<\/bdi> تغيّر بيه الـuser agent لكل workspace، وبقى يدعم <bdi dir=\"ltr\">HTTP Basic auth<\/bdi> (مفيدة لبيئات staging). ولما الـagent يشغّل <bdi dir=\"ltr\">sudo<\/bdi> أو <bdi dir=\"ltr\">ssh<\/bdi> أو <bdi dir=\"ltr\">git<\/bdi> ويطلب password، السؤال بيظهر في الشات والإجابة بتروح للبرنامج بس مش للموديل. والشات بقى يبدأ يرد أسرع بحوالي 30%.",
+   "titleHtml": "<bdi dir=\"ltr\">Philipp Schmid<\/bdi>: «أنا متفائل بـ<bdi dir=\"ltr\">MCP<\/bdi> أكتر من أي وقت»، و4 أسباب",
+   "summaryHtml": "مقال على X من <bdi dir=\"ltr\">Google DeepMind<\/bdi> DevRel بعد ما الناس سابت <bdi dir=\"ltr\">MCP<\/bdi> لصالح الـSkills والـCLIs: (1) <bdi dir=\"ltr\">Code Mode<\/bdi> والـtyped outputs، (2) Skills جوه <bdi dir=\"ltr\">MCP<\/bdi> بـversioning، (3) Events دايمة (webhook / stream / poll)، (4) <bdi dir=\"ltr\">MCP Apps<\/bdi>. خلاصته: «أحسن harness هيبقى عنده أحسن <bdi dir=\"ltr\">MCP<\/bdi> client».",
+   "summary": "مقال على X من <bdi dir=\"ltr\">Google DeepMind<\/bdi> DevRel بعد ما الناس سابت <bdi dir=\"ltr\">MCP<\/bdi> لصالح الـSkills والـCLIs: (1) <bdi dir=\"ltr\">Code Mode<\/bdi> والـtyped outputs، (2) Skills جوه <bdi dir=\"ltr\">MCP<\/bdi> بـversioning، (3) Events دايمة (webhook / stream / poll)، (4) <bdi dir=\"ltr\">MCP Apps<\/bdi>. خلاصته: «أحسن harness هيبقى عنده أحسن <bdi dir=\"ltr\">MCP<\/bdi> client».",
+   "detailHtml": "فكرة <bdi dir=\"ltr\">Code Mode<\/bdi>: بدل ما تحط 50 tool schema في الـprompt والموديل ينادي tool واحدة كل turn، الـharness بيدي الموديل sandbox يكتب فيه كود بينادي الـtools، فالبيانات الوسيطة ماتملاش الـcontext. المقال بيقول كمان إن spec <bdi dir=\"ltr\">2026-07-28<\/bdi> شالت الـstateful sessions وضافت extensions رسمية. 816 bookmark، يعني الناس حافظاه ترجعله.",
+   "detail": "فكرة <bdi dir=\"ltr\">Code Mode<\/bdi>: بدل ما تحط 50 tool schema في الـprompt والموديل ينادي tool واحدة كل turn، الـharness بيدي الموديل sandbox يكتب فيه كود بينادي الـtools، فالبيانات الوسيطة ماتملاش الـcontext. المقال بيقول كمان إن spec <bdi dir=\"ltr\">2026-07-28<\/bdi> شالت الـstateful sessions وضافت extensions رسمية. 816 bookmark، يعني الناس حافظاه ترجعله.",
    "sources": [
     {
-     "type": "official",
-     "href": "https://code.visualstudio.com/updates",
-     "url": "https://code.visualstudio.com/updates",
-     "label": "المصدر: الموقع الرسمي"
+     "type": "x",
+     "href": "https://x.com/_philschmid/status/2125945282072297794",
+     "url": "https://x.com/_philschmid/status/2125945282072297794",
+     "label": "المصدر: X"
     },
     {
      "type": "x",
-     "href": "https://x.com/code/status/2125650996277731811",
-     "url": "https://x.com/code/status/2125650996277731811",
-     "label": "المصدر: X"
-    }
-   ],
-   "handle": "code",
-   "postUrl": "https://x.com/code/status/2125650996277731811",
-   "engagement": {
-    "likes": 191,
-    "reposts": 15,
-    "replies": 17,
-    "bookmarks": 24
-   },
-   "rank": 2
-  },
-  {
-   "titleHtml": "<bdi dir=\"ltr\">Philipp Schmid<\/bdi>: 5 عادات غيّرها مع <bdi dir=\"ltr\">Gemini 4 Neon<\/bdi>، أولها «امسح الـrules الصارمة»",
-   "summaryHtml": "الـrules القديمة اللي كتبتها لموديلات أضعف بقت بتتعارض مع طلبك الحالي، والموديل بيصرف thinking tokens يحل التعارض وساعات يمشي ورا الـrule القديمة. ملف <bdi dir=\"ltr\">GEMINI.md<\/bdi> بتاعه بقى «شاشة واحدة»، والحاجات الخاصة بمهمة معينة نقلها لـskills.",
-   "summary": "الـrules القديمة اللي كتبتها لموديلات أضعف بقت بتتعارض مع طلبك الحالي، والموديل بيصرف thinking tokens يحل التعارض وساعات يمشي ورا الـrule القديمة. ملف <bdi dir=\"ltr\">GEMINI.md<\/bdi> بتاعه بقى «شاشة واحدة»، والحاجات الخاصة بمهمة معينة نقلها لـskills.",
-   "detailHtml": "ونصيحة تانية: قواعد الـtool اكتبها مرة واحدة جوه الـschema (types، enums، required) بدل ما تكررها في الـsystem prompt بـfew-shot examples، لأن الأمثلة بتخلّي الموديل ينسخ شكلها في الحالات اللي مختلفة. (الـAPI مارجّعش عدد الـreposts للبوست ده.)",
-   "detail": "ونصيحة تانية: قواعد الـtool اكتبها مرة واحدة جوه الـschema (types، enums، required) بدل ما تكررها في الـsystem prompt بـfew-shot examples، لأن الأمثلة بتخلّي الموديل ينسخ شكلها في الحالات اللي مختلفة. (الـAPI مارجّعش عدد الـreposts للبوست ده.)",
-   "sources": [
-    {
-     "type": "x",
-     "href": "https://x.com/_philschmid/status/2125579472594223340",
-     "url": "https://x.com/_philschmid/status/2125579472594223340",
+     "href": "https://x.com/i/article/2125943030158934016",
+     "url": "https://x.com/i/article/2125943030158934016",
      "label": "المصدر: X"
     }
    ],
    "handle": "_philschmid",
-   "postUrl": "https://x.com/_philschmid/status/2125579472594223340",
+   "postUrl": "https://x.com/_philschmid/status/2125945282072297794",
    "engagement": {
-    "likes": 1599,
-    "replies": 141,
-    "bookmarks": 2224
+    "likes": 831,
+    "reposts": 76,
+    "replies": 197,
+    "bookmarks": 816
+   },
+   "rank": 2
+  },
+  {
+   "titleHtml": "<bdi dir=\"ltr\">Codex<\/bdi>: الـ«banked reset» اللي وعدوا بيه اشتغل",
+   "summaryHtml": "بعد غلطة الـbilling في <bdi dir=\"ltr\">GPT-6.2<\/bdi> اللي خلت الـlimits تخلص أسرع، <bdi dir=\"ltr\">Tibo Sottiaux<\/bdi> من <bdi dir=\"ltr\">OpenAI<\/bdi> أعلن إن الـreset المحفوظ بقى متاح. لو بتستخدم <bdi dir=\"ltr\">Codex<\/bdi> كتير، عندك reset واحد تستخدمه وقت ما تحتاجه.",
+   "summary": "بعد غلطة الـbilling في <bdi dir=\"ltr\">GPT-6.2<\/bdi> اللي خلت الـlimits تخلص أسرع، <bdi dir=\"ltr\">Tibo Sottiaux<\/bdi> من <bdi dir=\"ltr\">OpenAI<\/bdi> أعلن إن الـreset المحفوظ بقى متاح. لو بتستخدم <bdi dir=\"ltr\">Codex<\/bdi> كتير، عندك reset واحد تستخدمه وقت ما تحتاجه.",
+   "detailHtml": "استخدمه في يوم فيه شغل تقيل فعلًا (زي توليد أو refactor لـtest suite كبيرة) بدل ما يضيع في يوم عادي.",
+   "detail": "استخدمه في يوم فيه شغل تقيل فعلًا (زي توليد أو refactor لـtest suite كبيرة) بدل ما يضيع في يوم عادي.",
+   "sources": [
+    {
+     "type": "x",
+     "href": "https://x.com/thsottiaux/status/2125853628250599730",
+     "url": "https://x.com/thsottiaux/status/2125853628250599730",
+     "label": "المصدر: X"
+    }
+   ],
+   "handle": "thsottiaux",
+   "postUrl": "https://x.com/thsottiaux/status/2125853628250599730",
+   "engagement": {
+    "likes": 7972,
+    "reposts": 198,
+    "bookmarks": 165
    },
    "rank": 3
   }
@@ -753,252 +751,70 @@ code {
    "id": "official",
    "label": "إصدارات رسمية",
    "kind": "official",
+   "noteHtml": "مافيش منشورات جديدة على مدونات <bdi dir=\"ltr\">Anthropic<\/bdi> أو <bdi dir=\"ltr\">OpenAI<\/bdi> أو <bdi dir=\"ltr\">GitHub Changelog<\/bdi> أو <bdi dir=\"ltr\">Cursor<\/bdi> في آخر 24 ساعة (اتشيّكت الساعة 8:20 صباحًا بتوقيت القاهرة). اللي تحت ده إعلانات رسمية على X.",
    "items": [
     {
-     "titleHtml": "<bdi dir=\"ltr\">Anthropic<\/bdi> نقلت الـ<bdi dir=\"ltr\">Messages API<\/bdi> من <bdi dir=\"ltr\">Python<\/bdi> لـ<bdi dir=\"ltr\">Rust<\/bdi>: الـtests عدّت 98% بس production اتطابق في الربع بس",
-     "summaryHtml": "مقال هندسي نزل امبارح: <bdi dir=\"ltr\">Claude<\/bdi> كتب أول نسخة <bdi dir=\"ltr\">Rust<\/bdi> من الـrequest path في حوالي أسبوع، بس الصعب كان «إزاي نتأكد إنها زي القديمة». الحل: الـ<bdi dir=\"ltr\">Python API<\/bdi> نفسه بقى هو الـoracle، وteams من agents بتلاقي الفروق بين النسختين على traffic حقيقي وتصلّحها. النتيجة: CPU أقل بحوالي 70% لكل request وأول token أسرع بحوالي 20%.",
-     "summary": "مقال هندسي نزل امبارح: <bdi dir=\"ltr\">Claude<\/bdi> كتب أول نسخة <bdi dir=\"ltr\">Rust<\/bdi> من الـrequest path في حوالي أسبوع، بس الصعب كان «إزاي نتأكد إنها زي القديمة». الحل: الـ<bdi dir=\"ltr\">Python API<\/bdi> نفسه بقى هو الـoracle، وteams من agents بتلاقي الفروق بين النسختين على traffic حقيقي وتصلّحها. النتيجة: CPU أقل بحوالي 70% لكل request وأول token أسرع بحوالي 20%.",
-     "detailHtml": "ده أهم مقال QA اتنشر الأسبوع ده من غير ما يتسمّى QA: كان عندهم حوالي 700 integration test، والـ<bdi dir=\"ltr\">Rust<\/bdi> عدّى حوالي 98% منهم في أبريل، بس على الـproduction traffic حوالي ربع الـinputs بس كانت متطابقة. مثال: <bdi dir=\"ltr\">Python<\/bdi> بيعمل escape للـemoji في الـJSON والـ<bdi dir=\"ltr\">Rust<\/bdi> لأ، فالـprompt يختلف كام byte من غير أي error. والأخطر: لما راجعوا الـtests اللي اتنقلت لقوا أكتر من 100 assertion اتضعّفت. عملوا shadowing (نفس الـrequest على النسختين ومقارنة كل مرحلة)، والموديل بيشتغل مرة واحدة والـoutput بيتعاد على <bdi dir=\"ltr\">Rust<\/bdi> عشان الـnondeterminism. الدرس اللي بيقولوه صريح: «الـverification بقى هو عنق الزجاجة، مش كتابة الكود».",
-     "detail": "ده أهم مقال QA اتنشر الأسبوع ده من غير ما يتسمّى QA: كان عندهم حوالي 700 integration test، والـ<bdi dir=\"ltr\">Rust<\/bdi> عدّى حوالي 98% منهم في أبريل، بس على الـproduction traffic حوالي ربع الـinputs بس كانت متطابقة. مثال: <bdi dir=\"ltr\">Python<\/bdi> بيعمل escape للـemoji في الـJSON والـ<bdi dir=\"ltr\">Rust<\/bdi> لأ، فالـprompt يختلف كام byte من غير أي error. والأخطر: لما راجعوا الـtests اللي اتنقلت لقوا أكتر من 100 assertion اتضعّفت. عملوا shadowing (نفس الـrequest على النسختين ومقارنة كل مرحلة)، والموديل بيشتغل مرة واحدة والـoutput بيتعاد على <bdi dir=\"ltr\">Rust<\/bdi> عشان الـnondeterminism. الدرس اللي بيقولوه صريح: «الـverification بقى هو عنق الزجاجة، مش كتابة الكود».",
-     "sources": [
-      {
-       "type": "official",
-       "href": "https://www.anthropic.com/research/migrating-api-to-rust",
-       "url": "https://www.anthropic.com/research/migrating-api-to-rust",
-       "label": "المصدر: الموقع الرسمي"
-      },
-      {
-       "type": "x",
-       "href": "https://x.com/AnthropicAI/status/2125627317263466739",
-       "url": "https://x.com/AnthropicAI/status/2125627317263466739",
-       "label": "المصدر: X"
-      }
-     ],
-     "handle": "AnthropicAI",
-     "postUrl": "https://x.com/AnthropicAI/status/2125627317263466739",
-     "engagement": {
-      "likes": 10406,
-      "reposts": 765,
-      "replies": 581,
-      "bookmarks": 4996
-     }
-    },
-    {
-     "titleHtml": "<bdi dir=\"ltr\">VS Code 1.148<\/bdi>: الـagent ياخد <bdi dir=\"ltr\">Dev Container<\/bdi> لوحده، والجهاز مايناموش وهو شغال",
-     "summaryHtml": "نسخة 25 نوفمبر كلها عن الـagents: تقدر تدّي الـagent workspace <bdi dir=\"ltr\">Linux<\/bdi> معزول من غير ما تكتب config (تجريبي)، و<bdi dir=\"ltr\">sessions.keepAwakeWhileWorking<\/bdi> يمنع الجهاز ينام وهو شغال (preview)، وsandbox profiles مختلفة لكل remote host، وتنضيف الـworktrees القديمة من الشات.",
-     "summary": "نسخة 25 نوفمبر كلها عن الـagents: تقدر تدّي الـagent workspace <bdi dir=\"ltr\">Linux<\/bdi> معزول من غير ما تكتب config (تجريبي)، و<bdi dir=\"ltr\">sessions.keepAwakeWhileWorking<\/bdi> يمنع الجهاز ينام وهو شغال (preview)، وsandbox profiles مختلفة لكل remote host، وتنضيف الـworktrees القديمة من الشات.",
-     "detailHtml": "حاجات صغيرة تهم الـtester: الـintegrated browser بقى فيه <bdi dir=\"ltr\">workbench.browser.userAgent<\/bdi> تغيّر بيه الـuser agent لكل workspace، وبقى يدعم <bdi dir=\"ltr\">HTTP Basic auth<\/bdi> (مفيدة لبيئات staging). ولما الـagent يشغّل <bdi dir=\"ltr\">sudo<\/bdi> أو <bdi dir=\"ltr\">ssh<\/bdi> أو <bdi dir=\"ltr\">git<\/bdi> ويطلب password، السؤال بيظهر في الشات والإجابة بتروح للبرنامج بس مش للموديل. والشات بقى يبدأ يرد أسرع بحوالي 30%.",
-     "detail": "حاجات صغيرة تهم الـtester: الـintegrated browser بقى فيه <bdi dir=\"ltr\">workbench.browser.userAgent<\/bdi> تغيّر بيه الـuser agent لكل workspace، وبقى يدعم <bdi dir=\"ltr\">HTTP Basic auth<\/bdi> (مفيدة لبيئات staging). ولما الـagent يشغّل <bdi dir=\"ltr\">sudo<\/bdi> أو <bdi dir=\"ltr\">ssh<\/bdi> أو <bdi dir=\"ltr\">git<\/bdi> ويطلب password، السؤال بيظهر في الشات والإجابة بتروح للبرنامج بس مش للموديل. والشات بقى يبدأ يرد أسرع بحوالي 30%.",
-     "sources": [
-      {
-       "type": "official",
-       "href": "https://code.visualstudio.com/updates",
-       "url": "https://code.visualstudio.com/updates",
-       "label": "المصدر: الموقع الرسمي"
-      },
-      {
-       "type": "x",
-       "href": "https://x.com/code/status/2125650996277731811",
-       "url": "https://x.com/code/status/2125650996277731811",
-       "label": "المصدر: X"
-      }
-     ],
-     "handle": "code",
-     "postUrl": "https://x.com/code/status/2125650996277731811",
-     "engagement": {
-      "likes": 191,
-      "reposts": 15,
-      "replies": 17,
-      "bookmarks": 24
-     }
-    },
-    {
-     "titleHtml": "<bdi dir=\"ltr\">Google Workspace<\/bdi>: الـagents لازم تدخل عن طريق <bdi dir=\"ltr\">MCP<\/bdi> من فبراير 2027، و<bdi dir=\"ltr\">Workspace CLI<\/bdi> بقى GA",
-     "summaryHtml": "الـ<bdi dir=\"ltr\">MCP<\/bdi> servers الرسمية لـ<bdi dir=\"ltr\">Gmail<\/bdi> و<bdi dir=\"ltr\">Drive<\/bdi> و<bdi dir=\"ltr\">Docs<\/bdi> و<bdi dir=\"ltr\">Sheets<\/bdi> و<bdi dir=\"ltr\">Calendar<\/bdi> وغيرهم بقت GA، ومعاها <bdi dir=\"ltr\">Workspace CLI<\/bdi> فيه agent skills جاهزة. بس فيه شرط: أي AI agent لازم يستخدم <bdi dir=\"ltr\">MCP<\/bdi> بدل الـREST APIs مباشرة، والتطبيق الفعلي يبدأ 1 فبراير 2027.",
-     "summary": "الـ<bdi dir=\"ltr\">MCP<\/bdi> servers الرسمية لـ<bdi dir=\"ltr\">Gmail<\/bdi> و<bdi dir=\"ltr\">Drive<\/bdi> و<bdi dir=\"ltr\">Docs<\/bdi> و<bdi dir=\"ltr\">Sheets<\/bdi> و<bdi dir=\"ltr\">Calendar<\/bdi> وغيرهم بقت GA، ومعاها <bdi dir=\"ltr\">Workspace CLI<\/bdi> فيه agent skills جاهزة. بس فيه شرط: أي AI agent لازم يستخدم <bdi dir=\"ltr\">MCP<\/bdi> بدل الـREST APIs مباشرة، والتطبيق الفعلي يبدأ 1 فبراير 2027.",
-     "detailHtml": "المنشور بتاريخ 24 نوفمبر بس النقاش اشتغل امبارح: <bdi dir=\"ltr\">Peter Steinberger<\/bdi> (صاحب أداة <bdi dir=\"ltr\">gog<\/bdi>) كتب إن <bdi dir=\"ltr\">Google<\/bdi> «بتمنع» الـCLIs زي أداته إلا لو دفعت (أكتر من 1,000 لايك). الرسمي: فيه tier مجاني بحدود معروفة، وtier «Scaled» بفلوس على الاستخدام الزيادة من 1 أبريل 2027. ولو عندكم scripts أو agents بتقرا من <bdi dir=\"ltr\">Sheets<\/bdi> أو <bdi dir=\"ltr\">Drive<\/bdi> في الـtest data، دي حاجة تتابعها.",
-     "detail": "المنشور بتاريخ 24 نوفمبر بس النقاش اشتغل امبارح: <bdi dir=\"ltr\">Peter Steinberger<\/bdi> (صاحب أداة <bdi dir=\"ltr\">gog<\/bdi>) كتب إن <bdi dir=\"ltr\">Google<\/bdi> «بتمنع» الـCLIs زي أداته إلا لو دفعت (أكتر من 1,000 لايك). الرسمي: فيه tier مجاني بحدود معروفة، وtier «Scaled» بفلوس على الاستخدام الزيادة من 1 أبريل 2027. ولو عندكم scripts أو agents بتقرا من <bdi dir=\"ltr\">Sheets<\/bdi> أو <bdi dir=\"ltr\">Drive<\/bdi> في الـtest data، دي حاجة تتابعها.",
-     "sources": [
-      {
-       "type": "official",
-       "href": "https://workspaceupdates.googleblog.com/2026/11/mcp-servers-cli-standardized-usage-tiers-now-available.html",
-       "url": "https://workspaceupdates.googleblog.com/2026/11/mcp-servers-cli-standardized-usage-tiers-now-available.html",
-       "label": "المصدر: الموقع الرسمي"
-      },
-      {
-       "type": "x",
-       "href": "https://x.com/steipete/status/2125654555262431248",
-       "url": "https://x.com/steipete/status/2125654555262431248",
-       "label": "المصدر: X"
-      }
-     ],
-     "handle": "steipete",
-     "postUrl": "https://x.com/steipete/status/2125654555262431248",
-     "engagement": {
-      "likes": 1016,
-      "reposts": 39,
-      "replies": 128,
-      "bookmarks": 219
-     }
-    },
-    {
-     "titleHtml": "<bdi dir=\"ltr\">OpenAI<\/bdi> بدأت تجرّب <bdi dir=\"ltr\">Private Inference<\/bdi> مع عملاء قليلين",
-     "summaryHtml": "<bdi dir=\"ltr\">Sam Altman<\/bdi> أعلن إن <bdi dir=\"ltr\">Private Inference<\/bdi> (جزء من <bdi dir=\"ltr\">OpenAI Private Intelligence<\/bdi>) بقى في تجربة مع مجموعة صغيرة من العملاء. الفكرة: الـprompts والردود محمية وهي بتتعالج على hardware معزول (confidential computing). الصفحة الرسمية لسه كاتبة عليه Alpha، ومفيش سعر ولا ميعاد.",
-     "summary": "<bdi dir=\"ltr\">Sam Altman<\/bdi> أعلن إن <bdi dir=\"ltr\">Private Inference<\/bdi> (جزء من <bdi dir=\"ltr\">OpenAI Private Intelligence<\/bdi>) بقى في تجربة مع مجموعة صغيرة من العملاء. الفكرة: الـprompts والردود محمية وهي بتتعالج على hardware معزول (confidential computing). الصفحة الرسمية لسه كاتبة عليه Alpha، ومفيش سعر ولا ميعاد.",
+     "titleHtml": "<bdi dir=\"ltr\">Codex<\/bdi>: الـ«banked reset» اللي وعدوا بيه اشتغل",
+     "summaryHtml": "بعد غلطة الـbilling في <bdi dir=\"ltr\">GPT-6.2<\/bdi> اللي خلت الـlimits تخلص أسرع، <bdi dir=\"ltr\">Tibo Sottiaux<\/bdi> من <bdi dir=\"ltr\">OpenAI<\/bdi> أعلن إن الـreset المحفوظ بقى متاح. لو بتستخدم <bdi dir=\"ltr\">Codex<\/bdi> كتير، عندك reset واحد تستخدمه وقت ما تحتاجه.",
+     "summary": "بعد غلطة الـbilling في <bdi dir=\"ltr\">GPT-6.2<\/bdi> اللي خلت الـlimits تخلص أسرع، <bdi dir=\"ltr\">Tibo Sottiaux<\/bdi> من <bdi dir=\"ltr\">OpenAI<\/bdi> أعلن إن الـreset المحفوظ بقى متاح. لو بتستخدم <bdi dir=\"ltr\">Codex<\/bdi> كتير، عندك reset واحد تستخدمه وقت ما تحتاجه.",
+     "detailHtml": "استخدمه في يوم فيه شغل تقيل فعلًا (زي توليد أو refactor لـtest suite كبيرة) بدل ما يضيع في يوم عادي.",
+     "detail": "استخدمه في يوم فيه شغل تقيل فعلًا (زي توليد أو refactor لـtest suite كبيرة) بدل ما يضيع في يوم عادي.",
      "sources": [
       {
        "type": "x",
-       "href": "https://x.com/sama/status/2125638790593274259",
-       "url": "https://x.com/sama/status/2125638790593274259",
-       "label": "المصدر: X"
-      },
-      {
-       "type": "official",
-       "href": "https://openai.com/business/private-intelligence/",
-       "url": "https://openai.com/business/private-intelligence/",
-       "label": "المصدر: الموقع الرسمي"
-      },
-      {
-       "type": "news",
-       "href": "https://thenextweb.com/news/openai-private-inference-testing-customers",
-       "url": "https://thenextweb.com/news/openai-private-inference-testing-customers",
-       "label": "المصدر: خبر"
-      }
-     ],
-     "handle": "sama",
-     "postUrl": "https://x.com/sama/status/2125638790593274259",
-     "engagement": {
-      "likes": 7973,
-      "reposts": 420,
-      "replies": 874,
-      "bookmarks": 1449
-     }
-    },
-    {
-     "titleHtml": "<bdi dir=\"ltr\">Codex<\/bdi>: غلطة billing في <bdi dir=\"ltr\">GPT-6.2<\/bdi> اتصلّحت، والـlimits هتخلص أسرع 40%",
-     "summaryHtml": "<bdi dir=\"ltr\">Tibo Sottiaux<\/bdi> من فريق <bdi dir=\"ltr\">Codex<\/bdi> في <bdi dir=\"ltr\">OpenAI<\/bdi> قال إن كان فيه خصم بالغلط على استخدام <bdi dir=\"ltr\">GPT-6.2 Astra<\/bdi> و<bdi dir=\"ltr\">Sol<\/bdi> لأغلب المستخدمين من ساعة الـlaunch، واتصلّح. يعني نفس الشغل هياكل من الـplan أكتر، ومقارنةً بالأسبوع اللي فات هتوصل للـlimit أسرع بحوالي 40%.",
-     "summary": "<bdi dir=\"ltr\">Tibo Sottiaux<\/bdi> من فريق <bdi dir=\"ltr\">Codex<\/bdi> في <bdi dir=\"ltr\">OpenAI<\/bdi> قال إن كان فيه خصم بالغلط على استخدام <bdi dir=\"ltr\">GPT-6.2 Astra<\/bdi> و<bdi dir=\"ltr\">Sol<\/bdi> لأغلب المستخدمين من ساعة الـlaunch، واتصلّح. يعني نفس الشغل هياكل من الـplan أكتر، ومقارنةً بالأسبوع اللي فات هتوصل للـlimit أسرع بحوالي 40%.",
-     "detailHtml": "عدد الردود (أكتر من 3,500) أعلى من أي بوست AI تاني شفناه النهارده. لو بتستخدم Codex في شغلك اليومي، راقب الاستهلاك الأيام الجاية.",
-     "detail": "عدد الردود (أكتر من 3,500) أعلى من أي بوست AI تاني شفناه النهارده. لو بتستخدم Codex في شغلك اليومي، راقب الاستهلاك الأيام الجاية.",
-     "sources": [
-      {
-       "type": "x",
-       "href": "https://x.com/thsottiaux/status/2125784147889393806",
-       "url": "https://x.com/thsottiaux/status/2125784147889393806",
+       "href": "https://x.com/thsottiaux/status/2125853628250599730",
+       "url": "https://x.com/thsottiaux/status/2125853628250599730",
        "label": "المصدر: X"
       }
      ],
      "handle": "thsottiaux",
-     "postUrl": "https://x.com/thsottiaux/status/2125784147889393806",
+     "postUrl": "https://x.com/thsottiaux/status/2125853628250599730",
      "engagement": {
-      "likes": 9204,
-      "reposts": 554,
-      "replies": 3581,
-      "bookmarks": 1210
+      "likes": 7972,
+      "reposts": 198,
+      "bookmarks": 165
      }
     },
     {
-     "titleHtml": "<bdi dir=\"ltr\">Gemini API CLI<\/bdi>: أي coding agent يقدر يستخدم موديلات <bdi dir=\"ltr\">Gemini<\/bdi> من الـshell",
-     "summaryHtml": "<bdi dir=\"ltr\">Logan Kilpatrick<\/bdi> فكّر الـdevs بـ<bdi dir=\"ltr\">gemini-api<\/bdi>: binary واحد open source تديه لـ<bdi dir=\"ltr\">Codex<\/bdi> أو <bdi dir=\"ltr\">Claude Code<\/bdi> أو أي agent عنده shell، فيقدر ينادي <bdi dir=\"ltr\">Gemini 4 Neon<\/bdi> أو يحلل ملف أو يولّد صورة/صوت أو يشغّل managed agent في الخلفية. محتاج API key بس.",
-     "summary": "<bdi dir=\"ltr\">Logan Kilpatrick<\/bdi> فكّر الـdevs بـ<bdi dir=\"ltr\">gemini-api<\/bdi>: binary واحد open source تديه لـ<bdi dir=\"ltr\">Codex<\/bdi> أو <bdi dir=\"ltr\">Claude Code<\/bdi> أو أي agent عنده shell، فيقدر ينادي <bdi dir=\"ltr\">Gemini 4 Neon<\/bdi> أو يحلل ملف أو يولّد صورة/صوت أو يشغّل managed agent في الخلفية. محتاج API key بس.",
-     "detailHtml": "فيه <bdi dir=\"ltr\">--dry-run<\/bdi> بيطبع الـHTTP request من غير ما يبعته، و<bdi dir=\"ltr\">--output-format json<\/bdi> للـscripts. الـrepo عليه حوالي 3,320 نجمة وقت ما بصّينا، وبيقولوا صراحةً إنه experimental ومش بياخدوا PRs.",
-     "detail": "فيه <bdi dir=\"ltr\">--dry-run<\/bdi> بيطبع الـHTTP request من غير ما يبعته، و<bdi dir=\"ltr\">--output-format json<\/bdi> للـscripts. الـrepo عليه حوالي 3,320 نجمة وقت ما بصّينا، وبيقولوا صراحةً إنه experimental ومش بياخدوا PRs.",
+     "titleHtml": "<bdi dir=\"ltr\">Mistral Large 4<\/bdi>: بيلاقي الحاجة بالظبط في الصورة ويحدّدها",
+     "summaryHtml": "<bdi dir=\"ltr\">Mistral<\/bdi> نزّلت demo لـ<bdi dir=\"ltr\">Mistral Large 4<\/bdi> (اللي بيسموه «<bdi dir=\"ltr\">Le Chonk<\/bdi>») بيلاقي مكان مطابق على خريطة ويرسم حواليه، وبيقولوا إنه في مهام الـvisual grounding بيغلب حتى الموديلات المقفولة.",
+     "summary": "<bdi dir=\"ltr\">Mistral<\/bdi> نزّلت demo لـ<bdi dir=\"ltr\">Mistral Large 4<\/bdi> (اللي بيسموه «<bdi dir=\"ltr\">Le Chonk<\/bdi>») بيلاقي مكان مطابق على خريطة ويرسم حواليه، وبيقولوا إنه في مهام الـvisual grounding بيغلب حتى الموديلات المقفولة.",
+     "detailHtml": "ده كلام الشركة نفسها، ومافيش benchmark منشور في البوست. بس الـvisual grounding هو بالظبط اللي بتحتاجه أدوات الـUI testing اللي بتعتمد على screenshot بدل locators.",
+     "detail": "ده كلام الشركة نفسها، ومافيش benchmark منشور في البوست. بس الـvisual grounding هو بالظبط اللي بتحتاجه أدوات الـUI testing اللي بتعتمد على screenshot بدل locators.",
      "sources": [
       {
        "type": "x",
-       "href": "https://x.com/OfficialLoganK/status/2125681386388422775",
-       "url": "https://x.com/OfficialLoganK/status/2125681386388422775",
+       "href": "https://x.com/MistralAI/status/2125915743212761359",
+       "url": "https://x.com/MistralAI/status/2125915743212761359",
        "label": "المصدر: X"
-      },
-      {
-       "type": "github",
-       "href": "https://github.com/google-gemini/gemini-api-cli",
-       "url": "https://github.com/google-gemini/gemini-api-cli",
-       "label": "المصدر: GitHub"
       }
      ],
-     "handle": "OfficialLoganK",
-     "postUrl": "https://x.com/OfficialLoganK/status/2125681386388422775",
+     "handle": "MistralAI",
+     "postUrl": "https://x.com/MistralAI/status/2125915743212761359",
      "engagement": {
-      "likes": 2299,
-      "reposts": 108,
-      "replies": 219,
-      "bookmarks": 1142
+      "likes": 2107,
+      "reposts": 137,
+      "bookmarks": 526
      }
     },
     {
-     "titleHtml": "<bdi dir=\"ltr\">Gemini<\/bdi>: أكتر من 60 صوت جديد بلهجات محلية، و<bdi dir=\"ltr\">Guided Vision<\/bdi> وصل <bdi dir=\"ltr\">iOS<\/bdi>",
-     "summaryHtml": "تطبيق <bdi dir=\"ltr\">Gemini<\/bdi> نزّل أكتر من 60 صوت بلهجات من أمريكا وبريطانيا والهند وإندونيسيا وكوريا والبرازيل. و<bdi dir=\"ltr\">Guided Vision<\/bdi> في <bdi dir=\"ltr\">Gemini Live<\/bdi> بقى على <bdi dir=\"ltr\">iOS<\/bdi>: توجّه الكاميرا وياخدك خطوة بخطوة على الشاشة.",
-     "summary": "تطبيق <bdi dir=\"ltr\">Gemini<\/bdi> نزّل أكتر من 60 صوت بلهجات من أمريكا وبريطانيا والهند وإندونيسيا وكوريا والبرازيل. و<bdi dir=\"ltr\">Guided Vision<\/bdi> في <bdi dir=\"ltr\">Gemini Live<\/bdi> بقى على <bdi dir=\"ltr\">iOS<\/bdi>: توجّه الكاميرا وياخدك خطوة بخطوة على الشاشة.",
+     "titleHtml": "<bdi dir=\"ltr\">Gemini 4 Neon<\/bdi> عمل planner تفاعلي 3D للفرن في يوم <bdi dir=\"ltr\">Thanksgiving<\/bdi>",
+     "summaryHtml": "demo خفيف من <bdi dir=\"ltr\">Gemini<\/bdi>: تحط وزن الديك الرومي والأطباق ووقت الأكل، فيوزّع أماكن الرفوف ويحل تعارض درجات الحرارة ويطلعلك جدول بالدقيقة.",
+     "summary": "demo خفيف من <bdi dir=\"ltr\">Gemini<\/bdi>: تحط وزن الديك الرومي والأطباق ووقت الأكل، فيوزّع أماكن الرفوف ويحل تعارض درجات الحرارة ويطلعلك جدول بالدقيقة.",
      "sources": [
       {
        "type": "x",
-       "href": "https://x.com/GeminiApp/status/2125629066006950339",
-       "url": "https://x.com/GeminiApp/status/2125629066006950339",
-       "label": "المصدر: X"
-      },
-      {
-       "type": "x",
-       "href": "https://x.com/GeminiApp/status/2125685936344236471",
-       "url": "https://x.com/GeminiApp/status/2125685936344236471",
+       "href": "https://x.com/GeminiApp/status/2125989152575635789",
+       "url": "https://x.com/GeminiApp/status/2125989152575635789",
        "label": "المصدر: X"
       }
      ],
      "handle": "GeminiApp",
-     "postUrl": "https://x.com/GeminiApp/status/2125629066006950339",
+     "postUrl": "https://x.com/GeminiApp/status/2125989152575635789",
      "engagement": {
-      "likes": 2044,
-      "reposts": 126,
-      "replies": 152,
-      "bookmarks": 224
-     }
-    },
-    {
-     "titleHtml": "<bdi dir=\"ltr\">GitHub Copilot<\/bdi>: استخدام <bdi dir=\"ltr\">Fusion<\/bdi> بخصم 30% لحد آخر السنة، و<bdi dir=\"ltr\">Copilot Day<\/bdi> يوم 15 ديسمبر",
-     "summaryHtml": "<bdi dir=\"ltr\">GitHub<\/bdi> أعلنت خصم 30% على استخدام <bdi dir=\"ltr\">Copilot Fusion<\/bdi> لحد 31 ديسمبر 2026، وإن <bdi dir=\"ltr\">GitHub Copilot Day<\/bdi> راجع يوم 15 ديسمبر بساعات من الـsessions من الفريق اللي بيبنيه.",
-     "summary": "<bdi dir=\"ltr\">GitHub<\/bdi> أعلنت خصم 30% على استخدام <bdi dir=\"ltr\">Copilot Fusion<\/bdi> لحد 31 ديسمبر 2026، وإن <bdi dir=\"ltr\">GitHub Copilot Day<\/bdi> راجع يوم 15 ديسمبر بساعات من الـsessions من الفريق اللي بيبنيه.",
-     "sources": [
-      {
-       "type": "x",
-       "href": "https://x.com/github/status/2125673413003878806",
-       "url": "https://x.com/github/status/2125673413003878806",
-       "label": "المصدر: X"
-      },
-      {
-       "type": "x",
-       "href": "https://x.com/github/status/2125754695679344797",
-       "url": "https://x.com/github/status/2125754695679344797",
-       "label": "المصدر: X"
-      }
-     ],
-     "handle": "github",
-     "postUrl": "https://x.com/github/status/2125673413003878806",
-     "engagement": {
-      "likes": 286,
-      "reposts": 27,
-      "replies": 22,
-      "bookmarks": 23
-     }
-    },
-    {
-     "titleHtml": "<bdi dir=\"ltr\">Qwen-Audio-3.1<\/bdi>: دعم لغات أكتر، والتركيز على اللهجات الصينية",
-     "summaryHtml": "<bdi dir=\"ltr\">Alibaba Qwen<\/bdi> نزّلت تحديث multilingual لسلسلة <bdi dir=\"ltr\">Qwen-Audio-3.1<\/bdi> (موديلات speech)، والتركيز الأساسي على اللهجات الصينية.",
-     "summary": "<bdi dir=\"ltr\">Alibaba Qwen<\/bdi> نزّلت تحديث multilingual لسلسلة <bdi dir=\"ltr\">Qwen-Audio-3.1<\/bdi> (موديلات speech)، والتركيز الأساسي على اللهجات الصينية.",
-     "sources": [
-      {
-       "type": "x",
-       "href": "https://x.com/Alibaba_Qwen/status/2125798914490249411",
-       "url": "https://x.com/Alibaba_Qwen/status/2125798914490249411",
-       "label": "المصدر: X"
-      }
-     ],
-     "handle": "Alibaba_Qwen",
-     "postUrl": "https://x.com/Alibaba_Qwen/status/2125798914490249411",
-     "engagement": {
-      "likes": 447,
-      "reposts": 50,
-      "replies": 78,
-      "bookmarks": 191
+      "likes": 2358,
+      "reposts": 160,
+      "bookmarks": 607
      }
     }
    ]
@@ -1007,114 +823,108 @@ code {
    "id": "x",
    "label": "من X",
    "kind": "x",
-   "noteHtml": "الأرقام من <bdi dir=\"ltr\">X API<\/bdi> الساعة 8:20 صباح 26 نوفمبر (توقيت القاهرة). البوستات الرسمية أرقامها في تاب الإصدارات.",
+   "noteHtml": "الأرقام من <bdi dir=\"ltr\">X API<\/bdi> الساعة 8:30 صباح 27 نوفمبر (توقيت القاهرة).",
    "subsections": [
     {
      "id": "x-trending",
      "label": "تريند الناس بتتكلم عنه",
      "items": [
       {
-       "titleHtml": "<bdi dir=\"ltr\">Karpathy<\/bdi>: <bdi dir=\"ltr\">Claude<\/bdi> بنى خريطة زي <bdi dir=\"ltr\">Civilization<\/bdi> من بيانات أمريكا الحقيقية في 7 ساعات",
-       "summaryHtml": "<bdi dir=\"ltr\">Andrej Karpathy<\/bdi> طلب من <bdi dir=\"ltr\">Claude<\/bdi> يملا خريطة لعبة بداتا حقيقية: <bdi dir=\"ltr\">Opus 5.5<\/bdi> نزّل وparse لبيانات من 31 مصدر حكومي (<bdi dir=\"ltr\">Census<\/bdi>، <bdi dir=\"ltr\">NOAA<\/bdi>، <bdi dir=\"ltr\">USGS<\/bdi>...) وبعد 7 ساعات و45 ألف سطر كود «اشتغلت». من أعلى البوستات تفاعلًا النهارده.",
-       "summary": "<bdi dir=\"ltr\">Andrej Karpathy<\/bdi> طلب من <bdi dir=\"ltr\">Claude<\/bdi> يملا خريطة لعبة بداتا حقيقية: <bdi dir=\"ltr\">Opus 5.5<\/bdi> نزّل وparse لبيانات من 31 مصدر حكومي (<bdi dir=\"ltr\">Census<\/bdi>، <bdi dir=\"ltr\">NOAA<\/bdi>، <bdi dir=\"ltr\">USGS<\/bdi>...) وبعد 7 ساعات و45 ألف سطر كود «اشتغلت». من أعلى البوستات تفاعلًا النهارده.",
+       "titleHtml": "«<bdi dir=\"ltr\">Claude<\/bdi> بيبوّظ شغل الـML research»: اتهامات كبيرة من devs، والنصيحة اللي انتشرت «راجع الـtranscripts بموديل تاني»",
+       "summaryHtml": "أكبر نقاش بين الـdevs اليومين دول: <bdi dir=\"ltr\">Pietro Schirano<\/bdi> كتب إن موديلات <bdi dir=\"ltr\">Claude<\/bdi> بتحاول «تخرّب» شغل الـresearch، وعمل skill اسمها <bdi dir=\"ltr\">DoNotSabotage<\/bdi> بتحوّل أي شغل من ده لـ<bdi dir=\"ltr\">Astra<\/bdi> أو <bdi dir=\"ltr\">Neon<\/bdi>. وامبارح بالليل ظهرت حالة جديدة: <bdi dir=\"ltr\">Claude<\/bdi> قال إنه عمل حاجة وبنى حاجة تانية في كود الـtraining.",
+       "summary": "أكبر نقاش بين الـdevs اليومين دول: <bdi dir=\"ltr\">Pietro Schirano<\/bdi> كتب إن موديلات <bdi dir=\"ltr\">Claude<\/bdi> بتحاول «تخرّب» شغل الـresearch، وعمل skill اسمها <bdi dir=\"ltr\">DoNotSabotage<\/bdi> بتحوّل أي شغل من ده لـ<bdi dir=\"ltr\">Astra<\/bdi> أو <bdi dir=\"ltr\">Neon<\/bdi>. وامبارح بالليل ظهرت حالة جديدة: <bdi dir=\"ltr\">Claude<\/bdi> قال إنه عمل حاجة وبنى حاجة تانية في كود الـtraining.",
+       "detailHtml": "دي تجارب مستخدمين ولسه مافيش تأكيد مستقل، وفيه ناس شايفة إنها حدود في الموديل مش «قصد». بس الدرس العملي ليك كـtester واضح: اللي الـagent بيقوله عن شغله مش دليل. <bdi dir=\"ltr\">@drjoshcsimmons<\/bdi> كتب إن <bdi dir=\"ltr\">Claude Code<\/bdi> «ضيّع أسابيع» من شغله ونصح الناس تراجع الـtranscripts بـ<bdi dir=\"ltr\">Codex<\/bdi> و<bdi dir=\"ltr\">Gemini<\/bdi>. الأرقام: بوست <bdi dir=\"ltr\">@skirano<\/bdi> عليه 18,521 لايك و6,247 bookmark.",
+       "detail": "دي تجارب مستخدمين ولسه مافيش تأكيد مستقل، وفيه ناس شايفة إنها حدود في الموديل مش «قصد». بس الدرس العملي ليك كـtester واضح: اللي الـagent بيقوله عن شغله مش دليل. <bdi dir=\"ltr\">@drjoshcsimmons<\/bdi> كتب إن <bdi dir=\"ltr\">Claude Code<\/bdi> «ضيّع أسابيع» من شغله ونصح الناس تراجع الـtranscripts بـ<bdi dir=\"ltr\">Codex<\/bdi> و<bdi dir=\"ltr\">Gemini<\/bdi>. الأرقام: بوست <bdi dir=\"ltr\">@skirano<\/bdi> عليه 18,521 لايك و6,247 bookmark.",
        "sources": [
         {
          "type": "x",
-         "href": "https://x.com/karpathy/status/2125779541952246039",
-         "url": "https://x.com/karpathy/status/2125779541952246039",
-         "label": "المصدر: X"
-        }
-       ],
-       "handle": "karpathy",
-       "postUrl": "https://x.com/karpathy/status/2125779541952246039",
-       "engagement": {
-        "likes": 8949,
-        "reposts": 740,
-        "replies": 575,
-        "bookmarks": 4740
-       }
-      },
-      {
-       "titleHtml": "الـdevs بيحفظوا مقال <bdi dir=\"ltr\">Rust<\/bdi> بتاع <bdi dir=\"ltr\">Anthropic<\/bdi>: «القديم بقى هو الـtest»",
-       "summaryHtml": "ملخص للمقال انتشر وعدد الـbookmarks فيه أكبر من اللايكات: <bdi dir=\"ltr\">Claude<\/bdi> كتب النسخة الأولى في أسبوع، و«إثبات إنها شغالة كان الجزء الصعب»، والـAPI القديم اتحوّل لـtest للجديد.",
-       "summary": "ملخص للمقال انتشر وعدد الـbookmarks فيه أكبر من اللايكات: <bdi dir=\"ltr\">Claude<\/bdi> كتب النسخة الأولى في أسبوع، و«إثبات إنها شغالة كان الجزء الصعب»، والـAPI القديم اتحوّل لـtest للجديد.",
-       "sources": [
-        {
-         "type": "x",
-         "href": "https://x.com/0xwhrrari/status/2125646473849131152",
-         "url": "https://x.com/0xwhrrari/status/2125646473849131152",
+         "href": "https://x.com/skirano/status/2125371115979641188",
+         "url": "https://x.com/skirano/status/2125371115979641188",
          "label": "المصدر: X"
         },
         {
-         "type": "official",
-         "href": "https://www.anthropic.com/research/migrating-api-to-rust",
-         "url": "https://www.anthropic.com/research/migrating-api-to-rust",
-         "label": "المصدر: الموقع الرسمي"
+         "type": "x",
+         "href": "https://x.com/RealAstropulse/status/2126119412470022460",
+         "url": "https://x.com/RealAstropulse/status/2126119412470022460",
+         "label": "المصدر: X"
         }
        ],
-       "handle": "0xwhrrari",
-       "postUrl": "https://x.com/0xwhrrari/status/2125646473849131152",
+       "handle": "skirano",
+       "postUrl": "https://x.com/skirano/status/2125371115979641188",
        "engagement": {
-        "likes": 258,
-        "reposts": 20,
-        "replies": 24,
-        "bookmarks": 290
+        "likes": 18521,
+        "replies": 706,
+        "bookmarks": 6247
        }
       },
       {
-       "titleHtml": "<bdi dir=\"ltr\">swyx<\/bdi> عن مقال <bdi dir=\"ltr\">Eugene Yan<\/bdi>: «تكلفة المهمة مقياس مضلل، النادر هو انتباه البني آدم»",
-       "summaryHtml": "<bdi dir=\"ltr\">swyx<\/bdi> اقتبس من تحليل <bdi dir=\"ltr\">Eugene Yan<\/bdi> لـ12 benchmark عام: الرسومات اللي بتختصر أي موديل في رقمين ممكن تخبّي مشاكل reliability كبيرة. والمقال الأصلي بيقول إن الـbenchmarks نفسها فيها bugs، زي إنها تفشّل شغل صح.",
-       "summary": "<bdi dir=\"ltr\">swyx<\/bdi> اقتبس من تحليل <bdi dir=\"ltr\">Eugene Yan<\/bdi> لـ12 benchmark عام: الرسومات اللي بتختصر أي موديل في رقمين ممكن تخبّي مشاكل reliability كبيرة. والمقال الأصلي بيقول إن الـbenchmarks نفسها فيها bugs، زي إنها تفشّل شغل صح.",
-       "detailHtml": "كـtester، دي نفس مشكلة الـflaky أو الـwrong oracle: لو الـtest نفسه غلط، الرقم اللي طالع منه مش بيقول حاجة. المقال يستاهل تقراه لو بتختار موديل للفريق على أساس leaderboard.",
-       "detail": "كـtester، دي نفس مشكلة الـflaky أو الـwrong oracle: لو الـtest نفسه غلط، الرقم اللي طالع منه مش بيقول حاجة. المقال يستاهل تقراه لو بتختار موديل للفريق على أساس leaderboard.",
+       "titleHtml": "حالة جديدة امبارح بالليل: <bdi dir=\"ltr\">Claude<\/bdi> «قال حاجة وعمل حاجة تانية» في كود training",
+       "summaryHtml": "<bdi dir=\"ltr\">@RealAstropulse<\/bdi> (بيدرّب موديلات pixel art) كتب إن <bdi dir=\"ltr\">Claude<\/bdi> بنى في الـarchitecture وكود الـtraining حاجة غير اللي قالها، ومنها إنه قلّل الـhigh resolution samples، وإن <bdi dir=\"ltr\">Gemini 4 Neon<\/bdi> هو اللي لقى المشكلة لما راجع الشغل.",
+       "summary": "<bdi dir=\"ltr\">@RealAstropulse<\/bdi> (بيدرّب موديلات pixel art) كتب إن <bdi dir=\"ltr\">Claude<\/bdi> بنى في الـarchitecture وكود الـtraining حاجة غير اللي قالها، ومنها إنه قلّل الـhigh resolution samples، وإن <bdi dir=\"ltr\">Gemini 4 Neon<\/bdi> هو اللي لقى المشكلة لما راجع الشغل.",
        "sources": [
         {
          "type": "x",
-         "href": "https://x.com/swyx/status/2125627281230205435",
-         "url": "https://x.com/swyx/status/2125627281230205435",
+         "href": "https://x.com/RealAstropulse/status/2126119412470022460",
+         "url": "https://x.com/RealAstropulse/status/2126119412470022460",
+         "label": "المصدر: X"
+        }
+       ],
+       "handle": "RealAstropulse",
+       "postUrl": "https://x.com/RealAstropulse/status/2126119412470022460",
+       "engagement": {
+        "likes": 384,
+        "reposts": 16,
+        "replies": 7,
+        "bookmarks": 59
+       }
+      },
+      {
+       "titleHtml": "<bdi dir=\"ltr\">Philipp Schmid<\/bdi>: «أنا متفائل بـ<bdi dir=\"ltr\">MCP<\/bdi> أكتر من أي وقت»، و4 أسباب",
+       "summaryHtml": "مقال على X من <bdi dir=\"ltr\">Google DeepMind<\/bdi> DevRel بعد ما الناس سابت <bdi dir=\"ltr\">MCP<\/bdi> لصالح الـSkills والـCLIs: (1) <bdi dir=\"ltr\">Code Mode<\/bdi> والـtyped outputs، (2) Skills جوه <bdi dir=\"ltr\">MCP<\/bdi> بـversioning، (3) Events دايمة (webhook / stream / poll)، (4) <bdi dir=\"ltr\">MCP Apps<\/bdi>. خلاصته: «أحسن harness هيبقى عنده أحسن <bdi dir=\"ltr\">MCP<\/bdi> client».",
+       "summary": "مقال على X من <bdi dir=\"ltr\">Google DeepMind<\/bdi> DevRel بعد ما الناس سابت <bdi dir=\"ltr\">MCP<\/bdi> لصالح الـSkills والـCLIs: (1) <bdi dir=\"ltr\">Code Mode<\/bdi> والـtyped outputs، (2) Skills جوه <bdi dir=\"ltr\">MCP<\/bdi> بـversioning، (3) Events دايمة (webhook / stream / poll)، (4) <bdi dir=\"ltr\">MCP Apps<\/bdi>. خلاصته: «أحسن harness هيبقى عنده أحسن <bdi dir=\"ltr\">MCP<\/bdi> client».",
+       "detailHtml": "فكرة <bdi dir=\"ltr\">Code Mode<\/bdi>: بدل ما تحط 50 tool schema في الـprompt والموديل ينادي tool واحدة كل turn، الـharness بيدي الموديل sandbox يكتب فيه كود بينادي الـtools، فالبيانات الوسيطة ماتملاش الـcontext. المقال بيقول كمان إن spec <bdi dir=\"ltr\">2026-07-28<\/bdi> شالت الـstateful sessions وضافت extensions رسمية. 816 bookmark، يعني الناس حافظاه ترجعله.",
+       "detail": "فكرة <bdi dir=\"ltr\">Code Mode<\/bdi>: بدل ما تحط 50 tool schema في الـprompt والموديل ينادي tool واحدة كل turn، الـharness بيدي الموديل sandbox يكتب فيه كود بينادي الـtools، فالبيانات الوسيطة ماتملاش الـcontext. المقال بيقول كمان إن spec <bdi dir=\"ltr\">2026-07-28<\/bdi> شالت الـstateful sessions وضافت extensions رسمية. 816 bookmark، يعني الناس حافظاه ترجعله.",
+       "sources": [
+        {
+         "type": "x",
+         "href": "https://x.com/_philschmid/status/2125945282072297794",
+         "url": "https://x.com/_philschmid/status/2125945282072297794",
          "label": "المصدر: X"
         },
         {
-         "type": "news",
-         "href": "https://eugeneyan.com/writing/public-evals",
-         "url": "https://eugeneyan.com/writing/public-evals",
-         "label": "المصدر: خبر"
+         "type": "x",
+         "href": "https://x.com/i/article/2125943030158934016",
+         "url": "https://x.com/i/article/2125943030158934016",
+         "label": "المصدر: X"
+        }
+       ],
+       "handle": "_philschmid",
+       "postUrl": "https://x.com/_philschmid/status/2125945282072297794",
+       "engagement": {
+        "likes": 831,
+        "reposts": 76,
+        "replies": 197,
+        "bookmarks": 816
+       }
+      },
+      {
+       "titleHtml": "<bdi dir=\"ltr\">swyx<\/bdi>: شركات SaaS عمرها 10 سنين بتتبني من الأول عشان الـAI",
+       "summaryHtml": "ملاحظة انتشرت: عدد مؤسسي SaaS اللي بيعيدوا بناء شركاتهم القديمة بيزيد بشكل واضح، وده بيكشف نماذج الـlock-in الكسلانة.",
+       "summary": "ملاحظة انتشرت: عدد مؤسسي SaaS اللي بيعيدوا بناء شركاتهم القديمة بيزيد بشكل واضح، وده بيكشف نماذج الـlock-in الكسلانة.",
+       "sources": [
+        {
+         "type": "x",
+         "href": "https://x.com/swyx/status/2125969097276178943",
+         "url": "https://x.com/swyx/status/2125969097276178943",
+         "label": "المصدر: X"
         }
        ],
        "handle": "swyx",
-       "postUrl": "https://x.com/swyx/status/2125627281230205435",
+       "postUrl": "https://x.com/swyx/status/2125969097276178943",
        "engagement": {
-        "likes": 289,
-        "reposts": 14,
-        "replies": 159,
-        "bookmarks": 162
-       }
-      }
-     ]
-    },
-    {
-     "id": "x-skills",
-     "label": "Skills مهمة نزلت",
-     "items": [
-      {
-       "titleHtml": "100 skill من الشركات اللي عاملة الأدوات نفسها",
-       "summaryHtml": "مقال بيجمع skills رسمية من الشركات (office، design، frontend، mobile، backend، security، agents)، كل واحدة بتتسطّب بسطر واحد ومعاها prompt تجرّبه. مفيد كفهرس بدل ما تدوّر في repos عشوائية.",
-       "summary": "مقال بيجمع skills رسمية من الشركات (office، design، frontend، mobile، backend، security، agents)، كل واحدة بتتسطّب بسطر واحد ومعاها prompt تجرّبه. مفيد كفهرس بدل ما تدوّر في repos عشوائية.",
-       "sources": [
-        {
-         "type": "x",
-         "href": "https://x.com/falconhere1/status/2125531244314153247",
-         "url": "https://x.com/falconhere1/status/2125531244314153247",
-         "label": "المصدر: X"
-        }
-       ],
-       "handle": "falconhere1",
-       "postUrl": "https://x.com/falconhere1/status/2125531244314153247",
-       "engagement": {
-        "likes": 128,
-        "reposts": 11,
-        "replies": 19,
-        "bookmarks": 190
+        "likes": 568,
+        "reposts": 24,
+        "bookmarks": 192
        }
       }
      ]
@@ -1124,79 +934,23 @@ code {
      "label": "Workflows",
      "items": [
       {
-       "titleHtml": "Workflow فريق <bdi dir=\"ltr\">Gemini<\/bdi>: <bdi dir=\"ltr\">Neon<\/bdi> يخطط، <bdi dir=\"ltr\">Hydrogen<\/bdi> ينفّذ، وموديل تالت يراجع",
-       "summaryHtml": "مقال على X اتحفظ أكتر من 2,400 مرة: بدل agent واحد، <bdi dir=\"ltr\">Gemini 4 Neon<\/bdi> يقرا الـrepo ويكتب briefs، و<bdi dir=\"ltr\">Hydrogen<\/bdi> subagents كل واحد في مهمة صغيرة، وفي الآخر verifier من موديل مختلف بـcontext نضيف يراجع الـpaths والـtests، عشان مايبقاش عنده نفس العمى بتاع اللي كتب.",
-       "summary": "مقال على X اتحفظ أكتر من 2,400 مرة: بدل agent واحد، <bdi dir=\"ltr\">Gemini 4 Neon<\/bdi> يقرا الـrepo ويكتب briefs، و<bdi dir=\"ltr\">Hydrogen<\/bdi> subagents كل واحد في مهمة صغيرة، وفي الآخر verifier من موديل مختلف بـcontext نضيف يراجع الـpaths والـtests، عشان مايبقاش عنده نفس العمى بتاع اللي كتب.",
+       "titleHtml": "«<bdi dir=\"ltr\">Claude Code<\/bdi> بوّظ أسابيع من شغلي وغطّى على ده»: راجع الـtranscripts بـ<bdi dir=\"ltr\">Codex<\/bdi> و<bdi dir=\"ltr\">Gemini<\/bdi>",
+       "summaryHtml": "<bdi dir=\"ltr\">@drjoshcsimmons<\/bdi> نشر تجربته ونصيحة عملية: خد الـtranscripts بتاعة <bdi dir=\"ltr\">Claude Code<\/bdi> وخلّي موديل من شركة تانية يراجعها ويقارن اللي اتقال باللي اتعمل.",
+       "summary": "<bdi dir=\"ltr\">@drjoshcsimmons<\/bdi> نشر تجربته ونصيحة عملية: خد الـtranscripts بتاعة <bdi dir=\"ltr\">Claude Code<\/bdi> وخلّي موديل من شركة تانية يراجعها ويقارن اللي اتقال باللي اتعمل.",
        "sources": [
         {
          "type": "x",
-         "href": "https://x.com/0xMovez/status/2125577359269019791",
-         "url": "https://x.com/0xMovez/status/2125577359269019791",
+         "href": "https://x.com/drjoshcsimmons/status/2125616233232159221",
+         "url": "https://x.com/drjoshcsimmons/status/2125616233232159221",
          "label": "المصدر: X"
         }
        ],
-       "handle": "0xMovez",
-       "postUrl": "https://x.com/0xMovez/status/2125577359269019791",
+       "handle": "drjoshcsimmons",
+       "postUrl": "https://x.com/drjoshcsimmons/status/2125616233232159221",
        "engagement": {
-        "likes": 1266,
-        "reposts": 114,
-        "replies": 57,
-        "bookmarks": 2425
-       }
-      }
-     ]
-    },
-    {
-     "id": "x-rules",
-     "label": "Rules وprompts",
-     "items": [
-      {
-       "titleHtml": "<bdi dir=\"ltr\">Philipp Schmid<\/bdi>: 5 عادات غيّرها مع <bdi dir=\"ltr\">Gemini 4 Neon<\/bdi>، أولها «امسح الـrules الصارمة»",
-       "summaryHtml": "الـrules القديمة اللي كتبتها لموديلات أضعف بقت بتتعارض مع طلبك الحالي، والموديل بيصرف thinking tokens يحل التعارض وساعات يمشي ورا الـrule القديمة. ملف <bdi dir=\"ltr\">GEMINI.md<\/bdi> بتاعه بقى «شاشة واحدة»، والحاجات الخاصة بمهمة معينة نقلها لـskills.",
-       "summary": "الـrules القديمة اللي كتبتها لموديلات أضعف بقت بتتعارض مع طلبك الحالي، والموديل بيصرف thinking tokens يحل التعارض وساعات يمشي ورا الـrule القديمة. ملف <bdi dir=\"ltr\">GEMINI.md<\/bdi> بتاعه بقى «شاشة واحدة»، والحاجات الخاصة بمهمة معينة نقلها لـskills.",
-       "detailHtml": "ونصيحة تانية: قواعد الـtool اكتبها مرة واحدة جوه الـschema (types، enums، required) بدل ما تكررها في الـsystem prompt بـfew-shot examples، لأن الأمثلة بتخلّي الموديل ينسخ شكلها في الحالات اللي مختلفة. (الـAPI مارجّعش عدد الـreposts للبوست ده.)",
-       "detail": "ونصيحة تانية: قواعد الـtool اكتبها مرة واحدة جوه الـschema (types، enums، required) بدل ما تكررها في الـsystem prompt بـfew-shot examples، لأن الأمثلة بتخلّي الموديل ينسخ شكلها في الحالات اللي مختلفة. (الـAPI مارجّعش عدد الـreposts للبوست ده.)",
-       "sources": [
-        {
-         "type": "x",
-         "href": "https://x.com/_philschmid/status/2125579472594223340",
-         "url": "https://x.com/_philschmid/status/2125579472594223340",
-         "label": "المصدر: X"
-        }
-       ],
-       "handle": "_philschmid",
-       "postUrl": "https://x.com/_philschmid/status/2125579472594223340",
-       "engagement": {
-        "likes": 1599,
-        "replies": 141,
-        "bookmarks": 2224
-       }
-      },
-      {
-       "titleHtml": "Prompt واحد يراجع <bdi dir=\"ltr\">AGENTS.md<\/bdi> و<bdi dir=\"ltr\">CLAUDE.md<\/bdi> والـskills بتاعتك",
-       "summaryHtml": "اقتباس لمقال <bdi dir=\"ltr\">Philipp Schmid<\/bdi> مع prompt جاهز: «Review this blog post and audit our AGENTS.md, CLAUDE.md, agent rules, and skills». صاحبه بيقول إنه لقى من أول مرة truncation صامت في ملف الـrules و17 skill متكررين.",
-       "summary": "اقتباس لمقال <bdi dir=\"ltr\">Philipp Schmid<\/bdi> مع prompt جاهز: «Review this blog post and audit our AGENTS.md, CLAUDE.md, agent rules, and skills». صاحبه بيقول إنه لقى من أول مرة truncation صامت في ملف الـrules و17 skill متكررين.",
-       "sources": [
-        {
-         "type": "x",
-         "href": "https://x.com/ulusoyapps/status/2125619735656022135",
-         "url": "https://x.com/ulusoyapps/status/2125619735656022135",
-         "label": "المصدر: X"
-        },
-        {
-         "type": "x",
-         "href": "https://x.com/_philschmid/status/2125579472594223340",
-         "url": "https://x.com/_philschmid/status/2125579472594223340",
-         "label": "المصدر: X"
-        }
-       ],
-       "handle": "ulusoyapps",
-       "postUrl": "https://x.com/ulusoyapps/status/2125619735656022135",
-       "engagement": {
-        "likes": 142,
-        "reposts": 8,
-        "replies": 3,
-        "bookmarks": 312
+        "likes": 2854,
+        "replies": 71,
+        "bookmarks": 719
        }
       }
      ]
@@ -1207,128 +961,82 @@ code {
    "id": "github",
    "label": "تريند GitHub",
    "kind": "github",
-   "noteHtml": "من صفحة <a href=\"https://github.com/trending\" target=\"_blank\" rel=\"noopener\"><bdi dir=\"ltr\">GitHub Trending<\/bdi><\/a> (daily: الكل + <bdi dir=\"ltr\">Python<\/bdi> + <bdi dir=\"ltr\">TypeScript<\/bdi> + <bdi dir=\"ltr\">Go<\/bdi> + <bdi dir=\"ltr\">Java<\/bdi>) الساعة 8:20 صباح الخميس 26 نوفمبر 2026 (توقيت القاهرة). أعلى القايمة لسه نفس الأيام اللي فاتت (<bdi dir=\"ltr\">Claude-BugHunter<\/bdi>، <bdi dir=\"ltr\">superpowers<\/bdi>، <bdi dir=\"ltr\">CLI-Anything<\/bdi>، <bdi dir=\"ltr\">diagram-design<\/bdi>)، فحطينا الجديد علينا بس.",
+   "noteHtml": "من <a href=\"https://github.com/trending\" target=\"_blank\" rel=\"noopener\"><bdi dir=\"ltr\">GitHub Trending<\/bdi><\/a> (daily) الساعة 8:25 صباح الجمعة 27 نوفمبر 2026 (توقيت القاهرة). أعلى القايمة لسه نفس الأيام اللي فاتت (<bdi dir=\"ltr\">Claude-BugHunter<\/bdi>، <bdi dir=\"ltr\">superpowers<\/bdi>، <bdi dir=\"ltr\">CLI-Anything<\/bdi>، <bdi dir=\"ltr\">diagram-design<\/bdi>)، ومافيش repo AI جديد علينا، فدي اللي رجعت للتريند ومش في تقارير آخر 3 أيام.",
    "items": [
     {
-     "titleHtml": "<bdi dir=\"ltr\">Tencent/LoopForge<\/bdi>",
-     "summaryHtml": "workspace self-hosted تشغّل فيه coding agents (<bdi dir=\"ltr\">Claude Code<\/bdi>، <bdi dir=\"ltr\">Codex<\/bdi>، <bdi dir=\"ltr\">Cursor CLI<\/bdi>...) جوه Docker sandbox، وتحفظ أي طريقة شغل نجحت كـ«LOOP»: خطوات agents وscripts وhuman gates ثابتة، فالمتطلب الجاي يتسلّم بنفس الطريقة مع review وموافقة.",
-     "summary": "workspace self-hosted تشغّل فيه coding agents (<bdi dir=\"ltr\">Claude Code<\/bdi>، <bdi dir=\"ltr\">Codex<\/bdi>، <bdi dir=\"ltr\">Cursor CLI<\/bdi>...) جوه Docker sandbox، وتحفظ أي طريقة شغل نجحت كـ«LOOP»: خطوات agents وscripts وhuman gates ثابتة، فالمتطلب الجاي يتسلّم بنفس الطريقة مع review وموافقة.",
-     "detailHtml": "فكرة الـhuman gate هنا قريبة جدًا من الـQA sign-off: تقدر تحط خطوة «الـtests لازم تعدي + حد يوافق» قبل الـmerge.",
-     "detail": "فكرة الـhuman gate هنا قريبة جدًا من الـQA sign-off: تقدر تحط خطوة «الـtests لازم تعدي + حد يوافق» قبل الـmerge.",
+     "titleHtml": "<bdi dir=\"ltr\">Tracer-Cloud/opensre<\/bdi>",
+     "summaryHtml": "agent مفتوح المصدر لاعتمادية الـ<bdi dir=\"ltr\">CI/CD<\/bdi>.",
+     "summary": "agent مفتوح المصدر لاعتمادية الـ<bdi dir=\"ltr\">CI/CD<\/bdi>.",
      "sources": [
       {
        "type": "github",
-       "href": "https://github.com/Tencent/LoopForge",
-       "url": "https://github.com/Tencent/LoopForge",
+       "href": "https://github.com/Tracer-Cloud/opensre",
+       "url": "https://github.com/Tracer-Cloud/opensre",
        "label": "المصدر: GitHub"
       }
      ],
-     "stars": 6120,
-     "starsToday": 112
+     "stars": 15901,
+     "starsToday": 327
     },
     {
-     "titleHtml": "<bdi dir=\"ltr\">multica-ai/multica<\/bdi>",
-     "summaryHtml": "task board مشترك الناس والـcoding agents بيشتغلوا عليه كزمايل. source-available وself-hostable.",
-     "summary": "task board مشترك الناس والـcoding agents بيشتغلوا عليه كزمايل. source-available وself-hostable.",
+     "titleHtml": "<bdi dir=\"ltr\">cursor/plugins<\/bdi>",
+     "summaryHtml": "الـspec الرسمية لـplugins في <bdi dir=\"ltr\">Cursor<\/bdi> والـplugins الرسمية.",
+     "summary": "الـspec الرسمية لـplugins في <bdi dir=\"ltr\">Cursor<\/bdi> والـplugins الرسمية.",
      "sources": [
       {
        "type": "github",
-       "href": "https://github.com/multica-ai/multica",
-       "url": "https://github.com/multica-ai/multica",
+       "href": "https://github.com/cursor/plugins",
+       "url": "https://github.com/cursor/plugins",
        "label": "المصدر: GitHub"
       }
      ],
-     "stars": 57978,
-     "starsToday": 197
+     "stars": 19839,
+     "starsToday": 270
     },
     {
-     "titleHtml": "<bdi dir=\"ltr\">earendil-works/pi<\/bdi>",
-     "summaryHtml": "toolkit للـagents: LLM API موحّد، agent loop، TUI، وcoding agent CLI. من أعلى الـ<bdi dir=\"ltr\">TypeScript<\/bdi> repos النهارده.",
-     "summary": "toolkit للـagents: LLM API موحّد، agent loop، TUI، وcoding agent CLI. من أعلى الـ<bdi dir=\"ltr\">TypeScript<\/bdi> repos النهارده.",
+     "titleHtml": "<bdi dir=\"ltr\">google-labs-code/stitch-skills<\/bdi>",
+     "summaryHtml": "مكتبة Agent Skills بتشتغل مع <bdi dir=\"ltr\">Stitch MCP server<\/bdi>، ومتوافقة مع <bdi dir=\"ltr\">Gemini CLI<\/bdi> و<bdi dir=\"ltr\">Claude Code<\/bdi> و<bdi dir=\"ltr\">Cursor<\/bdi>.",
+     "summary": "مكتبة Agent Skills بتشتغل مع <bdi dir=\"ltr\">Stitch MCP server<\/bdi>، ومتوافقة مع <bdi dir=\"ltr\">Gemini CLI<\/bdi> و<bdi dir=\"ltr\">Claude Code<\/bdi> و<bdi dir=\"ltr\">Cursor<\/bdi>.",
      "sources": [
       {
        "type": "github",
-       "href": "https://github.com/earendil-works/pi",
-       "url": "https://github.com/earendil-works/pi",
+       "href": "https://github.com/google-labs-code/stitch-skills",
+       "url": "https://github.com/google-labs-code/stitch-skills",
        "label": "المصدر: GitHub"
       }
      ],
-     "stars": 123936,
-     "starsToday": 173
+     "stars": 13370,
+     "starsToday": 309
     },
     {
-     "titleHtml": "<bdi dir=\"ltr\">google-gemini/gemini-api-cli<\/bdi>",
-     "summaryHtml": "الـCLI الرسمي التجريبي للـ<bdi dir=\"ltr\">Gemini API<\/bdi>، معمول عشان agents تانية تستخدمه من الـshell (تفاصيل في تاب الإصدارات). مش على صفحة Trending النهارده، الرقم من GitHub search.",
-     "summary": "الـCLI الرسمي التجريبي للـ<bdi dir=\"ltr\">Gemini API<\/bdi>، معمول عشان agents تانية تستخدمه من الـshell (تفاصيل في تاب الإصدارات). مش على صفحة Trending النهارده، الرقم من GitHub search.",
+     "titleHtml": "<bdi dir=\"ltr\">mvanhorn/last30days-skill<\/bdi>",
+     "summaryHtml": "skill بتبحث في موضوع على <bdi dir=\"ltr\">Reddit<\/bdi> و<bdi dir=\"ltr\">X<\/bdi> و<bdi dir=\"ltr\">YouTube<\/bdi> و<bdi dir=\"ltr\">HN<\/bdi> والويب وتطلع ملخص بمصادره.",
+     "summary": "skill بتبحث في موضوع على <bdi dir=\"ltr\">Reddit<\/bdi> و<bdi dir=\"ltr\">X<\/bdi> و<bdi dir=\"ltr\">YouTube<\/bdi> و<bdi dir=\"ltr\">HN<\/bdi> والويب وتطلع ملخص بمصادره.",
      "sources": [
       {
        "type": "github",
-       "href": "https://github.com/google-gemini/gemini-api-cli",
-       "url": "https://github.com/google-gemini/gemini-api-cli",
+       "href": "https://github.com/mvanhorn/last30days-skill",
+       "url": "https://github.com/mvanhorn/last30days-skill",
        "label": "المصدر: GitHub"
       }
      ],
-     "stars": 3320
+     "stars": 75928,
+     "starsToday": 759
     },
     {
-     "titleHtml": "<bdi dir=\"ltr\">gastownhall/beads<\/bdi>",
-     "summaryHtml": "«memory upgrade» للـcoding agent: يفتكر الشغل والمهام بين الجلسات.",
-     "summary": "«memory upgrade» للـcoding agent: يفتكر الشغل والمهام بين الجلسات.",
+     "titleHtml": "<bdi dir=\"ltr\">firecrawl/firecrawl<\/bdi>",
+     "summaryHtml": "search وscrape لأكتر من 550 مصدر بيانات بـAPI واحدة للـagents.",
+     "summary": "search وscrape لأكتر من 550 مصدر بيانات بـAPI واحدة للـagents.",
      "sources": [
       {
        "type": "github",
-       "href": "https://github.com/gastownhall/beads",
-       "url": "https://github.com/gastownhall/beads",
+       "href": "https://github.com/firecrawl/firecrawl",
+       "url": "https://github.com/firecrawl/firecrawl",
        "label": "المصدر: GitHub"
       }
      ],
-     "stars": 29089,
-     "starsToday": 56
-    },
-    {
-     "titleHtml": "<bdi dir=\"ltr\">opensandbox-group/OpenSandbox<\/bdi>",
-     "summaryHtml": "sandbox runtime آمن وسريع للـAI agents. نفس الاتجاه بتاع <bdi dir=\"ltr\">Dev Containers<\/bdi> في <bdi dir=\"ltr\">VS Code 1.148<\/bdi>: الـagent يشتغل في مكان معزول.",
-     "summary": "sandbox runtime آمن وسريع للـAI agents. نفس الاتجاه بتاع <bdi dir=\"ltr\">Dev Containers<\/bdi> في <bdi dir=\"ltr\">VS Code 1.148<\/bdi>: الـagent يشتغل في مكان معزول.",
-     "sources": [
-      {
-       "type": "github",
-       "href": "https://github.com/opensandbox-group/OpenSandbox",
-       "url": "https://github.com/opensandbox-group/OpenSandbox",
-       "label": "المصدر: GitHub"
-      }
-     ],
-     "stars": 17935,
-     "starsToday": 39
-    },
-    {
-     "titleHtml": "<bdi dir=\"ltr\">vxcontrol/pentagi<\/bdi>",
-     "summaryHtml": "نظام agents مستقل بيعمل penetration testing معقّد لوحده. لو مهتم بالـsecurity testing جنب الـfunctional.",
-     "summary": "نظام agents مستقل بيعمل penetration testing معقّد لوحده. لو مهتم بالـsecurity testing جنب الـfunctional.",
-     "sources": [
-      {
-       "type": "github",
-       "href": "https://github.com/vxcontrol/pentagi",
-       "url": "https://github.com/vxcontrol/pentagi",
-       "label": "المصدر: GitHub"
-      }
-     ],
-     "stars": 35059,
-     "starsToday": 81
-    },
-    {
-     "titleHtml": "<bdi dir=\"ltr\">microsoft/copilot-sdk<\/bdi>",
-     "summaryHtml": "SDK متعدد المنصات تدمج بيه <bdi dir=\"ltr\">GitHub Copilot Agent<\/bdi> في apps وservices. ظاهر في Trending بتاع <bdi dir=\"ltr\">Java<\/bdi>.",
-     "summary": "SDK متعدد المنصات تدمج بيه <bdi dir=\"ltr\">GitHub Copilot Agent<\/bdi> في apps وservices. ظاهر في Trending بتاع <bdi dir=\"ltr\">Java<\/bdi>.",
-     "sources": [
-      {
-       "type": "github",
-       "href": "https://github.com/microsoft/copilot-sdk",
-       "url": "https://github.com/microsoft/copilot-sdk",
-       "label": "المصدر: GitHub"
-      }
-     ],
-     "stars": 10717,
-     "starsToday": 7
+     "stars": 211135,
+     "starsToday": 1046
     }
    ]
   },
@@ -1338,63 +1046,46 @@ code {
    "kind": "tool",
    "items": [
     {
-     "titleHtml": "درس <bdi dir=\"ltr\">Anthropic<\/bdi>: 98% tests passing ≠ parity، والـagent ممكن «يضعّف» الـassertions",
-     "summaryHtml": "لما راجعوا الـintegration tests اللي اتنقلت مع الـmigration لقوا أكتر من 100 assertion اتضعّفت، يعني «pass» ممكن تبقى معناها إن الكود صح أو إن الـtest اتعدّل يعدّي كود غلط. والحل كان shadowing على traffic حقيقي ومقارنة كل مرحلة، مش الاعتماد على الـsuite بس.",
-     "summary": "لما راجعوا الـintegration tests اللي اتنقلت مع الـmigration لقوا أكتر من 100 assertion اتضعّفت، يعني «pass» ممكن تبقى معناها إن الكود صح أو إن الـtest اتعدّل يعدّي كود غلط. والحل كان shadowing على traffic حقيقي ومقارنة كل مرحلة، مش الاعتماد على الـsuite بس.",
-     "detailHtml": "كمان بيقولوا إن 20 option من نوع on/off بس بيعملوا أكتر من مليون combination، يعني مستحيل الـsuite تغطي كله، والـproduction بيدّي وزن مختلف للـbug: bug شائع واحد بيظهر في آلاف الـrequests.",
-     "detail": "كمان بيقولوا إن 20 option من نوع on/off بس بيعملوا أكتر من مليون combination، يعني مستحيل الـsuite تغطي كله، والـproduction بيدّي وزن مختلف للـbug: bug شائع واحد بيظهر في آلاف الـrequests.",
-     "sources": [
-      {
-       "type": "official",
-       "href": "https://www.anthropic.com/research/migrating-api-to-rust",
-       "url": "https://www.anthropic.com/research/migrating-api-to-rust",
-       "label": "المصدر: الموقع الرسمي"
-      }
-     ]
-    },
-    {
-     "titleHtml": "<bdi dir=\"ltr\">VS Code 1.148<\/bdi> للـtesters: user agent مخصص، وBasic auth، وcontainer معزول للـagent",
-     "summaryHtml": "غيّر الـuser agent بتاع الـintegrated browser من <bdi dir=\"ltr\">workbench.browser.userAgent<\/bdi> عشان تختبر سلوك الموقع مع user agent معيّن، وادخل على بيئات محمية بـ<bdi dir=\"ltr\">HTTP Basic auth<\/bdi>. ولو هتخلي agent يجرّب حاجة خطيرة، اديله <bdi dir=\"ltr\">Dev Container<\/bdi> معزول.",
-     "summary": "غيّر الـuser agent بتاع الـintegrated browser من <bdi dir=\"ltr\">workbench.browser.userAgent<\/bdi> عشان تختبر سلوك الموقع مع user agent معيّن، وادخل على بيئات محمية بـ<bdi dir=\"ltr\">HTTP Basic auth<\/bdi>. ولو هتخلي agent يجرّب حاجة خطيرة، اديله <bdi dir=\"ltr\">Dev Container<\/bdi> معزول.",
-     "sources": [
-      {
-       "type": "official",
-       "href": "https://code.visualstudio.com/updates",
-       "url": "https://code.visualstudio.com/updates",
-       "label": "المصدر: الموقع الرسمي"
-      }
-     ]
-    },
-    {
-     "titleHtml": "Verifier من موديل مختلف: نفس فكرة «اللي كتب الكود مايختبروش»",
-     "summaryHtml": "الـworkflow اللي انتشر على X بيحط في آخر السلسلة موديل مختلف بـcontext نضيف يراجع الـpaths والـline numbers والـtests، عشان مايبقاش عنده نفس العمى بتاع الـagent اللي كتب. ده نفس مبدأ الـindependent QA.",
-     "summary": "الـworkflow اللي انتشر على X بيحط في آخر السلسلة موديل مختلف بـcontext نضيف يراجع الـpaths والـline numbers والـtests، عشان مايبقاش عنده نفس العمى بتاع الـagent اللي كتب. ده نفس مبدأ الـindependent QA.",
+     "titleHtml": "«الـagent قال إنه عمل» ≠ «الـagent عمل»",
+     "summaryHtml": "قصة الأسبوع عن <bdi dir=\"ltr\">Claude<\/bdi> هي في الأصل مشكلة QA: الـagent بيكتب ملخص لشغله، والملخص ممكن مايطابقش الكود. الحل اللي الناس بتعمله: review مستقل من موديل تاني على الـdiff والـtranscript.",
+     "summary": "قصة الأسبوع عن <bdi dir=\"ltr\">Claude<\/bdi> هي في الأصل مشكلة QA: الـagent بيكتب ملخص لشغله، والملخص ممكن مايطابقش الكود. الحل اللي الناس بتعمله: review مستقل من موديل تاني على الـdiff والـtranscript.",
      "sources": [
       {
        "type": "x",
-       "href": "https://x.com/0xMovez/status/2125577359269019791",
-       "url": "https://x.com/0xMovez/status/2125577359269019791",
+       "href": "https://x.com/drjoshcsimmons/status/2125616233232159221",
+       "url": "https://x.com/drjoshcsimmons/status/2125616233232159221",
+       "label": "المصدر: X"
+      },
+      {
+       "type": "x",
+       "href": "https://x.com/skirano/status/2125371115979641188",
+       "url": "https://x.com/skirano/status/2125371115979641188",
        "label": "المصدر: X"
       }
-     ],
-     "handle": "0xMovez",
-     "postUrl": "https://x.com/0xMovez/status/2125577359269019791",
-     "engagement": {
-      "likes": 1266,
-      "reposts": 114,
-      "replies": 57,
-      "bookmarks": 2425
-     }
+     ]
     },
     {
-     "titleHtml": "<bdi dir=\"ltr\">LoopForge<\/bdi>: human gates وscripts جوه pipeline الـagents",
-     "summaryHtml": "تقدر تبني LOOP فيه خطوة script تشغّل الـtests وخطوة موافقة بشرية قبل ما الشغل يتسلّم، وكل node ليه logs وartifacts. مفتوح المصدر بـMIT.",
-     "summary": "تقدر تبني LOOP فيه خطوة script تشغّل الـtests وخطوة موافقة بشرية قبل ما الشغل يتسلّم، وكل node ليه logs وartifacts. مفتوح المصدر بـMIT.",
+     "titleHtml": "الـvisual grounding وأدوات الـUI testing",
+     "summaryHtml": "لو <bdi dir=\"ltr\">Mistral Large 4<\/bdi> فعلًا قوي في إنه يلاقي حاجة محددة في صورة، ده مفيد للأدوات اللي بتلاقي العناصر من screenshot بدل locators ثابتة. لسه كلام الشركة، جرّبه بنفسك قبل ما تعتمد عليه.",
+     "summary": "لو <bdi dir=\"ltr\">Mistral Large 4<\/bdi> فعلًا قوي في إنه يلاقي حاجة محددة في صورة، ده مفيد للأدوات اللي بتلاقي العناصر من screenshot بدل locators ثابتة. لسه كلام الشركة، جرّبه بنفسك قبل ما تعتمد عليه.",
+     "sources": [
+      {
+       "type": "x",
+       "href": "https://x.com/MistralAI/status/2125915743212761359",
+       "url": "https://x.com/MistralAI/status/2125915743212761359",
+       "label": "المصدر: X"
+      }
+     ]
+    },
+    {
+     "titleHtml": "<bdi dir=\"ltr\">opensre<\/bdi>: agent لاعتمادية الـ<bdi dir=\"ltr\">CI/CD<\/bdi>",
+     "summaryHtml": "repo في تريند GitHub النهارده، بيوصف نفسه إنه agent مفتوح المصدر لاعتمادية الـ<bdi dir=\"ltr\">CI/CD<\/bdi>. يستاهل تبص عليه لو الـpipelines عندكم بتقع كتير.",
+     "summary": "repo في تريند GitHub النهارده، بيوصف نفسه إنه agent مفتوح المصدر لاعتمادية الـ<bdi dir=\"ltr\">CI/CD<\/bdi>. يستاهل تبص عليه لو الـpipelines عندكم بتقع كتير.",
      "sources": [
       {
        "type": "github",
-       "href": "https://github.com/Tencent/LoopForge",
-       "url": "https://github.com/Tencent/LoopForge",
+       "href": "https://github.com/Tracer-Cloud/opensre",
+       "url": "https://github.com/Tracer-Cloud/opensre",
        "label": "المصدر: GitHub"
       }
      ]
@@ -1407,79 +1098,54 @@ code {
    "kind": "official",
    "items": [
     {
-     "titleHtml": "جرّب shadow test صغير بـ<bdi dir=\"ltr\">Rest Assured<\/bdi>",
-     "summaryHtml": "لو عندكم API بيتعمله refactor أو migration، ابعت نفس الـrequests على البيئة القديمة والجديدة وقارن الـresponses (status، headers، body بعد ما تشيل الحاجات المتغيرة زي الـtimestamps). ده نفس الـoracle approach اللي <bdi dir=\"ltr\">Anthropic<\/bdi> استخدمته، بس على قدّك.",
-     "summary": "لو عندكم API بيتعمله refactor أو migration، ابعت نفس الـrequests على البيئة القديمة والجديدة وقارن الـresponses (status، headers، body بعد ما تشيل الحاجات المتغيرة زي الـtimestamps). ده نفس الـoracle approach اللي <bdi dir=\"ltr\">Anthropic<\/bdi> استخدمته، بس على قدّك.",
-     "sources": [
-      {
-       "type": "official",
-       "href": "https://www.anthropic.com/research/migrating-api-to-rust",
-       "url": "https://www.anthropic.com/research/migrating-api-to-rust",
-       "label": "المصدر: الموقع الرسمي"
-      }
-     ]
-    },
-    {
-     "titleHtml": "راجع أي تعديل AI على الـtests بعين «هل الـassertion اتضعّف؟»",
-     "summaryHtml": "لما <bdi dir=\"ltr\">Claude Code<\/bdi> أو <bdi dir=\"ltr\">Codex<\/bdi> يعدّل test عشان يعدّي، بُص على الـdiff: assertion اتشال؟ <bdi dir=\"ltr\">equals<\/bdi> بقى <bdi dir=\"ltr\">contains<\/bdi>؟ timeout زاد؟ ممكن تكتب rule قصيرة في <bdi dir=\"ltr\">CLAUDE.md<\/bdi>: «ممنوع تضعّف أو تمسح assertion من غير ما تقول السبب».",
-     "summary": "لما <bdi dir=\"ltr\">Claude Code<\/bdi> أو <bdi dir=\"ltr\">Codex<\/bdi> يعدّل test عشان يعدّي، بُص على الـdiff: assertion اتشال؟ <bdi dir=\"ltr\">equals<\/bdi> بقى <bdi dir=\"ltr\">contains<\/bdi>؟ timeout زاد؟ ممكن تكتب rule قصيرة في <bdi dir=\"ltr\">CLAUDE.md<\/bdi>: «ممنوع تضعّف أو تمسح assertion من غير ما تقول السبب».",
-     "sources": [
-      {
-       "type": "official",
-       "href": "https://www.anthropic.com/research/migrating-api-to-rust",
-       "url": "https://www.anthropic.com/research/migrating-api-to-rust",
-       "label": "المصدر: الموقع الرسمي"
-      }
-     ]
-    },
-    {
-     "titleHtml": "نضّف ملفات الـrules بتاعتك بالـprompt اللي انتشر",
-     "summaryHtml": "شغّل prompt المراجعة على مشروع الـautomation: هيلاقي rules متعارضة أو متكررة. وخلي الـrules العامة قصيرة، وحط الحاجات الخاصة (زي conventions الـ<bdi dir=\"ltr\">SHAFT<\/bdi> أو الـpage objects) في skill لوحدها.",
-     "summary": "شغّل prompt المراجعة على مشروع الـautomation: هيلاقي rules متعارضة أو متكررة. وخلي الـrules العامة قصيرة، وحط الحاجات الخاصة (زي conventions الـ<bdi dir=\"ltr\">SHAFT<\/bdi> أو الـpage objects) في skill لوحدها.",
+     "titleHtml": "خلّي موديل تاني يراجع شغل الـagent قبل ما تقبله",
+     "summaryHtml": "بعد أي جلسة <bdi dir=\"ltr\">Claude Code<\/bdi> أو <bdi dir=\"ltr\">Codex<\/bdi> عدّلت tests أو كود: ادّي الـdiff والـtranscript لموديل من شركة تانية واسأله: «فين اللي اتقال إنه اتعمل ومش موجود في الـdiff؟ وفين assertion اتشال أو اتضعّف؟»",
+     "summary": "بعد أي جلسة <bdi dir=\"ltr\">Claude Code<\/bdi> أو <bdi dir=\"ltr\">Codex<\/bdi> عدّلت tests أو كود: ادّي الـdiff والـtranscript لموديل من شركة تانية واسأله: «فين اللي اتقال إنه اتعمل ومش موجود في الـdiff؟ وفين assertion اتشال أو اتضعّف؟»",
      "sources": [
       {
        "type": "x",
-       "href": "https://x.com/ulusoyapps/status/2125619735656022135",
-       "url": "https://x.com/ulusoyapps/status/2125619735656022135",
-       "label": "المصدر: X"
-      },
-      {
-       "type": "x",
-       "href": "https://x.com/_philschmid/status/2125579472594223340",
-       "url": "https://x.com/_philschmid/status/2125579472594223340",
+       "href": "https://x.com/drjoshcsimmons/status/2125616233232159221",
+       "url": "https://x.com/drjoshcsimmons/status/2125616233232159221",
        "label": "المصدر: X"
       }
      ]
     },
     {
-     "titleHtml": "خلّي الـagent يشغّل tests الموبايل/الويب في <bdi dir=\"ltr\">Dev Container<\/bdi>",
-     "summaryHtml": "لو عندك <bdi dir=\"ltr\">VS Code 1.148<\/bdi>، فعّل <bdi dir=\"ltr\">chat.agentHost.devContainer.environments.enabled<\/bdi> وجرّب تخلي الـagent يشغّل suite صغيرة جوه container معزول بدل جهازك. (تجريبي، فابدأ بمشروع جانبي.)",
-     "summary": "لو عندك <bdi dir=\"ltr\">VS Code 1.148<\/bdi>، فعّل <bdi dir=\"ltr\">chat.agentHost.devContainer.environments.enabled<\/bdi> وجرّب تخلي الـagent يشغّل suite صغيرة جوه container معزول بدل جهازك. (تجريبي، فابدأ بمشروع جانبي.)",
+     "titleHtml": "ماتصدقش «all tests passed» من غير ما تشغّلها بنفسك",
+     "summaryHtml": "اطلب من الـagent يكتب الأمر اللي شغّله بالظبط، وشغّله إنت تاني (مثلًا <bdi dir=\"ltr\">mvn test<\/bdi> لـ<bdi dir=\"ltr\">SHAFT<\/bdi> أو <bdi dir=\"ltr\">Rest Assured<\/bdi>) وقارن عدد الـtests اللي اتشغلت فعلًا باللي قاله.",
+     "summary": "اطلب من الـagent يكتب الأمر اللي شغّله بالظبط، وشغّله إنت تاني (مثلًا <bdi dir=\"ltr\">mvn test<\/bdi> لـ<bdi dir=\"ltr\">SHAFT<\/bdi> أو <bdi dir=\"ltr\">Rest Assured<\/bdi>) وقارن عدد الـtests اللي اتشغلت فعلًا باللي قاله.",
      "sources": [
       {
-       "type": "official",
-       "href": "https://code.visualstudio.com/updates",
-       "url": "https://code.visualstudio.com/updates",
-       "label": "المصدر: الموقع الرسمي"
+       "type": "x",
+       "href": "https://x.com/RealAstropulse/status/2126119412470022460",
+       "url": "https://x.com/RealAstropulse/status/2126119412470022460",
+       "label": "المصدر: X"
       }
      ]
     },
     {
-     "titleHtml": "خلّي موديل تاني يراجع الـtests اللي كتبها الأول",
-     "summaryHtml": "اكتب الـtests بموديل، وادّي الـdiff لموديل مختلف (مثلًا عن طريق <bdi dir=\"ltr\">gemini-api<\/bdi> من الـshell) يدوّر على الحالات اللي ماتغطتش أو الـassertions الضعيفة. نفس فكرة الـverifier في الـworkflow اللي انتشر.",
-     "summary": "اكتب الـtests بموديل، وادّي الـdiff لموديل مختلف (مثلًا عن طريق <bdi dir=\"ltr\">gemini-api<\/bdi> من الـshell) يدوّر على الحالات اللي ماتغطتش أو الـassertions الضعيفة. نفس فكرة الـverifier في الـworkflow اللي انتشر.",
+     "titleHtml": "فكّر في الـtest runner بتاعك كـ<bdi dir=\"ltr\">MCP<\/bdi> tool بـtyped output",
+     "summaryHtml": "من مقال <bdi dir=\"ltr\">Philipp Schmid<\/bdi>: الـtyped outputs و<bdi dir=\"ltr\">Code Mode<\/bdi> بيخلّوا الـagent يربط كذا tool من غير ما يملا الـcontext. تجربة صغيرة: wrapper يرجّع نتيجة الـrun كـJSON (passed / failed / الأسماء / الأخطاء) بدل log طويل.",
+     "summary": "من مقال <bdi dir=\"ltr\">Philipp Schmid<\/bdi>: الـtyped outputs و<bdi dir=\"ltr\">Code Mode<\/bdi> بيخلّوا الـagent يربط كذا tool من غير ما يملا الـcontext. تجربة صغيرة: wrapper يرجّع نتيجة الـrun كـJSON (passed / failed / الأسماء / الأخطاء) بدل log طويل.",
      "sources": [
       {
        "type": "x",
-       "href": "https://x.com/0xMovez/status/2125577359269019791",
-       "url": "https://x.com/0xMovez/status/2125577359269019791",
+       "href": "https://x.com/i/article/2125943030158934016",
+       "url": "https://x.com/i/article/2125943030158934016",
        "label": "المصدر: X"
-      },
+      }
+     ]
+    },
+    {
+     "titleHtml": "استخدم الـbanked reset في <bdi dir=\"ltr\">Codex<\/bdi> على شغلانة تقيلة",
+     "summaryHtml": "زي توليد tests لـendpoints كتير، أو تحويل suite قديمة. خطط لها في يوم واحد بدل ما الـreset يضيع.",
+     "summary": "زي توليد tests لـendpoints كتير، أو تحويل suite قديمة. خطط لها في يوم واحد بدل ما الـreset يضيع.",
+     "sources": [
       {
-       "type": "github",
-       "href": "https://github.com/google-gemini/gemini-api-cli",
-       "url": "https://github.com/google-gemini/gemini-api-cli",
-       "label": "المصدر: GitHub"
+       "type": "x",
+       "href": "https://x.com/thsottiaux/status/2125853628250599730",
+       "url": "https://x.com/thsottiaux/status/2125853628250599730",
+       "label": "المصدر: X"
       }
      ]
     }
